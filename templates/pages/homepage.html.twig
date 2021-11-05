@@ -1,0 +1,76 @@
+{% extends "base.html.twig" %}
+
+{% block title %}
+    Homepage
+{% endblock %}
+
+{% block body %}
+      <div class="outer-wrapper">
+        <div class="wrapper">
+            <div class="slide one" id="s1">
+                <h1>Spring</h1>
+                <a href="#s2" class="btn">right</a>
+                <div class="card__presentation">
+                    <h2>Ce qu'il va advenir</h2>
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsam, praesentium. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Id libero quisquam, placeat dolor numquam adipisci?</p>
+                    <a href="{{ path('navigation_theme', {'theme' : 'spring'}) }}">Voir</a>
+                </div>
+
+                <img src="{{ asset('build/img/spring_fond.png') }}" alt="">
+
+                <div class="me" id="me">
+                    <div class="head">
+                        
+                    </div>
+                    <div class="body">
+                        <div class="arm-left">
+
+                        </div>
+                        <div class="arm-right">
+
+                        </div>
+                    </div>
+                    <div class="leg-left">
+                    </div>
+                    <div class="leg-right">
+
+                    </div>
+                </div>
+            </div>
+            <div class="slide two" id="s2">
+                <h1>Summer</h1>
+                <div class="card__presentation">
+                    <h2>Au coeur de l'été</h2>
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsam, praesentium. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Id libero quisquam, placeat dolor numquam adipisci?</p>
+                    <a href="{{ path('navigation_theme', {'theme' : 'summer'}) }}">Voir</a>
+                </div>
+                <a href="#s1" class="btn">left</a>
+            </div>
+            <div class="slide three">
+                <h1>Autumn</h1>
+                <div class="card__presentation">
+                    <h2>À regard reposé</h2>
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsam, praesentium. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Id libero quisquam, placeat dolor numquam adipisci?</p>
+                    <a href="{{ path('navigation_theme', {'theme' : 'autumn'}) }}">Voir</a>
+                </div>
+
+            </div>
+            <div class="slide four">
+                <h1>Winter</h1>
+                <div class="card__presentation">
+                    <h2>La critique de l'hiver</h2>
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsam, praesentium. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Id libero quisquam, placeat dolor numquam adipisci?</p>
+                    <a href="{{ path('navigation_theme', {'theme' : 'winter'}) }}">Voir</a>
+                </div>
+            </div>
+            <div class="slide five">
+                <h1>Spring</h1>
+                <div class="card__presentation">
+                    <h2>Le coeur du stage</h2>
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsam, praesentium. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Id libero quisquam, placeat dolor numquam adipisci?</p>
+                    <a href="{{ path('navigation_theme', {'theme' : 'spring2'}) }}">Voir</a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

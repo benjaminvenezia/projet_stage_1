@@ -1,0 +1,27 @@
+.nav__main {
+    display: flex;
+  
+    ul {    
+        display: flex;
+        justify-content: space-between;
+        
+        li {
+            list-style-type: none; 
+            a {
+                text-decoration: none;
+                color: rgb(53, 53, 53);
+            }
+
+            &:hover {
+                
+                text-shadow: 1px 1px 1px rgb(211, 211, 211);    
+            }
+        }
+
+        li+li {
+            margin-right: 15px;
+        }
+
+        
+    }
+}

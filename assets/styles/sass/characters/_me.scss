@@ -1,0 +1,77 @@
+@keyframes moveLegLeft {
+    0% {
+        background-color: blue;
+        transform: rotate(0deg);
+    } 
+    70% {
+        background-color: red;
+        transform: rotate(45deg) translateY(10px);
+
+    }
+    100% {
+        background-color: blue;
+        transform: rotate(0deg);
+    }
+}
+
+.me {
+    border: 1px solid black;
+    position: absolute;
+    bottom: 0;
+    margin-left: 100px;
+    width: 60px;
+    height: 80px;
+
+    .head{
+        margin-left: 5px;
+        border: 1px solid black;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+      
+    }
+
+    .body {
+       
+        background-color: rgb(194, 138, 122);
+        border: 1px solid black;
+        width: 20px;
+        height: 35px;
+
+        .arm-right {
+            margin-left: 5px;
+            border: 1px solid black;
+            width: 5px;
+            height: 25px;
+        }
+    }
+    .leg-right {
+       
+        padding: 10px 3px;
+        border: 1px solid rgb(0, 246, 0);
+        width: 6px;
+        height: 25px;
+
+    }
+
+    .leg-left {
+        
+        border: 2px solid rgb(98, 0, 255);
+        padding: 10px 5px;
+        width: 6px;
+        height: 25px;
+    }
+}
+
+.move-leg-left {
+    animation-name: moveLegLeft;
+    transform-origin: top left;
+    animation-duration: 100ms;
+    animation-timing-function: cubic-bezier(0.375, 0.82, 0.165, 1);
+    animation-fill-mode: forwards;
+}
+
+
+
+
+

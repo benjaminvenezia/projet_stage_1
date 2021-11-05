@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Création d'un article{% endblock %}
+
+{% block body %}
+    {% include "shared/_navbar.html.twig" %}
+    <h1>Création d'un article</h1>
+    
+        {{ form_start(formView) }}
+        <div>
+            <span class="form--errors">
+            {{ form_errors(formView.title) }}
+            </span>
+            <div>
+                {{ form_label(formView.title) }}
+                {{ form_widget(formView.title) }}
+            </div>
+            {{ form_help(formView.title) }}
+        </div>
+        
+        <div>
+            {{ form_label(formView.description) }}
+            {{ form_widget(formView.description) }}
+            {{ form_help(formView.description) }}
+            {{ form_errors(formView.description) }}
+        </div>
+        <div>
+            {{ form_label(formView.theme) }}
+            {{ form_widget(formView.theme) }}
+            {{ form_help(formView.theme) }}
+            {{ form_errors(formView.theme) }}
+        </div>
+
+        
+        <button type="submit">Valider</button>
+    {{ form_end(formView) }}
+    
+{% endblock %}

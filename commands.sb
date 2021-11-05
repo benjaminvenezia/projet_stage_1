@@ -1,0 +1,6 @@
+-- Webpack encore --
+npm run dev  : recharge le dossier build
+npm run watch : capte les changements dans assets  
+
+-- Doctrine --
+php bin/console doctrine:schema:update -f : à lancer après avoir modifié l'entity pour modifier les properties.

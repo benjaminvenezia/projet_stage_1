@@ -1,0 +1,32 @@
+{% extends "base.html.twig" %}
+
+{% block title %}
+    Homepage
+{% endblock %}
+
+{% block body %}
+    {% include "shared/_navbar.html.twig" %}
+
+    {% if  themeName  not in  themes %}
+        <p>Ce thème n'existe pas.</p>
+    {% else %}
+        <h1>{{ themeName}}</h1>
+    {% endif %}
+        
+    {% if articles|length > 0 %}
+        {% for article in articles %}
+            <div class="card">
+                <div class="card__header">
+                    <p>{{ article.step }}</p>
+                </div>
+                <div class="card__body">
+                    <h2>{{ article.title }}</h2>
+                    <p>{{ article.description }}</p>
+                
+                </div>
+            </div>
+        {% endfor %}
+    {% else %}
+        <p>Aucun article associé au thème {{ themeName }}</p>
+    {% endif %}
+{% endblock %}

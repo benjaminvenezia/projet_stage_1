@@ -1,0 +1,186 @@
+@-webkit-keyframes moveLegLeft {
+  0% {
+    background-color: blue;
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  70% {
+    background-color: red;
+    -webkit-transform: rotate(45deg) translateY(10px);
+            transform: rotate(45deg) translateY(10px);
+  }
+  100% {
+    background-color: blue;
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+}
+
+@keyframes moveLegLeft {
+  0% {
+    background-color: blue;
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  70% {
+    background-color: red;
+    -webkit-transform: rotate(45deg) translateY(10px);
+            transform: rotate(45deg) translateY(10px);
+  }
+  100% {
+    background-color: blue;
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+}
+
+.me {
+  border: 1px solid black;
+  position: absolute;
+  bottom: 0;
+  margin-left: 100px;
+  width: 60px;
+  height: 80px;
+}
+
+.me .head {
+  margin-left: 5px;
+  border: 1px solid black;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.me .body {
+  background-color: #c28a7a;
+  border: 1px solid black;
+  width: 20px;
+  height: 35px;
+}
+
+.me .body .arm-right {
+  margin-left: 5px;
+  border: 1px solid black;
+  width: 5px;
+  height: 25px;
+}
+
+.me .leg-right {
+  padding: 10px 3px;
+  border: 1px solid #00f600;
+  width: 6px;
+  height: 25px;
+}
+
+.me .leg-left {
+  border: 2px solid #6200ff;
+  padding: 10px 5px;
+  width: 6px;
+  height: 25px;
+}
+
+.move-leg-left {
+  -webkit-animation-name: moveLegLeft;
+          animation-name: moveLegLeft;
+  -webkit-transform-origin: top left;
+          transform-origin: top left;
+  -webkit-animation-duration: 100ms;
+          animation-duration: 100ms;
+  -webkit-animation-timing-function: cubic-bezier(0.375, 0.82, 0.165, 1);
+          animation-timing-function: cubic-bezier(0.375, 0.82, 0.165, 1);
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+
+* {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.card {
+  border: 1px solid #831010;
+  width: 60%;
+  padding: 1%;
+  margin: 0 auto;
+}
+
+.nav__main {
+  background-color: #8f8f8f;
+}
+
+.nav__main ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.slide {
+  width: 200vw;
+  height: 100vh;
+  border: 1px solid black;
+}
+
+.slide .card__presentation {
+  width: 300px;
+  margin-left: 100px;
+  margin-top: 100px;
+  border: 1px solid black;
+  padding: 20px;
+  -webkit-transform: translateX(0);
+          transform: translateX(0);
+  opacity: 1;
+  -webkit-transition: opacity 0.4s, -webkit-transform 0.4s;
+  transition: opacity 0.4s, -webkit-transform 0.4s;
+  transition: transform 0.4s, opacity 0.4s;
+  transition: transform 0.4s, opacity 0.4s, -webkit-transform 0.4s;
+}
+
+.slide .card__presentation.not-visible {
+  -webkit-transform: translateY(-80px);
+          transform: translateY(-80px);
+  opacity: 0;
+}
+
+.wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  width: 1000vw;
+  -webkit-transform: rotate(90deg) translateY(-100vh);
+          transform: rotate(90deg) translateY(-100vh);
+  -webkit-transform-origin: top left;
+          transform-origin: top left;
+  background: #49b43a;
+  background: -webkit-gradient(linear, left top, right top, from(#9FE2FF), color-stop(23%, #1196d4), color-stop(46%, #fcb045), color-stop(65%, #fff8ee), color-stop(83%, #fff5e6), to(#49b43a));
+  background: linear-gradient(90deg, #9FE2FF 0%, #1196d4 23%, #fcb045 46%, #fff8ee 65%, #fff5e6 83%, #49b43a 100%);
+}
+
+.one {
+  position: relative;
+}
+
+.outer-wrapper {
+  width: 100vh;
+  height: 100vw;
+  -webkit-transform: rotate(-90deg) translateX(-100vh);
+          transform: rotate(-90deg) translateX(-100vh);
+  -webkit-transform-origin: top left;
+          transform-origin: top left;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  position: absolute;
+}
+
+.btn {
+  border: 1px solid red;
+  cursor: pointer;
+}
+/*# sourceMappingURL=app.css.map */

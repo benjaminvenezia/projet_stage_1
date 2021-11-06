@@ -8,12 +8,16 @@
 //  Core files
 @import "sass/core/reset";
 @import "sass/core/typography";
+@import "sass/core/lib";
+
 
 //  Components
 @import "sass/components/buttons";
 @import "sass/components/card";
 @import "sass/components/form";
 @import "sass/components/table";
+@import "sass/components/dropdown";
+
 
 //  Layout
 @import "sass/layout/footer";

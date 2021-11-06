@@ -17,11 +17,11 @@
         {% for article in articles %}
             <div class="card">
                 <div class="card__header">
-                    <p>{{ article.step }}</p>
                 </div>
                 <div class="card__body">
-                    <h2>{{ article.title }}</h2>
+                    <h2>{{ article.title }} V</h2>
                     <p>{{ article.description }}</p>
+                    <p>{{ article.date|format_datetime('short', 'none', locale='fr') }} par {{ article.author }}</p>
                 
                 </div>
             </div>

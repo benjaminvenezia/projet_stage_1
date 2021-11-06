@@ -37,13 +37,11 @@ class AppFixtures extends Fixture
          */
         $themes = [$theme1, $theme2, $theme3, $theme4, $theme5];
 
-
-
-        for ($a=1; $a <= 6; $a++) { 
+        for ($a=1; $a <= 20; $a++) { 
             $article = new Article();
 
             $article->setAuthor('Admin')
-               ->setTheme($themes[random_int(1, 6)])
+               ->setTheme($themes[random_int(0, 4)])
                ->setTitle('Titre ' . $a)
                ->setDescription("Ce stage a donc été une opportunité pour moi de percevoir comment une entreprise dans un secteur [décrire ici les caractéristiques du secteur : concurrence, évolution, historique, acteurs… et quelle stratégie l’entreprise a choisie dans ce secteur. Ainsi que l’apport du département et du poste occupé dans cette stratégie…]
                L’élaboration de ce rapport a pour principale source les différents enseignements tirés de la pratique journalière des tâches auxquelles j’étais affecté. Enfin, les nombreux entretiens que j’ai pu avoir avec les employés des différents services de la société m’ont permis de donner une cohérence à ce rapport.")

@@ -9,8 +9,8 @@
 import './styles/app.scss';
 
 //Javascript
-import './observer.js';
-import './me.js';
+import './js/observer.js';
+import './js/me.js';
 
 // start the Stimulus application
 import './bootstrap';

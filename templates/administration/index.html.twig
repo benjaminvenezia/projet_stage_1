@@ -28,7 +28,7 @@
             <tr>
                 <td>{{ article_spring.theme.name }}</td>
                 <td>{{ article_spring.title }}</td>
-                <td><button class="btn btn__deleteArticle">supprimer</button></td>
+                <td><button class="btn btn__deleteArticle"><a href="{{ path('article_delete', {'id': article_spring.id}) }}">supprimer</a></button></td>
                 <td><button class="btn btn__updateArticle"><a href="{{ path('article_edit', {'id': article_spring.id}) }}">modifier</a></button></td>
             </tr>
         {% endfor %}
@@ -37,7 +37,7 @@
             <tr>
                 <td>{{ article_summer.theme.name }}</td>
                 <td>{{ article_summer.title }}</td>
-                <td><button class="btn btn__deleteArticle">supprimer</button></td>
+                <td><button class="btn btn__deleteArticle"><a href="{{ path('article_delete', {'id': article_summer.id}) }}">supprimer</a></button></td>
                 <td><button class="btn btn__updateArticle"><a href="{{ path('article_edit', {'id': article_summer.id}) }}">modifier</a></button></td>
             </tr>
         {% endfor %}
@@ -46,7 +46,7 @@
             <tr>
                 <td>{{ article_autumn.theme.name }}</td>
                 <td>{{ article_autumn.title }}</td>
-                <td><button class="btn btn__deleteArticle">supprimer</button></td>
+                <td><button class="btn btn__deleteArticle"><a href="{{ path('article_delete', {'id': article_autumn.id}) }}">supprimer</a></button></td>
                 <td><button class="btn btn__updateArticle"><a href="{{ path('article_edit', {'id': article_autumn.id}) }}">modifier</a></button></td>
             </tr>
         {% endfor %}
@@ -55,7 +55,7 @@
             <tr>
                 <td>{{ article_winter.theme.name }}</td>
                 <td>{{ article_winter.title }}</td>
-                <td><button class="btn btn__deleteArticle">supprimer</button></td>
+                <td><button class="btn btn__deleteArticle"><a href="{{ path('article_delete', {'id': article_winter.id}) }}">supprimer</a></button></td>
                 <td><button class="btn btn__updateArticle"><a href="{{ path('article_edit', {'id': article_winter.id}) }}">modifier</a></button></td>
             </tr>
         {% endfor %}
@@ -64,7 +64,7 @@
             <tr>
                 <td>{{ article_spring2.theme.name }}</td>
                 <td>{{ article_spring2.title }}</td>
-                <td><button class="btn btn__deleteArticle"><a href="">supprimer</a></button></td>
+                <td><button class="btn btn__deleteArticle"><a href=""><a href="{{ path('article_delete', {'id': article_spring2.id}) }}">supprimer</a></a></button></td>
                 <td><button class="btn btn__updateArticle"><a href="{{ path('article_edit', {'id': article_spring2.id}) }}">modifier</a></button></td>
             </tr>
         {% endfor %}

@@ -1,6 +1,16 @@
 <nav class="nav nav__main">
     <ul>
         <li><a href="{{ path('navigation_homepage') }}">Menu</a></li>
+        <li>
+            <div class="dropdown">
+                <span>Thèmes</span>
+                <div class="dropdown-content">
+                    {% for t in themes %}
+                        <p><a class="dropdown__links" href="{{ path('navigation_theme', {'theme' : t}) }}">{{ t }}</a></p>
+                    {% endfor %}
+                </div>
+            </div>
+        </li>
         <li><a href=""></a></li>
         <li><a href="">Connexion</a></li>
         <li><a href="{{ path('article_create') }}">Créer un article</a></li>

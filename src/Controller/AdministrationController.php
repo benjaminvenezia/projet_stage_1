@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Repository\ArticleRepository;
 use App\Repository\ThemeRepository;
+use App\Services\ThemesService;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -15,12 +16,15 @@ class AdministrationController extends AbstractController
     protected EntityManagerInterface $em;
     protected ArticleRepository $articleRepository;
     protected ThemeRepository $themeRepository;
+    protected  $themesService;
 
-    public function __construct(EntityManagerInterface $em, ArticleRepository $articleRepository, ThemeRepository $themeRepository)
+
+    public function __construct(EntityManagerInterface $em, ArticleRepository $articleRepository, ThemeRepository $themeRepository, ThemesService $themesService)
     {
         $this->em = $em;
         $this->articleRepository = $articleRepository;
         $this->themeRepository = $themeRepository;
+        $this->themesService = $themesService;
     }
 
 
@@ -79,7 +83,7 @@ class AdministrationController extends AbstractController
             'articles_winter' => $articles_winter,
             'articles_spring2' => $articles_spring2,
             'articles' => $articles,
-
+            'themes' => $this->themesService->getThemes(),
             'themesNames' => $themesNames,
         ]);
     }

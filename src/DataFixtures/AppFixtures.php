@@ -2,16 +2,56 @@
 
 namespace App\DataFixtures;
 
+use DateTime;
+use App\Entity\User;
 use App\Entity\Theme;
 use App\Entity\Article;
-use DateTime;
 use Doctrine\Persistence\ObjectManager;
 use Doctrine\Bundle\FixturesBundle\Fixture;
+use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 
 class AppFixtures extends Fixture
 {
+    protected $hasher;
+
+    public function __construct(UserPasswordHasherInterface $hasher)
+    {
+        $this->hasher = $hasher;
+    }
+
     public function load(ObjectManager $manager): void
     {   
+        $admin = new User;
+
+        $hash = $this->hasher->hashPassword($admin, 'password');
+
+        $admin->setEmail("admin@gmail.com")
+        ->setPassword($hash)
+        ->setFullName("Admin")
+        ->setRoles(['ROLE_ADMIN']);
+
+        $manager->persist($admin);
+        
+        $users = [];
+
+        for($u = 0; $u < 5; $u++) {
+            $user = new User();
+
+            $hash = $this->hasher->hashPassword($user,"password");
+
+            $user->setEmail("user$u@gmail.com")
+            ->setFullName('pseudo')
+            ->setPassword($hash);
+
+            $users[] = $user;
+
+            $manager->persist($user);
+            
+        }
+
+
+
+
         $theme1 = new Theme;
         $theme1->setName('spring');
         $manager->persist($theme1);

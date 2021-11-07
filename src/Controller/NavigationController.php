@@ -39,7 +39,7 @@ class NavigationController extends AbstractController
     }
 
     /**
-     * @Route("/{theme}", name="navigation_theme")
+     * @Route("/{theme}", name="navigation_theme", priority=-1)
      */
     public function show($theme): Response
     {

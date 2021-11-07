@@ -11,9 +11,17 @@
                 </div>
             </div>
         </li>
-        <li><a href=""></a></li>
-        <li><a href="">Connexion</a></li>
         <li><a href="{{ path('article_create') }}">Créer un article</a></li>
         <li><a href="{{ path('administration_administrate') }}">Panneau d'administrateur</a></li>
+    </ul>
+    <ul>
+        {% if not app.user %}
+            <li><a href="{{ path('security_login') }}">Connexion</a></li>
+        {% endif %}
+
+        {% if app.user %}
+            <li><a href="{{ path('security_logout') }}">Déconnexion</a></li>
+        {% endif %}
+
     </ul>
 </nav>

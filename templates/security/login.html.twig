@@ -1,0 +1,76 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Log in!{% endblock %}
+
+{% block body %}
+<div class="container">
+    <div class="col-4 mx-auto">
+            <form method="post">
+                {% if error %}
+                    <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                {% endif %}
+
+                {% if app.user %}
+                    <div class="mb-3">
+                        Vous êtes connecté en tant que {{ app.user.username }}, <a href="{{ path('security_logout') }}">Déconnexion</a>
+                    </div>
+                {% endif %}
+
+                <h1 class="h3 mb-3 mt-5 font-weight-normal">Connexion</h1>
+                <label for="inputEmail">Email</label>
+                <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
+                <label class="mt-2" for="inputPassword">Mot de passe</label>
+                <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
+
+                <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+
+                <div class="row">
+                    <div class="col-sm">
+                        <button class="btn btn-lg btn-primary mt-5" type="submit">Connexion</button>
+                    </div>
+                    <div class="col-sm">
+                        <input type="checkbox" id="remember_me" name="_remember_me" checked/>
+                    <label for="remember_me">Keep me logged in</label>
+                    </div>
+                    
+                </div>
+                
+            
+            </form>
+      </div>
+</div>
+
+  {# {{ form_start(formView) }}
+        {% if error %}
+            <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+        {% endif %}
+        {% if app.user %}
+        <div class="mb-3">
+            Vous êtes connecté en tant que {{ app.user.username }}, <a href="{{ path('security_logout') }}">Déconnexion</a>
+        </div>
+    {% endif %}
+        <div>
+            {{ form_label(formView.email) }}
+            {{ form_widget(formView.email) }}
+            {{ form_help(formView.email) }}
+            {{ form_errors(formView.email) }}
+        </div>
+        <div>
+            {{ form_label(formView.password) }}
+            {{ form_widget(formView.password) }}
+            {{ form_help(formView.password) }}
+            {{ form_errors(formView.password) }}
+        </div>
+
+         <div>
+            {{ form_label(formView._remember_me) }}
+            {{ form_widget(formView._remember_me) }}
+            {{ form_help(formView._remember_me) }}
+
+            {{ form_errors(formView._remember_me) }}
+        </div>
+
+        <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+        <button type="submit">Valider</button>
+    {{ form_end(formView) }} #}
+{% endblock %}

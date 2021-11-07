@@ -13,8 +13,10 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Session\Flash\FlashBag;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\HttpFoundation\Session\Flash\FlashBagInterface;
+use Symfony\Component\HttpFoundation\Session\SessionInterface;
 
 class ArticleController extends AbstractController
 {
@@ -33,8 +35,10 @@ class ArticleController extends AbstractController
     /**
      * @Route("admin/article/create", name="article_create")
      */
-    public function create(Request $request): Response
+    public function create(Request $request, SessionInterface $session): Response
     {
+       
+
         $article = new Article;
         
         $form = $this->createForm(ArticleType::class, $article);
@@ -50,6 +54,7 @@ class ArticleController extends AbstractController
             $this->em->persist($article);
 
             $this->em->flush(); 
+            $this->addFlash('success', 'article crée');
             return $this->redirectToRoute('navigation_theme', ['theme' => $article->getTheme()->getName()]);
         }
 
@@ -63,7 +68,7 @@ class ArticleController extends AbstractController
     /**
      * @Route("admin/article/{id}/edit", name="article_edit")
      */
-    public function edit($id, Request $request): Response
+    public function edit($id, Request $request, ThemesService $themesService): Response
     {
         
         $article = $this->articleRepository->find($id);
@@ -80,8 +85,9 @@ class ArticleController extends AbstractController
 
         $formView = $form->createView();
 
-        return $this->render('article/create.html.twig', [
-            'formView' => $formView
+        return $this->render('article/edit.html.twig', [
+            'formView' => $formView,
+            'themes' => $themesService->getThemes()
         ]);
     }
 

@@ -17,8 +17,15 @@
         {% endblock %}
     </head>
     <body>
+        {% block nav %}
+            {% include "shared/_navbar.html.twig" %}
+        {% endblock %}
+        {% include "shared/_flashes.html.twig" %}
         {% block body %}
-           
+        
+        {% endblock %}
+        {% block footer %}
+            {% include "shared/_footer.html.twig" %}
         {% endblock %}
     </body>
 </html>

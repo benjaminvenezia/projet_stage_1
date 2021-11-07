@@ -97,14 +97,10 @@
 }
 
 .card {
-  border: 1px solid #831010;
+  border: 1px solid #238310;
   width: 60%;
   padding: 1%;
   margin: 20px auto;
-}
-
-.form--errors {
-  color: crimson;
 }
 
 table {
@@ -236,10 +232,5 @@ body {
   overflow-y: scroll;
   overflow-x: hidden;
   position: absolute;
-}
-
-.btn {
-  border: 1px solid red;
-  cursor: pointer;
 }
 /*# sourceMappingURL=app.css.map */

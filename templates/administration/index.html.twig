@@ -1,76 +1,70 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello AdministrationController!{% endblock %}
+{% block title %}Administration{% endblock %}
 
 {% block body %}
-    {% include "shared/_navbar.html.twig" %}
 
-
-
-
-
+<div class="container">
     <h1>Panneau d'aministration des articles</h1>
 
+        <table class="table table-sm table-bordered table-hover" style="width:80%">
+            <thead>
+                <tr >
+                    <th scope="col" style="width:7%">Theme</th>
+                    <th scope="col">Titre</th>
+                    <th scope="col" style="width:7%">Supprimer</th>
+                    <th scope="col" style="width:7%">Modifier</th>
+                </tr>
+            </thead>
+            <tbody>
 
-<table>
-    <thead>
-        <tr>
-            <th>Theme</th>
-            <th>Titre</th>
-            <th>Supprimer</th>
-            <th>Modifier</th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
+                {% for article_spring in articles_spring%}
+                    <tr class="table-success">
+                        <td><span class="badge bg-success">{{ article_spring.theme.name }}</span></td>
+                        <td>{{ article_spring.title }}</td>
+                        <td><button class="btn btn-danger"><a href="{{ path('article_delete', {'id': article_spring.id}) }}">supprimer</a></button></td>
+                        <td><button class="btn btn-warning"><a href="{{ path('article_edit', {'id': article_spring.id}) }}">modifier</a></button></td>
+                    </tr>
+                {% endfor %}
 
-         {% for article_spring in articles_spring%}
-            <tr>
-                <td>{{ article_spring.theme.name }}</td>
-                <td>{{ article_spring.title }}</td>
-                <td><button class="btn btn__deleteArticle"><a href="{{ path('article_delete', {'id': article_spring.id}) }}">supprimer</a></button></td>
-                <td><button class="btn btn__updateArticle"><a href="{{ path('article_edit', {'id': article_spring.id}) }}">modifier</a></button></td>
-            </tr>
-        {% endfor %}
+                {% for article_summer in articles_summer %}
+                    <tr class="table-danger">
+                        <td ><span class="badge bg-danger">{{ article_summer.theme.name }}</span></td>
+                        <td>{{ article_summer.title }}</td>
+                        <td><button class="btn btn-danger"><a href="{{ path('article_delete', {'id': article_summer.id}) }}">supprimer</a></button></td>
+                        <td><button class="btn btn-warning"><a href="{{ path('article_edit', {'id': article_summer.id}) }}">modifier</a></button></td>
+                    </tr>
+                {% endfor %}
 
-        {% for article_summer in articles_summer %}
-            <tr>
-                <td>{{ article_summer.theme.name }}</td>
-                <td>{{ article_summer.title }}</td>
-                <td><button class="btn btn__deleteArticle"><a href="{{ path('article_delete', {'id': article_summer.id}) }}">supprimer</a></button></td>
-                <td><button class="btn btn__updateArticle"><a href="{{ path('article_edit', {'id': article_summer.id}) }}">modifier</a></button></td>
-            </tr>
-        {% endfor %}
+                {% for article_autumn in articles_autumn%}
+                    <tr class="table-warning">
+                        <td><span class="badge bg-warning">{{ article_autumn.theme.name }}</span></td>
+                        <td>{{ article_autumn.title }}</td>
+                        <td><button class="btn btn-danger"><a href="{{ path('article_delete', {'id': article_autumn.id}) }}">supprimer</a></button></td>
+                        <td><button class="btn btn-warning"><a href="{{ path('article_edit', {'id': article_autumn.id}) }}">modifier</a></button></td>
+                    </tr>
+                {% endfor %}
 
-        {% for article_autumn in articles_autumn%}
-            <tr>
-                <td>{{ article_autumn.theme.name }}</td>
-                <td>{{ article_autumn.title }}</td>
-                <td><button class="btn btn__deleteArticle"><a href="{{ path('article_delete', {'id': article_autumn.id}) }}">supprimer</a></button></td>
-                <td><button class="btn btn__updateArticle"><a href="{{ path('article_edit', {'id': article_autumn.id}) }}">modifier</a></button></td>
-            </tr>
-        {% endfor %}
+                {% for article_winter in articles_winter %}
+                    <tr class="table-secondary">
+                        <td><span class="badge bg-secondary">{{ article_winter.theme.name }}</span></td>
+                        <td>{{ article_winter.title }}</td>
+                        <td><button class="btn btn-danger"><a href="{{ path('article_delete', {'id': article_winter.id}) }}">supprimer</a></button></td>
+                        <td><button class="btn btn-warning"><a href="{{ path('article_edit', {'id': article_winter.id}) }}">modifier</a></button></td>
+                    </tr>
+                {% endfor %}
 
-        {% for article_winter in articles_winter %}
-            <tr>
-                <td>{{ article_winter.theme.name }}</td>
-                <td>{{ article_winter.title }}</td>
-                <td><button class="btn btn__deleteArticle"><a href="{{ path('article_delete', {'id': article_winter.id}) }}">supprimer</a></button></td>
-                <td><button class="btn btn__updateArticle"><a href="{{ path('article_edit', {'id': article_winter.id}) }}">modifier</a></button></td>
-            </tr>
-        {% endfor %}
-
-         {% for article_spring2 in articles_spring2 %}
-            <tr>
-                <td>{{ article_spring2.theme.name }}</td>
-                <td>{{ article_spring2.title }}</td>
-                <td><button class="btn btn__deleteArticle"><a href=""><a href="{{ path('article_delete', {'id': article_spring2.id}) }}">supprimer</a></a></button></td>
-                <td><button class="btn btn__updateArticle"><a href="{{ path('article_edit', {'id': article_spring2.id}) }}">modifier</a></button></td>
-            </tr>
-        {% endfor %}
-    
-    
-    </tbody>
-</table>
-
+                {% for article_spring2 in articles_spring2 %}
+                    <tr class="table-success">
+                        <td><span class="badge bg-success">{{ article_spring2.theme.name }}<span></td>
+                        <td>{{ article_spring2.title }}</td>
+                        <td><button class="btn btn-danger"><a href=""><a href="{{ path('article_delete', {'id': article_spring2.id}) }}">supprimer</a></a></button></td>
+                        <td><button class="btn btn-warning"><a href="{{ path('article_edit', {'id': article_spring2.id}) }}">modifier</a></button></td>
+                    </tr>
+                {% endfor %}
+            
+            
+            </tbody>
+        </table>
+</div>
 {% endblock %}

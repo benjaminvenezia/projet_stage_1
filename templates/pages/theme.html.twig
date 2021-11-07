@@ -5,28 +5,30 @@
 {% endblock %}
 
 {% block body %}
-    {% include "shared/_navbar.html.twig" %}
-
-    {% if  themeName  not in  themes %}
-        <p>Ce thème n'existe pas.</p>
-    {% else %}
-        <h1>{{ themeName}}</h1>
-    {% endif %}
-        
-    {% if articles|length > 0 %}
-        {% for article in articles %}
-            <div class="card">
-                <div class="card__header">
+    <div class="container">
+        {% if  themeName  not in  themes %}
+            <p>Ce thème n'existe pas.</p>
+        {% else %}
+            <h1>{{ themeName}}</h1>
+        {% endif %}
+            
+        {% if articles|length > 0 %}
+            {% for article in articles %}
+                <div class="card">
+                    <div class="card__header">
+                    </div>
+                    <div class="card__body">
+                        <h2>{{ article.title }} V</h2>
+                        {% autoescape "html" %}
+                            <p>{{ article.description|raw}}</p>
+                        {% endautoescape %} 
+                        <p>{{ article.date|format_datetime('short', 'none', locale='fr') }} par {{ article.author }}</p>
+                    
+                    </div>
                 </div>
-                <div class="card__body">
-                    <h2>{{ article.title }} V</h2>
-                    <p>{{ article.description }}</p>
-                    <p>{{ article.date|format_datetime('short', 'none', locale='fr') }} par {{ article.author }}</p>
-                
-                </div>
-            </div>
-        {% endfor %}
-    {% else %}
-        <p>Aucun article associé au thème {{ themeName }}</p>
-    {% endif %}
+            {% endfor %}
+        {% else %}
+            <p>Aucun article associé au thème {{ themeName }}</p>
+        {% endif %}
+    </div>
 {% endblock %}

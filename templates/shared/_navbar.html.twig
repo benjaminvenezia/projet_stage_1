@@ -20,7 +20,9 @@
         {% endif %}
 
         {% if app.user %}
+            
             <li><a href="{{ path('security_logout') }}">Déconnexion</a></li>
+            <li> Hello {{ app.user.email }}</li>
         {% endif %}
 
     </ul>

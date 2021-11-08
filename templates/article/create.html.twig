@@ -29,10 +29,16 @@
             {{ form_help(formView.theme) }}
             {{ form_errors(formView.theme) }}
         </div>
-
-        <div class="mt-3">
-            <button class="btn btn-primary" type="submit">Valider</button>
+         <div class="col-3 mt-2">
+            {{ form_label(formView.image) }}
+            {{ form_widget(formView.image) }}
+            {{ form_help(formView.image) }}
+            {{ form_errors(formView.image) }}
         </div>
+
+        {# <div class="mt-3">
+            <button class="btn btn-primary" type="submit">Valider</button>
+        </div> #}
     {{ form_end(formView) }}
     </div>
 {% endblock %}

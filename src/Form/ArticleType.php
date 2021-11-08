@@ -4,14 +4,16 @@ namespace App\Form;
 
 use App\Entity\Theme;
 use App\Entity\Article;
+
+use App\Form\ImageType;
 use Symfony\Component\Form\AbstractType;
 use FOS\CKEditorBundle\Form\Type\CKEditorType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
-use Symfony\Component\Form\Extension\Core\Type\NumberType;
-use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 class ArticleType extends AbstractType
 {
@@ -30,6 +32,10 @@ class ArticleType extends AbstractType
             ],
             'required' => false
         ])
+        ->add('image', ImageType::class, [
+            'mapped' => true,
+            'label' => false
+        ])
         ->add('theme', EntityType::class, [
             'label' => 'Theme',
             'placeholder' => '-- Choisir un theme',
@@ -38,7 +44,11 @@ class ArticleType extends AbstractType
                 return strtoupper($theme->getName());
             },
             'required' => false
-        ]);
+        ])
+        
+        ->add('submit', SubmitType::class)
+        
+        ;
     }
 
     public function configureOptions(OptionsResolver $resolver): void

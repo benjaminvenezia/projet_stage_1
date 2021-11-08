@@ -16,9 +16,13 @@
             {% for article in articles %}
                 <div class="card">
                     <div class="card__header">
+                        {% if article.image.name is defined%}
+                            <img class="img" src="{{ asset('build/img/')~article.image.name }}" alt="">
+                        {% endif %}
                     </div>
                     <div class="card__body">
-                        <h2>{{ article.title }} V</h2>
+
+                        <h2>{{ article.title }}</h2>
                         {% autoescape "html" %}
                             <p>{{ article.description|raw}}</p>
                         {% endautoescape %} 

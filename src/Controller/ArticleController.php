@@ -5,18 +5,17 @@ namespace App\Controller;
 use DateTime;
 use App\Entity\Article;
 use App\Form\ArticleType;
+use App\Services\ClassService;
 use App\Services\ThemesService;
 use App\Repository\ArticleRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\HttpFoundation\RedirectResponse;
+
+
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\Session\Flash\FlashBag;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
-use Symfony\Component\HttpFoundation\Session\Flash\FlashBagInterface;
-use Symfony\Component\HttpFoundation\Session\SessionInterface;
 
 class ArticleController extends AbstractController
 {
@@ -24,6 +23,7 @@ class ArticleController extends AbstractController
     protected $em;
     protected $articleRepository;
     protected $themesService;
+    protected $upload;
   
     public function __construct(EntityManagerInterface $em, ArticleRepository $articleRepository, ThemesService $themesService)
     {
@@ -35,26 +35,33 @@ class ArticleController extends AbstractController
     /**
      * @Route("admin/article/create", name="article_create")
      */
-    public function create(Request $request, SessionInterface $session): Response
+    public function create(Request $request, ClassService $classService): Response
     {
        
-
         $article = new Article;
         
         $form = $this->createForm(ArticleType::class, $article);
 
         $form->handleRequest($request);
 
-        if($form->isSubmitted() && $form->isValid()) {   
+        if($form->isSubmitted() && $form->isValid()) { 
+
             $step = $this->articleRepository->count([]);
+
             $step++;
 
             $article->setStep($step);
+
             $article->setDate(new DateTime('now'));
+
+            $classService->uploadImage($form, $this->getParameter('kernel.project_dir') . '/assets/img');
+          
             $this->em->persist($article);
 
             $this->em->flush(); 
-            $this->addFlash('success', 'article crée');
+
+            $this->addFlash('success', "L'article a été crée avec succès.");
+
             return $this->redirectToRoute('navigation_theme', ['theme' => $article->getTheme()->getName()]);
         }
 
@@ -80,6 +87,7 @@ class ArticleController extends AbstractController
         if($form->isSubmitted() && $form->isValid()) {
             $this->em->flush();
 
+            $this->addFlash('info', "L'article a été modifié avec succès.");
             return $this->redirectToRoute('administration_administrate');
         }
 
@@ -103,9 +111,9 @@ class ArticleController extends AbstractController
         } 
 
         $this->em->remove($article);
+
         $this->em->flush();
+
         return $this->redirectToRoute('administration_administrate');
     }
-        
-
 }

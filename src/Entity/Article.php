@@ -49,8 +49,16 @@ class Article
 
     /**
      * @ORM\ManyToOne(targetEntity=Theme::class, inversedBy="theme_id")
+     * @Assert\NotBlank(message="Il faut choisir un thème valide.")
      */
     private $theme;
+
+    /**
+     * @ORM\OneToOne(targetEntity="Image", cascade={"persist", "remove"})
+     * @Assert\NotBlank(message="Image requise.")
+     */
+    private $image;
+
 
     public function getId(): ?int
     {
@@ -127,5 +135,15 @@ class Article
         $this->theme = $theme;
 
         return $this;
+    }
+
+    public function getImage(): ?Image
+    {
+        return $this->image;
+    }
+
+    public function setImage($image): void
+    {
+        $this->image = $image;
     }
 }

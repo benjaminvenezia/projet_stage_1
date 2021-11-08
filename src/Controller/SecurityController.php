@@ -17,9 +17,9 @@ class SecurityController extends AbstractController
     public function login(AuthenticationUtils $utils, ThemesService $themesService): Response
     {
         // if ($this->getUser()) {
-        //     return $this->redirectToRoute('target_path');
+        //     // return $this->redirectToRoute('target_path');
         // }
-        $form = $this->createForm(LoginType::class);
+        // $form = $this->createForm(LoginType::class);
 
         // get the login error if there is one
         $error = $utils->getLastAuthenticationError();
@@ -29,7 +29,7 @@ class SecurityController extends AbstractController
         return $this->render('security/login.html.twig', [
             'last_username' => $lastUsername, 
             'error' => $error,
-            'formView' => $form->createView(),
+            // 'formView' => $form->createView(),
             'themes' => $themesService->getThemes()
         ]);
     }

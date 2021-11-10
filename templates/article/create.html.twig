@@ -1,44 +1,44 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Création d'un article{% endblock %}
+{% block title %}Création d'un article
+{% endblock %}
 
 {% block body %}
-    <div class="container mt-5">
-    <h1>Création d'un article</h1>
-        {{ form_start(formView) }}
-        <div>
-            <span class="form--errors">
-            {{ form_errors(formView.title) }}
-            </span>
-            <div class="col-3">
-                {{ form_label(formView.title) }}
-                {{ form_widget(formView.title) }}
-            </div>
-            {{ form_help(formView.title) }}
-        </div>
-        
-        <div class="col-3 mt-2">
-            {{ form_label(formView.description) }}
-            {{ form_widget(formView.description) }}
-            {{ form_help(formView.description) }}
-            {{ form_errors(formView.description) }}
-        </div>
-        <div class="col-3 mt-2">
-            {{ form_label(formView.theme) }}
-            {{ form_widget(formView.theme) }}
-            {{ form_help(formView.theme) }}
-            {{ form_errors(formView.theme) }}
-        </div>
-         <div class="col-3 mt-2">
-            {{ form_label(formView.image) }}
-            {{ form_widget(formView.image) }}
-            {{ form_help(formView.image) }}
-            {{ form_errors(formView.image) }}
-        </div>
+	<div class="container mt-5">
+		<div class="row">
+			<div class="col">
+				<h1 class="mb-5">Création d'un article</h1>
 
-        {# <div class="mt-3">
-            <button class="btn btn-primary" type="submit">Valider</button>
-        </div> #}
-    {{ form_end(formView) }}
-    </div>
+				{{ form_start(formView) }}
+                    <div class="col-8">
+                        {{ form_label(formView.title) }}
+                        {{ form_widget(formView.title) }}
+                        {{ form_help(formView.title) }}
+                        {{ form_errors(formView.title) }}
+                    </div>
+                    <div class="col-8 mt-2">
+                        {{ form_label(formView.description) }}
+                        {{ form_widget(formView.description) }}
+                        {{ form_help(formView.description) }}
+                        {{ form_errors(formView.description) }}
+                    </div>
+                    <div class="col-8 mt-2">
+                        {{ form_label(formView.theme) }}
+                        {{ form_widget(formView.theme) }}
+                        {{ form_help(formView.theme) }}
+                        {{ form_errors(formView.theme) }}
+                    </div>
+                    <div class="col-8 mt-2">
+                        {{ form_label(formView.image) }}
+                        {{ form_widget(formView.image) }}
+                        {{ form_help(formView.image) }}
+                        {{ form_errors(formView.image) }}
+                    </div>
+				{{ form_end(formView) }}
+			</div>
+            <div class="col">
+                    <img src="{{ asset('/build/img/svg/tree.svg') }}" alt="">
+            </div>
+        </div>
+	</div>
 {% endblock %}

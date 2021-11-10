@@ -8,24 +8,26 @@
         {% block stylesheets %}
             {{ encore_entry_link_tags('app') }}
              <link href="//fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
         {% endblock %}
 
         {% block javascripts %}
             {{ encore_entry_script_tags('app') }}
-
         {% endblock %}
     </head>
-    <body>
-        {% block nav %}
-            {% include "shared/_navbar.html.twig" %}
-        {% endblock %}
-        {% include "shared/_flashes.html.twig" %}
-        {% block body %}
-        
-        {% endblock %}
-        {% block footer %}
-            {% include "shared/_footer.html.twig" %}
-        {% endblock %}
-    </body>
+   
+        <body class="d-flex flex-column min-vh-100">
+            {% block nav %}
+                {% include "shared/_navbar.html.twig" %}
+            {% endblock %}
+                {% include "shared/_flashes.html.twig" %}
+            {% block body %} 
+               
+            {% endblock %}
+            {% block footer %}
+                {% include "shared/_footer.html.twig" %}
+            {% endblock %}
+        </body>
+   
 </html>

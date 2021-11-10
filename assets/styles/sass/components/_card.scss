@@ -1,6 +1,55 @@
 .card {
-    border: 1px solid rgb(35, 131, 16);
+    background-color: rgba(255, 255, 255, 0.466);
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    // box-shadow: blue 0px 0px 0px 2px inset, rgb(255, 255, 255) 10px -10px 0px -3px, rgb(31, 193, 27) 10px -10px, rgb(255, 255, 255) 20px -20px 0px -3px, rgb(255, 217, 19) 20px -20px, rgb(255, 255, 255) 30px -30px 0px -3px, rgb(255, 156, 85) 30px -30px, rgb(255, 255, 255) 40px -40px 0px -3px, rgb(255, 85, 85) 40px -40px;
     width: 60%;
-    padding: 1%;
+    padding: 0;
     margin: 20px auto;
+
+
+    .card__header {
+        position: relative; 
+        h2 {
+            font-family: 'Lobster', cursive;
+            font-size: 2rem;
+            position: absolute;
+            top: 40px;
+            left: 50px;
+            
+            opacity: 1;
+            color: #ffffff;
+
+            text-shadow: 5px 5px 25px rgba(0, 0, 0, 0.034),
+                -5px 5px 25px rgb(0,0,0.034),
+                -5px -5px 25px rgba(0, 0, 0, 0.034),
+                5px -5px 25px rgb(0,0,0.034);
+            z-index: 2;
+        }
+        padding: 0;
+        img {
+            width: 100%;
+            height:200px;
+            opacity: 0.6;
+            border-top-left-radius: 4px;
+            border-top-right-radius: 4px;
+
+        }
+
+        .author_date {
+            font-family: 'Amatic SC', cursive;
+            color: white;
+            position: absolute;
+            font-size: 1.3rem;
+            right: 20px;
+            bottom: 20px;
+            
+        }
+        
+    }
+
+
+    .card__body {
+        padding: 25px;
+    }
+
 }

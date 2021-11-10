@@ -20,8 +20,8 @@
 
                 {% for article_spring in articles_spring%}
                     <tr class="table-success">
-                        <td><span class="badge bg-success">{{ article_spring.theme.name }}</span></td>
-                        <td>{{ article_spring.title }}</td>
+                        <td><a class="badge bg-success" href="{{ path('navigation_theme', {theme: article_spring.theme.name}) }}">{{ article_spring.theme.name }}</a></td>
+                        <td>{{ article_spring.title  }}</td>
                         <td><button class="btn btn-danger"><a href="{{ path('article_delete', {'id': article_spring.id}) }}">supprimer</a></button></td>
                         <td><button class="btn btn-warning"><a href="{{ path('article_edit', {'id': article_spring.id}) }}">modifier</a></button></td>
                     </tr>
@@ -29,7 +29,7 @@
 
                 {% for article_summer in articles_summer %}
                     <tr class="table-danger">
-                        <td ><span class="badge bg-danger">{{ article_summer.theme.name }}</span></td>
+                        <td><a class="badge bg-danger" href="{{ path('navigation_theme', {theme: article_summer.theme.name}) }}">{{ article_summer.theme.name }}</a></td>
                         <td>{{ article_summer.title }}</td>
                         <td><button class="btn btn-danger"><a href="{{ path('article_delete', {'id': article_summer.id}) }}">supprimer</a></button></td>
                         <td><button class="btn btn-warning"><a href="{{ path('article_edit', {'id': article_summer.id}) }}">modifier</a></button></td>
@@ -38,7 +38,7 @@
 
                 {% for article_autumn in articles_autumn%}
                     <tr class="table-warning">
-                        <td><span class="badge bg-warning">{{ article_autumn.theme.name }}</span></td>
+                        <td><a class="badge bg-warning" href="{{ path('navigation_theme', {theme: article_autumn.theme.name}) }}">{{ article_autumn.theme.name }}</a></td>
                         <td>{{ article_autumn.title }}</td>
                         <td><button class="btn btn-danger"><a href="{{ path('article_delete', {'id': article_autumn.id}) }}">supprimer</a></button></td>
                         <td><button class="btn btn-warning"><a href="{{ path('article_edit', {'id': article_autumn.id}) }}">modifier</a></button></td>
@@ -47,7 +47,7 @@
 
                 {% for article_winter in articles_winter %}
                     <tr class="table-secondary">
-                        <td><span class="badge bg-secondary">{{ article_winter.theme.name }}</span></td>
+                        <td><a class="badge bg-secondary" href="{{ path('navigation_theme', {theme: article_winter.theme.name}) }}">{{ article_winter.theme.name }}</a></td>
                         <td>{{ article_winter.title }}</td>
                         <td><button class="btn btn-danger"><a href="{{ path('article_delete', {'id': article_winter.id}) }}">supprimer</a></button></td>
                         <td><button class="btn btn-warning"><a href="{{ path('article_edit', {'id': article_winter.id}) }}">modifier</a></button></td>
@@ -56,7 +56,7 @@
 
                 {% for article_spring2 in articles_spring2 %}
                     <tr class="table-success">
-                        <td><span class="badge bg-success">{{ article_spring2.theme.name }}<span></td>
+                        <td><a class="badge bg-success" href="{{ path('navigation_theme', {theme: article_spring2.theme.name}) }}">{{ article_spring2.theme.name }}</a></td>
                         <td>{{ article_spring2.title }}</td>
                         <td><button class="btn btn-danger"><a href=""><a href="{{ path('article_delete', {'id': article_spring2.id}) }}">supprimer</a></a></button></td>
                         <td><button class="btn btn-warning"><a href="{{ path('article_edit', {'id': article_spring2.id}) }}">modifier</a></button></td>

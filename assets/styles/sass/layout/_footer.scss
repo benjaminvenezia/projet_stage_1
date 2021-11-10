@@ -1,8 +1,12 @@
 footer {
-    background-color: gray;
+    background-color: rgba(201, 201, 201, 0.562);
     height: 200px;
 
     .row {
         width: 500px;
+    }
+
+    a{
+        cursor: pointer;
     }
 }

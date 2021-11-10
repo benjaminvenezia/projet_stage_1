@@ -4,7 +4,7 @@ namespace App\Form;
 
 use App\Entity\Theme;
 use App\Entity\Article;
-
+use App\Entity\Image;
 use App\Form\ImageType;
 use Symfony\Component\Form\AbstractType;
 use FOS\CKEditorBundle\Form\Type\CKEditorType;
@@ -34,7 +34,7 @@ class ArticleType extends AbstractType
         ])
         ->add('image', ImageType::class, [
             'mapped' => true,
-            'label' => false
+            'label' => false,
         ])
         ->add('theme', EntityType::class, [
             'label' => 'Theme',

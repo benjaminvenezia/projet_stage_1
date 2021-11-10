@@ -8,6 +8,7 @@ use App\Form\ArticleType;
 use App\Services\ClassService;
 use App\Services\ThemesService;
 use App\Repository\ArticleRepository;
+use App\Repository\UserRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -16,6 +17,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use Symfony\Component\Security\Core\Security;
 
 class ArticleController extends AbstractController
 {
@@ -51,6 +53,8 @@ class ArticleController extends AbstractController
             $step++;
 
             $article->setStep($step);
+         
+            $article->setAuthor($this->getUser()->getFullname());
 
             $article->setDate(new DateTime('now'));
 
@@ -75,9 +79,8 @@ class ArticleController extends AbstractController
     /**
      * @Route("admin/article/{id}/edit", name="article_edit")
      */
-    public function edit($id, Request $request, ThemesService $themesService): Response
+    public function edit($id, Request $request, ThemesService $themesService, ClassService $classService): Response
     {
-        
         $article = $this->articleRepository->find($id);
 
         $form = $this->createForm(ArticleType::class, $article);
@@ -85,6 +88,9 @@ class ArticleController extends AbstractController
         $form->handleRequest($request);
 
         if($form->isSubmitted() && $form->isValid()) {
+            
+            $classService->uploadImage($form, $this->getParameter('kernel.project_dir') . '/assets/img');
+
             $this->em->flush();
 
             $this->addFlash('info', "L'article a été modifié avec succès.");

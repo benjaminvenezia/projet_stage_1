@@ -1,4 +1,4 @@
-<nav class="nav nav__main pt-3">
+<nav class="nav nav__main pt-3 justify-content-between">
     <ul>
         <li><a href="{{ path('navigation_homepage') }}">Menu</a></li>
         <li>
@@ -11,19 +11,25 @@
                 </div>
             </div>
         </li>
-        <li><a href="{{ path('article_create') }}">Créer un article</a></li>
-        <li><a href="{{ path('administration_administrate') }}">Panneau d'administrateur</a></li>
+            {% if app.user.roles[0] is defined %}
+                {% if app.user.roles[0] is same as('ROLE_ADMIN') %}
+                    <li><a href="{{ path('article_create') }}">Créer un article <i class="fas fa-plus"></i></a></li>
+                    <li><a href="{{ path('administration_administrate') }}">Gestion des articles <i class="fas fa-book"></i></a></li>
+                    <li><a href="{{ path('administration_administrate') }}">Gestion des utilisateurs <i class="fas fa-user"></i></a></li>
+
+                {% endif %}
+            {% endif %}
     </ul>
     <ul>
         {% if not app.user %}
-            <li><a href="{{ path('security_login') }}">Connexion</a></li>
+            <li><a class="btn btn-outline-success my-2 my-sm-0" href="{{ path('security_login') }}">Connexion</a></li>
         {% endif %}
 
         {% if app.user %}
-            
-            <li><a href="{{ path('security_logout') }}">Déconnexion</a></li>
-            <li> Hello {{ app.user.email }}</li>
+            <li><a class="btn btn-outline-danger my-2 my-sm-0" href="{{ path('security_logout') }}">Déconnexion</a></li>
+            <li> <span>Hello {{ app.user.email }}</span> </li>
         {% endif %}
 
     </ul>
 </nav>
+

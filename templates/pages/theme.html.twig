@@ -5,6 +5,7 @@
 {% endblock %}
 
 {% block body %}
+
     <div class="container">
         {% if  themeName  not in  themes %}
             <p>Ce thème n'existe pas.</p>
@@ -14,23 +15,11 @@
             
         {% if articles|length > 0 %}
             {% for article in articles %}
-                <div class="card">
-                    <div class="card__header">
-                        {% if article.image.name is defined%}
-                            <img class="img" src="{{ asset('build/img/')~article.image.name }}" alt="">
-                        {% endif %}
-                    </div>
-                    <div class="card__body">
-
-                        <h2>{{ article.title }}</h2>
-                        {% autoescape "html" %}
-                            <p>{{ article.description|raw}}</p>
-                        {% endautoescape %} 
-                        <p>{{ article.date|format_datetime('short', 'none', locale='fr') }} par {{ article.author }}</p>
-                    
-                    </div>
-                </div>
+                {% include "shared/_card.html.twig" %}
             {% endfor %}
+
+            {{ knp_pagination_render(articles) }}
+            
         {% else %}
             <p>Aucun article associé au thème {{ themeName }}</p>
         {% endif %}

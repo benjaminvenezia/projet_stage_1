@@ -4,9 +4,12 @@ namespace App\Controller;
 
 use App\Repository\ArticleRepository;
 use App\Repository\ThemeRepository;
+use App\Services\ClassService;
 use App\Services\ThemesService;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Knp\Component\Pager\PaginatorInterface;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -41,19 +44,14 @@ class NavigationController extends AbstractController
     /**
      * @Route("/{theme}", name="navigation_theme", priority=-1)
      */
-    public function show($theme): Response
+    public function show(Request $request, $theme, ClassService $classService): Response
     {
         $themeId = $this->themeRepository->findOneBy(['name' => $theme]);
         $articles = $this->articleRepository->findBy(['theme' => $themeId]);
-        // $themes = $this->themeRepository->findAll();
-
-        // $themesNames = [];
-
-        // foreach ($themes as $t) {
-        //     $themesNames[] = $t->getName();
-        // }
+        
+        $articles = $classService->paginate(1, $articles, $request);
+   
         $themesNames = $this->themesService->getThemes();
-
 
         return $this->render('pages/theme.html.twig', [
             'articles' => $articles,

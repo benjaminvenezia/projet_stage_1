@@ -3,20 +3,27 @@
 
 namespace App\Services;
 
+use Twig\Environment;
 use App\Repository\ThemeRepository;
 use Doctrine\ORM\EntityManagerInterface;
-use Twig\Environment;
+use Knp\Component\Pager\PaginatorInterface;
+use Symfony\Component\HttpFoundation\Request;
 
 class ClassService {
 
     protected $em;
+    protected $paginator;
 
   
-    public function __construct(EntityManagerInterface $em)
+    public function __construct(EntityManagerInterface $em , PaginatorInterface $paginator)
     {
+        $this->paginator = $paginator;
         $this->em = $em;
     }
 
+    /**
+     * Utilisé pour persister des images dans la base de données
+     */
     public function uploadImage($form, $path)
     {
             //récupère les valeurs soumises sous forme d'objet Image
@@ -36,7 +43,16 @@ class ClassService {
 
             //attribue le nom à l'image
             $image->setName($name);
-      
+    }
+
+    public function paginate(int $pages, $elements, Request $request) {
+        $elements = $this->paginator->paginate(
+            $elements, /* query NOT result */
+            $request->query->getInt('page', $pages),
+            1
+        );
+        
+        return $elements;
     }
 }
     

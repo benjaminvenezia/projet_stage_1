@@ -34,14 +34,15 @@ class AppFixtures extends Fixture
         
         $users = [];
 
-        for($u = 0; $u < 5; $u++) {
+        for($u = 0; $u < 20; $u++) {
             $user = new User();
 
             $hash = $this->hasher->hashPassword($user,"password");
 
             $user->setEmail("user$u@gmail.com")
             ->setFullName('pseudo')
-            ->setPassword($hash);
+            ->setPassword($hash)
+            ->setRoles(["ROLE_USER"]);
 
             $users[] = $user;
 

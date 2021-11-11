@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Administration{% endblock %}
+
+{% block body %}
+
+<div class="container">
+    <h1>Panneau d'aministration des Utilisateurs</h1>
+
+        <form class="mb-5 mt-5" style="width:40%;" role="search" id="nav-search-form" method="post" action="{{ path('administration_search')}}">
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="utilisateur0@gmail.com" name ="search">
+                <span class="input-group-btn">
+                    <button type="submit" class="btn btn-warning">Search <i class="fas fa-search"></i> </button>
+                </span>
+            </div>
+      </form>
+
+        <table class="table table-sm table-hover" 
+            <thead>
+                <tr >
+                    <th scope="col" style="width:7%">Rôle</th>
+                    <th scope="col">fullname</th>
+                    <th scope="col" style="width:7%">email</th>
+                    <th scope="col" style="width:7%">Changer les droits</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                {% for user in users %}
+                    <tr class="table-warning">
+                        <td><span class="badge bg-success">{{ user.roles[0]}}</span></td>
+                        <td>{{ user.fullname }}</td>
+                        <td>{{ user.email }}</td>
+                        {# <td><button class="btn btn-warning"><a href="{{ path('administration_changestatut', {'id': user.id}) }}">Changer les droits</a></button></td> #}
+                        <td>
+                            {# {{ form_start(formView) }}
+                                {{ form_label(formView.roles) }}
+                                {{ form_widget(formView.roles) }}
+                                {{ form_help(formView.roles) }}
+                                {{ form_errors(formView.roles) }} #}
+                                <button class="btn btn-warning"><a href="{{ path('administration_changestatut', {'id': user.id}) }}" > Changer les droits </a></button>
+
+                            {# {{ form_end(formView) }} #}
+                        </td>
+                    </tr>
+                {% endfor %}
+
+            </tbody>
+            
+
+        </table>
+         {{ knp_pagination_render(users) }}
+</div>
+{% endblock %}

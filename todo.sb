@@ -1,3 +1,11 @@
 - remember me cassé 
 - problème champs création modification File
 - empêcher l'utilisateur lambda de voir le menu d'administrateur
+- pouvoir changer les droits des utilisateurs
+- inscription simoke
+- ajouter un user checker à l'inscription
+- système de recherche d'user 
+- trouver un moyen de chager le css par thème (ou refaire chaque page)
+- ajouter un favicon
+- faire la home ! 
+- mettre le themeservice dans le class service et l'appeller qu'une seule fois dans base si possible

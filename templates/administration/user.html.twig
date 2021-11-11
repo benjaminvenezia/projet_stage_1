@@ -1,0 +1,58 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Administration{% endblock %}
+
+{% block body %}
+
+<div class="container">
+    <h1>Utilisateur</h1>
+
+    <div class="container mb-5">
+        <div class="row">
+            <div class="col-4">
+                <a href="{{ path('administration_administrateUsers') }}" class="btn btn-success">revenir à la gestion des utilisateurs</a>        
+                </div>
+            <div class="col-4">
+                    <form class="pull-right hidden" role="search" id="nav-search-form" method="post" action="{{ path('administration_search')}}">
+                    <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Search" name ="search">
+                    <span class="input-group-btn">
+                        <button type="submit" class="btn btn-default">Search</button>
+                    </span>
+                    </div>
+                </form>
+            </div>
+            
+      </div>
+    </div>
+    {% if user.roles[0] is defined %}
+        <table class="table table-sm table-bordered table-hover">
+            <thead>
+                <tr >
+                    <th scope="col" style="width:7%">Rôle</th>
+                    <th scope="col">fullname</th>
+                    <th scope="col" style="width:7%">email</th>
+                    <th scope="col" style="width:7%">Changer les droits</th>
+                </tr>
+            </thead>
+            <tbody>
+            <tr class="table-success">
+                    <td><span class="badge bg-success">{{ user.roles[0]}}</span></td>
+                    <td>{{ user.fullname }}</td>
+                    <td>{{ user.email }}</td>
+                <td>
+                        <button class="btn btn-warning"><a href="{{ path('administration_changestatut', {'id': user.id}) }}" > Changer les droits </a></button>
+                </td>
+           
+            </tr>
+           
+
+            </tbody>
+            
+
+        </table>
+        {% else %}
+                    <h2>La recherche n'a rien donné </2>
+                {% endif %}
+</div>
+{% endblock %}

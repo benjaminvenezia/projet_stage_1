@@ -58,7 +58,7 @@
                     <tr class="table-success">
                         <td><a class="badge bg-success" href="{{ path('navigation_theme', {theme: article_spring2.theme.name}) }}">{{ article_spring2.theme.name }}</a></td>
                         <td>{{ article_spring2.title }}</td>
-                        <td><button class="btn btn-danger"><a href=""><a href="{{ path('article_delete', {'id': article_spring2.id}) }}">supprimer</a></a></button></td>
+                        <td><button class="btn btn-danger"><a href="{{ path('article_delete', {'id': article_spring2.id}) }}">supprimer</a></button></td>
                         <td><button class="btn btn-warning"><a href="{{ path('article_edit', {'id': article_spring2.id}) }}">modifier</a></button></td>
                     </tr>
                 {% endfor %}

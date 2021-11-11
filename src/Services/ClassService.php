@@ -49,7 +49,7 @@ class ClassService {
         $elements = $this->paginator->paginate(
             $elements, /* query NOT result */
             $request->query->getInt('page', $pages),
-            1
+            $pages
         );
         
         return $elements;

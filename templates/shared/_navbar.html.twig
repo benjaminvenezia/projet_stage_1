@@ -14,8 +14,8 @@
             {% if app.user.roles[0] is defined %}
                 {% if app.user.roles[0] is same as('ROLE_ADMIN') %}
                     <li><a href="{{ path('article_create') }}">Créer un article <i class="fas fa-plus"></i></a></li>
-                    <li><a href="{{ path('administration_administrate') }}">Gestion des articles <i class="fas fa-book"></i></a></li>
-                    <li><a href="{{ path('administration_administrate') }}">Gestion des utilisateurs <i class="fas fa-user"></i></a></li>
+                    <li><a href="{{ path('administration_administrateArticles') }}">Gestion des articles <i class="fas fa-book"></i></a></li>
+                    <li><a href="{{ path('administration_administrateUsers') }}">Gestion des utilisateurs <i class="fas fa-user"></i></a></li>
 
                 {% endif %}
             {% endif %}

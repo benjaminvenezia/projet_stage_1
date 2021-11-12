@@ -48,8 +48,8 @@ class ClassService {
     public function paginate(int $pages, $elements, Request $request) {
         $elements = $this->paginator->paginate(
             $elements, /* query NOT result */
-            $request->query->getInt('page', $pages),
-            $pages
+            $request->query->getInt('page', 1), //current page number
+            $pages //image per page
         );
         
         return $elements;

@@ -30,7 +30,7 @@
             <thead>
                 <tr >
                     <th scope="col" style="width:7%">Rôle</th>
-                    <th scope="col">fullname</th>
+                    <th scope="col">username</th>
                     <th scope="col" style="width:7%">email</th>
                     <th scope="col" style="width:7%">Changer les droits</th>
                 </tr>
@@ -38,7 +38,7 @@
             <tbody>
             <tr>
                     <td><span class="badge bg-success">{{ user.roles[0]}}</span></td>
-                    <td>{{ user.fullname }}</td>
+                    <td>{{ user.username }}</td>
                     <td>{{ user.email }}</td>
                 <td>
                         <button class="btn btn-warning"><a href="{{ path('administration_changestatut', {'id': user.id}) }}" > Changer les droits </a></button>

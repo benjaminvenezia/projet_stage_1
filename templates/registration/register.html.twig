@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Inscription
+{% endblock %}
+
+{% block body %}
+	<div class="container">
+		<div class="col-4 mx-auto">
+			{{ form_start(formView) }}
+                {{ form_row(formView) }}
+                <button class=" btn btn-primary"type="submit">s'inscrire</button>
+            {{ form_end(formView) }} 
+		</div>
+	</div>
+
+	{# {{ form_start(formView) }}
+	        {% if error %}
+	            <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+	        {% endif %}
+	        {% if app.user %}
+	        <div class="mb-3">
+	            Vous êtes connecté en tant que {{ app.user.username }}, <a href="{{ path('security_logout') }}">Déconnexion</a>
+	        </div>
+	    {% endif %}
+	        <div>
+	            {{ form_label(formView.email) }}
+	            {{ form_widget(formView.email) }}
+	            {{ form_help(formView.email) }}
+	            {{ form_errors(formView.email) }}
+	        </div>
+	        <div>
+	            {{ form_label(formView.password) }}
+	            {{ form_widget(formView.password) }}
+	            {{ form_help(formView.password) }}
+	            {{ form_errors(formView.password) }}
+	        </div>
+	
+	         <div>
+	            {{ form_label(formView._remember_me) }}
+	            {{ form_widget(formView._remember_me) }}
+	            {{ form_help(formView._remember_me) }}
+	
+	            {{ form_errors(formView._remember_me) }}
+	        </div>
+	
+	        <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+	        <button type="submit">Valider</button>
+	    {{ form_end(formView) }} #}
+{% endblock %}

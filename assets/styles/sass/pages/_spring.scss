@@ -1,0 +1,24 @@
+.theme-spring {
+    h1 {
+        font-family: cursive;
+        font-size: 4rem;
+        color: black;
+
+        &::first-letter {
+            color: red;
+            font-size: 130%;
+          }
+    }
+
+
+
+    background-color: rgba(235, 255, 215, 0.527);
+    //article
+    .card {
+        background-color: white;
+    }
+
+    footer {
+        background-color: rgba(200, 255, 145, 0.527);
+    }
+}

@@ -10,7 +10,7 @@
     <div class="container mb-5">
         <div class="row">
             <div class="col-4">
-                <a href="{{ path('administration_administrateUsers') }}" class="btn btn-success">revenir à la gestion des utilisateurs</a>        
+                <a href="{{ path('administration_administrateUsers', {'page' : 1}) }}" class="btn btn-success">revenir à la gestion des utilisateurs</a>        
                 </div>
             <div class="col-4">
                     <form class="pull-right hidden" role="search" id="nav-search-form" method="post" action="{{ path('administration_search')}}">
@@ -36,7 +36,7 @@
                 </tr>
             </thead>
             <tbody>
-            <tr class="table-success">
+            <tr>
                     <td><span class="badge bg-success">{{ user.roles[0]}}</span></td>
                     <td>{{ user.fullname }}</td>
                     <td>{{ user.email }}</td>
@@ -45,14 +45,10 @@
                 </td>
            
             </tr>
-           
-
             </tbody>
-            
-
         </table>
         {% else %}
-                    <h2>La recherche n'a rien donné </2>
+                    <h2>La recherche n'a rien donné <i class="fa-solid fa-car-crash"></i></2>
                 {% endif %}
 </div>
 {% endblock %}

@@ -20,7 +20,7 @@
             <thead>
                 <tr >
                     <th scope="col" style="width:7%">Rôle</th>
-                    <th scope="col">fullname</th>
+                    <th scope="col" style="width:7%">fullname</th>
                     <th scope="col" style="width:7%">email</th>
                     <th scope="col" style="width:7%">Changer les droits</th>
                 </tr>
@@ -28,8 +28,18 @@
             <tbody>
 
                 {% for user in users %}
-                    <tr class="table-warning">
-                        <td><span class="badge bg-success">{{ user.roles[0]}}</span></td>
+                    <tr>
+                        {% set variable = 'warning' %}
+
+                        {% if user.roles[0] is defined %}
+                            {% if user.roles[0] == 'ROLE_ADMIN' %}
+                                {% set bg = 'warning' %}
+                            {% else %}
+                                {% set bg = 'success' %}
+                            {% endif %}
+                        {% endif %}
+
+                        <td><span class="badge bg-{{bg}}">{{ user.roles[0]}}</span></td>
                         <td>{{ user.fullname }}</td>
                         <td>{{ user.email }}</td>
                         {# <td><button class="btn btn-warning"><a href="{{ path('administration_changestatut', {'id': user.id}) }}">Changer les droits</a></button></td> #}

@@ -130,8 +130,9 @@ class AdministrationController extends AbstractController
             $user->setRoles($roles);
 
             $this->em->flush();
+            $this->addFlash('warning', "Vous avez bien changé le statut de " . $user->getEmail() . " à " . $roles[0]);
          
-            return $this->redirectToRoute('administration_administrateUsers');
+            return $this->redirectToRoute('administration_administrateUsers', ['page' => 1]);
         
     }
 

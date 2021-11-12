@@ -94,7 +94,7 @@ class ArticleController extends AbstractController
             $this->em->flush();
 
             $this->addFlash('info', "L'article a été modifié avec succès.");
-            return $this->redirectToRoute('administration_administrateUsers');
+            return $this->redirectToRoute('administration_administrateArticles');
         }
 
         $formView = $form->createView();
@@ -120,6 +120,6 @@ class ArticleController extends AbstractController
 
         $this->em->flush();
 
-        return $this->redirectToRoute('administration_administrateUsers');
+        return $this->redirectToRoute('administration_administrateArticles');
     }
 }

@@ -5,12 +5,12 @@
 {% endblock %}
 
 {% block body %}
-
+    
     <div class="container">
         {% if  themeName  not in  themes %}
             <p>Ce thème n'existe pas.</p>
         {% else %}
-            <h1>{{ themeName}}</h1>
+            <h1>{{ themeName }}</h1>
         {% endif %}
             
         {% if articles|length > 0 %}

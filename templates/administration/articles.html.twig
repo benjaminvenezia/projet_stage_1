@@ -4,10 +4,11 @@
 
 {% block body %}
 
+{% if articles|length > 0 %}
 <div class="container">
     <h1>Panneau d'aministration des articles</h1>
-
-        <table class="table table-sm table-bordered table-hover" style="width:80%">
+    
+        <table class="table table-sm table-bordered table-hover mt-5" style="width:80%">
             <thead>
                 <tr >
                     <th scope="col" style="width:7%">Theme</th>
@@ -62,8 +63,13 @@
                         <td><button class="btn btn-warning"><a href="{{ path('article_edit', {'id': article_spring2.id}) }}">modifier</a></button></td>
                     </tr>
                 {% endfor %}
-            
-            
+    {% else %}
+    <div class="container mt-5">
+        <h2>Aucun article n'a été écrit pour le moment.</h2>
+        <a href="{{ path('article_create')}}" class="btn btn-success mt-2">rédiger en un <i class="fas fa-pen"></i> </a>
+    </div>
+    {% endif %} 
+
             </tbody>
         </table>
 </div>

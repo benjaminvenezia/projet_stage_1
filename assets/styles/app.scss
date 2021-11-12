@@ -3,6 +3,7 @@
 
 // the ~ allows you to reference things in node_modules
 @import "~bootstrap/scss/bootstrap";
+
 @import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Amatic+SC&display=swap');
 
@@ -17,7 +18,6 @@
 @import "sass/core/reset";
 @import "sass/core/typography";
 @import "sass/core/lib";
-
 
 //  Components
 @import "sass/components/buttons";

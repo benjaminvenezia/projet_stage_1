@@ -15,9 +15,12 @@
         {% block javascripts %}
             {{ encore_entry_script_tags('app') }}
         {% endblock %}
+        {% set themestyle = app.request.attributes.get('theme')  %}
     </head>
    
-        <body class="d-flex flex-column min-vh-100">
+        <body class="d-flex flex-column min-vh-100 theme-{{ themestyle }}">
+
+           
             {% block nav %}
                 {% include "shared/_navbar.html.twig" %}
             {% endblock %}

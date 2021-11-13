@@ -1,0 +1,24 @@
+.theme-winter {
+    h1 {
+        font-family: 'Kings', cursive;
+        font-size: 4rem;
+        color: rgb(0, 0, 0);
+        text-shadow: rgb(75, 75, 75) 1px 1px 1px;
+
+        &::first-letter {
+            font-size: 180%;
+          }
+    }
+
+
+
+    background-color: rgb(255, 255, 255);
+    //article
+    .card {
+        background-color: white;
+    }
+
+    footer {
+        background-color: rgb(165, 165, 165);
+    }
+}

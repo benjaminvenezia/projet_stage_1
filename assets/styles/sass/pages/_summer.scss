@@ -1,7 +1,24 @@
 .theme-summer {
-    background-color: rgba(255, 244, 193, 0.527);
+    h1 {
+        font-family: 'Permanent Marker', cursive;
+        font-size: 3rem;
+        color: rgb(214, 211, 0);
+        text-shadow: rgb(223, 63, 0) 1px 1px 1px;
+
+        &::first-letter {
+            font-size: 140%;
+          }
+    }
+
+
+
+    background-color: rgba(255, 218, 5, 0.178);
     //article
     .card {
         background-color: white;
+    }
+
+    footer {
+        background-color: rgba(255, 230, 0, 0.527);
     }
 }

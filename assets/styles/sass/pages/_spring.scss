@@ -1,12 +1,12 @@
 .theme-spring {
     h1 {
-        font-family: cursive;
-        font-size: 4rem;
-        color: black;
+        font-family: 'Sassy Frass', cursive;
+        font-size: 7rem;
+        color: rgb(0, 78, 42);
+        text-shadow: rgb(0, 255, 136) 1px 1px 1px;
 
         &::first-letter {
-            color: red;
-            font-size: 130%;
+            font-size: 180%;
           }
     }
 

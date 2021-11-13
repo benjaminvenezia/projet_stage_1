@@ -4,13 +4,13 @@
 // the ~ allows you to reference things in node_modules
 @import "node_modules/bootstrap/scss/bootstrap.scss";
 
-@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Amatic+SC&display=swap');
+
 
 //characters
 @import "sass/characters/me";
 
 // Abstract files
+@import "sass/abstracts/polices";
 @import "sass/abstracts/mixins";
 @import "sass/abstracts/variables";
 
@@ -38,6 +38,9 @@
 @import "sass/pages/slider";
 @import "sass/pages/spring";
 @import "sass/pages/summer";
+@import "sass/pages/autumn";
+@import "sass/pages/winter";
+
 
 //custom
 @import "sass/custom";

@@ -24,4 +24,17 @@
             <p>Aucun article associé au thème {{ themeName }}</p>
         {% endif %}
     </div>
+    <div class="container mt-5 mb-5">
+        <h2>Laissez un commentaire pour ce thème.</h2>
+        {% if app.user %}
+            <div class="col-4">
+                {% include "comments/form.html.twig" %}
+            </div>
+        {% else %}
+            <a href="{{ path('security_login') }}">Connectez-vous pour poster un commentaire.</a>
+        {% endif %}
+    </div>
+    <div class="container">
+       {% include "comments/show.html.twig" %}
+    </div>
 {% endblock %}

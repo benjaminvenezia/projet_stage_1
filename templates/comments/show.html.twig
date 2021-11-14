@@ -1,0 +1,9 @@
+
+    {% for c in comments %}
+        {% if c.user.username is defined %}
+            {{ c.user.username }} le {{ c.createdAt|format_datetime(locale='fr') }}
+            <p>{{ c.commentary }}</p>
+        {% endif %}
+    {% endfor %}
+
+

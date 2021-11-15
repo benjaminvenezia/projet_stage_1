@@ -13,15 +13,15 @@
                     <h1>{{ themeName }}</h1>
                 {% endif %}
         <div class="row ">
-            <nav class="col-2 border">
+            <nav class="col-2">
                 <ul>
-                    <p>Résumé </p>
+                    <p> Index </p>
                     {% for article in articles %}
-                        <li><a href="{{path('article_show', {'id' : article.id})}}">{{ article.title }}</a></li>
+                        <li><a href="{{path('article_show', {'theme' : themeName, 'step' : article.step})}}">{{ article.title }}</a></li>
                     {% endfor %}
                 </ul>
             </nav>
-            <div class="col-10 border">
+            <div class="col-10">
                 {# {% if  themeName  not in  themes %}
                     <p>Ce thème n'existe pas.</p>
                 {% else %}

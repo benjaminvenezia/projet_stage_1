@@ -8,6 +8,7 @@ use App\Form\ArticleType;
 use App\Services\ClassService;
 use App\Services\ThemesService;
 use App\Repository\ArticleRepository;
+use App\Repository\ThemeRepository;
 use App\Repository\UserRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
@@ -120,28 +121,56 @@ class ArticleController extends AbstractController
         return $this->redirectToRoute('administration_administrateArticles');
     }
 
-    /**
-     * @Route("article/{id}/show", name="article_show")
+     /**
+     * @Route("article/{theme}/{step}/show", name="article_show")
      */
-    public function show($id, Request $request, ClassService $classService, ArticleRepository $articleRepository): Response
+    public function show($theme, $step, Request $request, ClassService $classService,ThemeRepository $themeRepository, ArticleRepository $articleRepository): Response
     {
-        $article = $articleRepository->findOneBy(['id' => $id]);
+        $theme = $themeRepository->findOneBy(['name' => $theme]);
+        $themeid = $theme->getId();
 
+        $article = $articleRepository->findOneBy(['theme' => $themeid, 'step' => $step]);
+        
         if(!$article) {
             throw new NotFoundHttpException("erreur, article introuvable. ");
         }
-        $idtheme = $article->getTheme()->getId();
 
-        $totalArticlesByTheme = $articleRepository->count(['theme' => $idtheme]);
+        $totalArticlesByTheme = $articleRepository->count(['theme' => $themeid]);
 
-        $numberOfTheArticle = $article->getStep();
-        $percentage = ($numberOfTheArticle / $totalArticlesByTheme  ) * 100;
+        $stepOfTheArticle = $article->getStep();
+        $percentage = ( $stepOfTheArticle / $totalArticlesByTheme  ) * 100;
 
         return $this->render('article/show.html.twig', [
             'article' => $article,
             'themes' => $this->themesService->getThemes(),
-            'ReadingPercentage' => $percentage
+            'theme' => $theme->getName(),
+            'ReadingPercentage' => $percentage,
+            'nextArticleStep' => $article->getStep() + 1
         ]);
-
     }
+
+    // /**
+    //  * @Route("article/{id}/show", name="article_show")
+    //  */
+    // public function show($id, Request $request, ClassService $classService, ArticleRepository $articleRepository): Response
+    // {
+    //     $article = $articleRepository->findOneBy(['id' => $id]);
+
+    //     if(!$article) {
+    //         throw new NotFoundHttpException("erreur, article introuvable. ");
+    //     }
+    //     $idtheme = $article->getTheme()->getId();
+
+    //     $totalArticlesByTheme = $articleRepository->count(['theme' => $idtheme]);
+
+    //     $numberOfTheArticle = $article->getStep();
+    //     $percentage = ( $numberOfTheArticle / $totalArticlesByTheme  ) * 100;
+
+    //     return $this->render('article/show.html.twig', [
+    //         'article' => $article,
+    //         'themes' => $this->themesService->getThemes(),
+    //         'ReadingPercentage' => $percentage,
+    //         'nextArticleStep' => $article->getStep() + 1
+    //     ]);
+    // }
 }

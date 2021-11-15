@@ -4,7 +4,7 @@ body {
     padding: 0;
   }
   .slide {
-    width: 200vw;
+    width: 100vw;
     height: 100vh;
     border: 1px solid black;
 
@@ -28,7 +28,7 @@ body {
   .wrapper {
     display: flex;
     flex-direction: row;
-    width: 1000vw;
+    width: 500vw;
     transform: rotate(90deg) translateY(-100vh);
     transform-origin: top left;
 

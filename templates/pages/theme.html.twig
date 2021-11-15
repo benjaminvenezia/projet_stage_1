@@ -6,38 +6,22 @@
 
 {% block body %}
 
-    <div class="container">
-          {% if  themeName  not in  themes %}
-                    <p>Ce thème n'existe pas.</p>
-                {% else %}
-                    <h1>{{ themeName }}</h1>
-                {% endif %}
-        <div class="row ">
-            <nav class="col-2">
+    <div class="container container__theme">    
+        <div class="row">
+            <div class="col-2 container__index ">
                 <ul>
-                    <p> Index </p>
+                    <h3> Index </h3>
+                    {% if articles|length == 0 %}
+                        <p>aucun article rédigé.</p>
+                        <a class="btn btn-secondary btn-sm" href="{{ path('article_create') }}">Rédigez-en un <i class=></i></a>
+                    {% endif %}
                     {% for article in articles %}
                         <li><a href="{{path('article_show', {'theme' : themeName, 'step' : article.step})}}">{{ article.title }}</a></li>
                     {% endfor %}
                 </ul>
-            </nav>
-            <div class="col-10">
-                {# {% if  themeName  not in  themes %}
-                    <p>Ce thème n'existe pas.</p>
-                {% else %}
-                    <h1>{{ themeName }}</h1>
-                {% endif %} #}
-                    
-                {% if articles|length > 0 %}
-                    {% for article in articlesPaginated %}
-                        {% include "shared/_card.html.twig" %}
-                    {% endfor %}
-
-                    {{ knp_pagination_render(articlesPaginated) }}
-                    
-                {% else %}
-                    <p>Aucun article associé au thème {{ themeName }}</p>
-                {% endif %}
+            </div>
+            <div class="col-10 container__description">
+              {% include 'pages/themes_description/'  ~ themeName ~ '.html.twig' %}
             </div>
         </div>
     </div>

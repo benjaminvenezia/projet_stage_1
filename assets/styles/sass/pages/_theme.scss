@@ -1,0 +1,25 @@
+.container__theme {
+    .container__index {
+        background-color: rgb(255, 255, 255);
+        border-radius: 10px;
+        box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+        
+        ul {
+            li{
+                list-style-type: square;
+                a {
+                    text-decoration: none;
+                    color: rgba(0, 0, 0, 0.658);
+                }
+            }
+        }
+    }
+
+    .container__description {
+        background-color: rgb(255, 255, 255);
+        border-radius: 10px;
+        padding-left: 20px;
+        box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    }
+
+}

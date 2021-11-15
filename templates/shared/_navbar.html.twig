@@ -25,8 +25,8 @@
         {% endif %}
             <li><a class="btn  my-2 my-sm-0" href="{{ path('registration_register') }}">Créer un compte</a></li>
         {% if app.user %}
+            <li> <span class="btn">Hello {{ app.user.username }}</span> </li>
             <li><a class="btn btn-outline-danger my-2 my-sm-0" href="{{ path('security_logout') }}">Déconnexion</a></li>
-            <li> <span>Hello {{ app.user.email }}</span> </li>
         {% endif %}
 
     </ul>

@@ -1,4 +1,6 @@
 .theme-spring {
+    background-color: rgb(250, 255, 246);
+
     h1 {
         font-family: 'Sassy Frass', cursive;
         font-size: 7rem;
@@ -12,13 +14,56 @@
 
 
 
-    background-color: rgba(235, 255, 215, 0.527);
     //article
     .card {
         background-color: white;
     }
 
     footer {
-        background-color: rgba(200, 255, 145, 0.527);
+        background-color: rgb(221, 184, 255);
     }
+
+    //ZONE COMMENTAIRE
+    .comment-spring-theme {    
+        border-top: 2px solid rgba(0, 0, 0, 0.288);
+        padding: 50px;
+
+        h2 {
+            font-family:  cursive;
+        }
+
+        .comment {
+            
+            background-color: rgba(91, 175, 80, 0.199);
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+            margin-top: 10px;
+
+            .comment__header {
+                font-size: smaller;
+                background-color: rgba(91, 175, 80, 0.438);
+                padding: 5px;
+                border-top-left-radius: 5px;
+                border-top-right-radius: 5px;
+                .comment__username {
+                    font-weight: bold;
+                }
+
+                .comment_date {
+
+                }
+            }
+
+            .comment__body {
+                padding: 10px;
+                &::before {
+                    content:icon;
+                }
+            }
+
+        }
+
+
+    }
+    
 }

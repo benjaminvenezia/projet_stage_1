@@ -48,18 +48,15 @@ class ArticleController extends AbstractController
 
         if($form->isSubmitted() && $form->isValid()) { 
 
-            $step = $this->articleRepository->count([]);
-
-            $step++;
-
-            $article->setStep($step);
-         
-            $article->setAuthor($this->getUser()->getFullname());
-
-            $article->setDate(new DateTime('now'));
-
             $classService->uploadImage($form, $this->getParameter('kernel.project_dir') . '/assets/img');
-          
+
+            //Incrémentation du step, permet de calculter l'avancée de lecture.
+            $idtheme = $form->getData('description')->getTheme()->getId();
+
+            $step = $this->articleRepository->count(['theme' => $idtheme]) + 1;
+            
+            $article->setStep($step);
+    
             $this->em->persist($article);
 
             $this->em->flush(); 
@@ -121,5 +118,30 @@ class ArticleController extends AbstractController
         $this->em->flush();
 
         return $this->redirectToRoute('administration_administrateArticles');
+    }
+
+    /**
+     * @Route("article/{id}/show", name="article_show")
+     */
+    public function show($id, Request $request, ClassService $classService, ArticleRepository $articleRepository): Response
+    {
+        $article = $articleRepository->findOneBy(['id' => $id]);
+
+        if(!$article) {
+            throw new NotFoundHttpException("erreur, article introuvable. ");
+        }
+        $idtheme = $article->getTheme()->getId();
+
+        $totalArticlesByTheme = $articleRepository->count(['theme' => $idtheme]);
+
+        $numberOfTheArticle = $article->getStep();
+        $percentage = ($numberOfTheArticle / $totalArticlesByTheme  ) * 100;
+
+        return $this->render('article/show.html.twig', [
+            'article' => $article,
+            'themes' => $this->themesService->getThemes(),
+            'ReadingPercentage' => $percentage
+        ]);
+
     }
 }

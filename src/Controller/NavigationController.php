@@ -54,8 +54,9 @@ class NavigationController extends AbstractController
         $theme_object = $this->themeRepository->findOneBy(['id' => $themeId]);
         $articles = $this->articleRepository->findBy(['theme' => $themeId]);
 
-        
-        $articles = $classService->paginate(1, $articles, $request);
+        $articlesPaginated = $classService->paginate(1, $articles, $request);
+
+
         //ajout form commentaire
         $comment = new Comment;
         $form = $this->createForm(CommentType::class, $comment);
@@ -83,9 +84,11 @@ class NavigationController extends AbstractController
         }
 
         $comments = $commentRepository->findBy(['theme' => $themeObject->getId()]);
+        $comments = $classService->paginate(30, $comments, $request);
 
         return $this->render('pages/theme.html.twig', [
             'articles' => $articles,
+            'articlesPaginated' => $articlesPaginated,
             'themeName' => $theme,
             'themes' =>  $this->themesService->getThemes(),
             'formComment' => $form->createView(),

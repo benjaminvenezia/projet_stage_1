@@ -5,27 +5,45 @@
 {% endblock %}
 
 {% block body %}
-    
-    <div class="container">
-        {% if  themeName  not in  themes %}
-            <p>Ce thème n'existe pas.</p>
-        {% else %}
-            <h1>{{ themeName }}</h1>
-        {% endif %}
-            
-        {% if articles|length > 0 %}
-            {% for article in articles %}
-                {% include "shared/_card.html.twig" %}
-            {% endfor %}
 
-            {{ knp_pagination_render(articles) }}
-            
-        {% else %}
-            <p>Aucun article associé au thème {{ themeName }}</p>
-        {% endif %}
+    <div class="container">
+          {% if  themeName  not in  themes %}
+                    <p>Ce thème n'existe pas.</p>
+                {% else %}
+                    <h1>{{ themeName }}</h1>
+                {% endif %}
+        <div class="row ">
+            <nav class="col-2 border">
+                <ul>
+                    <p>Résumé </p>
+                    {% for article in articles %}
+                        <li><a href="{{path('article_show', {'id' : article.id})}}">{{ article.title }}</a></li>
+                    {% endfor %}
+                </ul>
+            </nav>
+            <div class="col-10 border">
+                {# {% if  themeName  not in  themes %}
+                    <p>Ce thème n'existe pas.</p>
+                {% else %}
+                    <h1>{{ themeName }}</h1>
+                {% endif %} #}
+                    
+                {% if articles|length > 0 %}
+                    {% for article in articlesPaginated %}
+                        {% include "shared/_card.html.twig" %}
+                    {% endfor %}
+
+                    {{ knp_pagination_render(articlesPaginated) }}
+                    
+                {% else %}
+                    <p>Aucun article associé au thème {{ themeName }}</p>
+                {% endif %}
+            </div>
+        </div>
     </div>
-    <div class="container mt-5 mb-5">
-        <h2>Laissez un commentaire pour ce thème.</h2>
+
+    <div class="container mt-5 mb-5 comment-{{ themeName }}-theme">
+        <h2>Commentaires de {{ themeName }}</h2>
         {% if app.user %}
             <div class="col-4">
                 {% include "comments/form.html.twig" %}
@@ -33,8 +51,7 @@
         {% else %}
             <a href="{{ path('security_login') }}">Connectez-vous pour poster un commentaire.</a>
         {% endif %}
-    </div>
-    <div class="container">
+  
        {% include "comments/show.html.twig" %}
     </div>
 {% endblock %}

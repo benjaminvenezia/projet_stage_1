@@ -3,10 +3,22 @@
                 {% else %}
                     <h1>{{ themeName }}</h1>
                 {% endif %}
-                <p>Ce thème est une représentation des prémisses, des attentes, des idées bourgeonnantes, des espérances. <br> Rien a ce stade n'a été fait et tout se dessine.</p>
-                <p>
-                    Débutez la lecture par le premier article de ce thème.  <br><br>
-                    <a href="{{ path('article_show', {theme:'spring', step: 1}) }}" class="btn btn-success btn-sm">Découvrir <i class="fas fa-book-reader"></i></a>
-                    <a href="{{ path('navigation_theme', {theme:'summer'}) }}" class="btn btn-secondary btn-sm">Thème suivant <i class="fas fa-chevron-right"></i></a>
-                </p>
+
+                <div class="container container__descriptiontheme  container__descriptiontheme--spring">
+                    <div class="row">
+                        <div class="col ">
+                            <p>Ce thème est une représentation des prémisses, des attentes, des idées bourgeonnantes, des espérances. <br> Rien a ce stade n'a été fait et tout se dessine.</p>
+                            <p>
+                                Débutez la lecture par le premier article de ce thème.  <br><br>
+                                <a href="{{ path('article_show', {theme:'spring', step: 1}) }}" class="btn btn-success btn-sm">Découvrir <i class="fas fa-book-reader"></i></a>
+                                <a href="{{ path('navigation_theme', {theme:'summer'}) }}" class="btn btn-secondary btn-sm">Thème suivant <i class="fas fa-chevron-right"></i></a>
+                            </p>
+                        </div>
+                        <div class="col container__img">
+                            <img src="{{ asset('/build/img/svg/bourgeon.svg') }}" alt="Un bourgeon.">
+                        </div>
+                    </div>
+                </div>
+
+                
                 

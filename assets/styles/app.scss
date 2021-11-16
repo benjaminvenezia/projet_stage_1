@@ -2,9 +2,7 @@
 // $primary: darken(#428bca, 20%);
 
 // the ~ allows you to reference things in node_modules
-@import "node_modules/bootstrap/scss/bootstrap.scss";
-
-
+@import "../../node_modules/bootstrap/scss/bootstrap";
 
 //characters
 @import "sass/characters/me";
@@ -42,6 +40,8 @@
 @import "sass/pages/winter";
 @import "sass/pages/login";
 @import "sass/pages/theme";
+@import "sass/pages/incommon";
+
 
 
 

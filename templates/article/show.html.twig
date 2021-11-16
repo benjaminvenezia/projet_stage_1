@@ -25,13 +25,17 @@
 
                 <div class="progress mb-5">
                     {% if  ReadingPercentage < 100  %}
-                        <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: {{ ReadingPercentage }}%">Progression de lecture du thème : {{ ReadingPercentage|round(0) }}%</div>
+                        <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: {{ ReadingPercentage }}%">Progression de lecture du thème {{ theme }}: {{ ReadingPercentage|round(0) }}%</div>
                     {% else %}
-                        <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: {{ ReadingPercentage }}%">Vous avez lu {{ ReadingPercentage }} du thème, merci.</div>
-                        
-                        
+                        <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: {{ ReadingPercentage }}%">Vous avez lu {{ ReadingPercentage }} du thème {{ theme }}, merci.</div>
                     {% endif %}
                 </div>
+
+                {% if ReadingPercentage == 100 %}
+                <div class="mb-5">
+                    <a href="" class="btn btn-success btn-sm">Découvrir le thème Summer</a>
+                </div>
+                {% endif %}
             </div>
          
         </div>

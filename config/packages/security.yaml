@@ -17,6 +17,7 @@ security:
         
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
+            stateless: true
             security: false
         main:
             lazy: true

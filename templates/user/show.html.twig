@@ -7,8 +7,8 @@
 
     <div class="container">
         <div class="row">
-            <div class="col mb-5">
-                <h1>Informations de  {{ username }}</h1>
+            <div class="col mb-2">
+                <h1>Mon compte</h1>
             </div>
         </div>
          <div class="row">
@@ -26,8 +26,8 @@
         </div>
         <div class="row">
             <div class="col">
-                <button class="btn btn-sm"><a href="{{ path('user_deleteaccount') }}">supprimer mon compte</a></button> 
-                <button class="btn btn-sm"><a href="">Changez de mot de passe</a></button> 
+                <button id="btn_deleting_account" class="btn btn-sm"><a href="{{ path('user_deleteaccount') }}">supprimer mon compte</a></button> 
+                <button class="btn btn-sm"><a href="{{ path('user_changepassword') }}">Changez de mot de passe</a></button> 
             </div>
         </div>
     

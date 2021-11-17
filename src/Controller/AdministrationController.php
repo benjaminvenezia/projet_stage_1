@@ -25,6 +25,7 @@ class AdministrationController extends AbstractController
     protected  $themesService;
     const ADMIN_ROLE = "ROLE_ADMIN";
     const USER_ROLE = "ROLE_USER";
+    const SUPER_ADMIN_ROLE = "ROLE_SUPER_ADMIN";
 
 
 
@@ -120,6 +121,12 @@ class AdministrationController extends AbstractController
             $user = $userRepository->find($id);
             
             $roles = $user->getRoles();
+
+            //empêcher le super admin de changer de rôle. à faire
+            // if($roles[0] === $this::SUPER_ADMIN_ROLE) {
+            //     $this->addFlash('warning', "Impossible de modifier le rôle de super admin.");
+            //     return $this->redirectToRoute('administration_administrateUsers', ['page' => 1]);
+            // }
 
             if ($roles[0] === $this::ADMIN_ROLE) {
                 $roles[0] = $this::USER_ROLE;

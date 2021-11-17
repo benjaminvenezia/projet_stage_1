@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Panneau de configuration{% endblock %}
+
+{% block body %}
+    
+
+    <div class="container">
+        <div class="row">
+            <div class="col mb-5">
+                <h1>Informations de  {{ username }}</h1>
+            </div>
+        </div>
+         <div class="row">
+            <div class="col">
+                <p>mail : {{ mail }}</p>
+                <p>username :  {{ username }}</p>
+                <p>inscrit le : {{ createdAt|format_datetime() }}</p>
+                
+                {% if isVerified %}
+                    <p class="badge bg-success">Le compte a été vérifié.</p>
+                {% else %}
+                    <p class="badge bg-warning">Votre compte est non vérifié.</p>
+                {% endif %}               
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <button class="btn btn-sm"><a href="{{ path('user_deleteaccount') }}">supprimer mon compte</a></button> 
+                <button class="btn btn-sm"><a href="">Changez de mot de passe</a></button> 
+            </div>
+        </div>
+    
+    
+    </div>
+
+{% endblock %}

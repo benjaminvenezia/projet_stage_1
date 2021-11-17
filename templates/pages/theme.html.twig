@@ -10,7 +10,7 @@
         <div class="row">
             <div class="col-2 container__index ">
                 <ul>
-                    <h3> Index </h3>
+                    <h4> Index </h4>
                     {% if articles|length == 0 %}
                         <p>aucun article rédigé.</p>
                         <a class="btn btn-secondary btn-sm" href="{{ path('article_create') }}">Rédigez-en un <i class=></i></a>
@@ -20,7 +20,7 @@
                     {% endfor %}
                 </ul>
             </div>
-            <div class="col-10 container__description">
+            <div class="col-sm container__description">
               {% include 'pages/themes_description/'  ~ themeName ~ '.html.twig' %}
             </div>
         </div>

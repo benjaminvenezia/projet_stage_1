@@ -1,6 +1,26 @@
-  {% if  themeName  not in  themes %}
-    <p>Ce thème n'existe pas.</p>
-{% else %}
-    <h1>{{ themeName }}</h1>
-{% endif %}
-<p>L'été représente la concrétisation, le temps fort de mon stage, des réalisations qui en ont été le coeur.</p>
+                {% if  themeName  not in  themes %}
+                    <p>Ce thème n'existe pas.</p>
+                {% else %}
+                    <h1>{{ themeName }}</h1>
+                {% endif %}
+
+                <div class="container container__descriptiontheme  container__descriptiontheme--summer">
+                    <div class="row">
+                        <div class="col ">
+                                <p class="mb-5">L'été représente la concrétisation, le temps fort de mon stage, des réalisations qui en ont été le coeur.</p>
+                                
+                                   {% if articles|length > 0 %}
+                                    <a href="{{ path('article_show', {theme:'summer', step: 1}) }}" class="btn btn-success btn-sm">Découvrir <i class="fas fa-book-reader"></i></a>
+                                {% else %}
+                                    <a href="{{ path('article_create') }}" class="btn btn-success btn-sm">créer le premier article. <i class="fas fa-feather-alt"></i></a>
+                                {% endif %}
+                                <a href="{{ path('navigation_theme', {theme:'autumn'}) }}" class="btn btn-secondary btn-sm">Thème suivant <i class="fas fa-chevron-right"></i></a>
+                            </p>
+                        </div>
+                        <div class="col container__img">
+                            <img src="{{ asset('/build/img/svg/sauterelle.svg') }}" alt="Une sauterelle">
+                        </div>
+                    </div>
+                </div>
+
+

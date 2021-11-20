@@ -1,24 +1,104 @@
-.theme-winter {
+.theme-winter{
+
+    .container__descriptiontheme {
+        padding: 50px;
+        
+    
+        .container__img {
+        text-align: center;
+    
+            img {
+                width: 100%;
+                
+            }
+        }
+    }
+
+
+    background-color: rgb(251, 255, 247);
+
     h1 {
+        padding:20px;
         font-family: 'Kings', cursive;
         font-size: 4rem;
         color: rgb(0, 0, 0);
-        text-shadow: rgb(75, 75, 75) 1px 1px 1px;
+        text-shadow: rgb(59, 59, 59) 1px 1px 1px;
 
-        &::first-letter {
-            font-size: 180%;
-          }
+       
     }
 
 
 
-    background-color: rgb(255, 255, 255);
     //article
     .card {
         background-color: white;
     }
 
     footer {
-        background-color: rgb(165, 165, 165);
+        background-color: rgba(255, 255, 255, 0.438);
+        backdrop-filter: blur(10px);
     }
+
+    //ZONE COMMENTAIRE
+    .comment-winter-theme {    
+        
+        padding: 50px;
+
+        h2 {
+            font-family: 'Kings', cursive;
+
+        }
+
+        .comment {
+            backdrop-filter: blur(4px);
+            background-color: rgba(255, 255, 255, 0.185);
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+            margin-top: 10px;
+
+            .comment__header {
+                font-size: smaller;
+                background-color: rgba(22, 22, 22, 0.568);
+                color: rgb(235, 235, 235);
+                padding: 5px;
+                border-top-left-radius: 5px;
+                border-top-right-radius: 5px;
+                .comment__username {
+                    font-weight: bold;
+                }
+
+                .comment_date {
+
+                }
+            }
+
+            .comment__body {
+                background-color: rgba(221, 221, 221, 0.438);
+                word-break: break-all;
+                padding: 10px;
+               
+
+                
+            }
+
+        }
+
+
+        .container__zonecomment {
+            padding:20px;
+            background-color: rgba(212, 212, 212, 0.616);
+            backdrop-filter: blur(10px);
+            border-radius: 10px;
+
+        }
+
+
+    }
+    
 }
+
+.container__descriptiontheme--spring {
+    
+
+}
+

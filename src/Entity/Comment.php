@@ -27,9 +27,11 @@ class Comment
     private $User;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="text", length=65535)
      * @Assert\NotBlank(message="Le commentaire ne peut être nul. ")
      * @Assert\Length(min=10, minMessage="Le commentaire doit comporter au minimum 10 caractères.")
+     * @Assert\Length(max=3000, maxMessage="Le commentaire doit comporter au maximum 3000 caractères.")
+     * 
      */
     private $commentary;
 

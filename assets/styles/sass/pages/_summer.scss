@@ -1,24 +1,105 @@
-.theme-summer {
-    h1 {
-        font-family: 'Permanent Marker', cursive;
-        font-size: 3rem;
-        color: rgb(214, 211, 0);
-        text-shadow: rgb(223, 63, 0) 1px 1px 1px;
+.theme-summer{
 
-        &::first-letter {
-            font-size: 140%;
-          }
+    .container__descriptiontheme {
+        padding: 50px;
+        
+    
+        .container__img {
+        text-align: center;
+    
+            img {
+                width: 80%;
+                
+            }
+        }
+    }
+
+
+    background-color: rgb(255, 255, 246);
+
+    h1 {
+        padding:20px;
+        font-family: 'Permanent Marker', cursive;
+        font-size: 4rem;
+        color: rgb(237, 241, 0);
+        text-shadow: rgb(255, 0, 0) 1px 1px 1px;
+
+       
     }
 
 
 
-    background-color: rgba(255, 218, 5, 0.178);
     //article
     .card {
-        background-color: white;
+        background-color: rgb(215, 218, 84);
     }
 
     footer {
-        background-color: rgba(255, 230, 0, 0.527);
+        background-color: rgba(255, 255, 255, 0.438);
+        backdrop-filter: blur(10px);
     }
+
+    //ZONE COMMENTAIRE
+    .comment-summer-theme {    
+        
+        padding: 50px;
+
+        h2 {
+            font-family: 'Permanent Marker', cursive;
+            
+
+        }
+
+        .comment {
+            backdrop-filter: blur(4px);
+            background-color: rgba(255, 230, 0, 0.479);
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+            margin-top: 10px;
+
+            .comment__header {
+                font-size: smaller;
+                background-color: rgba(243, 222, 102, 0.568);
+                color: rgb(54, 20, 0);
+                padding: 5px;
+                border-top-left-radius: 5px;
+                border-top-right-radius: 5px;
+                .comment__username {
+                    font-weight: bold;
+                }
+
+                .comment_date {
+
+                }
+            }
+
+            .comment__body {
+                background-color: rgba(238, 255, 0, 0.514);
+                word-break: break-all;
+                padding: 10px;
+               
+
+                
+            }
+
+        }
+
+
+        .container__zonecomment {
+            padding:20px;
+            background-color: rgba(238, 255, 0, 0.514);
+            backdrop-filter: blur(10px);
+            border-radius: 10px;
+
+        }
+
+
+    }
+    
 }
+
+.container__descriptiontheme--summer {
+
+}
+
+

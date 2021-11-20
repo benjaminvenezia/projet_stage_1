@@ -1,6 +1,26 @@
-  {% if  themeName  not in  themes %}
+                {% if  themeName  not in  themes %}
                     <p>Ce thème n'existe pas.</p>
                 {% else %}
                     <h1>{{ themeName }}</h1>
                 {% endif %}
-                <p>L'hiver représente le calme glacial, l'introspection à tête reposée. C'est le moment de faire le point sur les points les moins avouables, "après autant de mois, l'informatique est-il fait pour moi?" <br> les choses que l'on aurait fait différent si on pouvait recoller les feuilles sur les branches dégarnies.</p>
+
+                <div class="container container__descriptiontheme  container__descriptiontheme--winter">
+                    <div class="row">
+                        <div class="col ">
+                                 <p class="mb-5">L'hiver représente le calme glacial, l'introspection à tête reposée. C'est le moment de faire le point sur les points les moins avouables, "après autant de mois, l'informatique est-il fait pour moi?" <br> les choses que l'on aurait fait différent si on pouvait recoller les feuilles sur les branches dégarnies.
+                                 Débutez la lecture par le premier article de ce thème.</p> 
+                                               {% if articles|length > 0 %}
+                                    <a href="{{ path('article_show', {theme:'summer', step: 1}) }}" class="btn btn-success btn-sm">Découvrir <i class="fas fa-book-reader"></i></a>
+                                {% else %}
+                                    <a href="{{ path('article_create') }}" class="btn btn-success btn-sm">créer le premier article. <i class="fas fa-feather-alt"></i></a>
+                                {% endif %}
+                                <a href="{{ path('navigation_theme', {theme:'autumn'}) }}" class="btn btn-secondary btn-sm">Thème suivant <i class="fas fa-chevron-right"></i></a>
+                            </p>
+                        </div>
+                        <div class="col container__img">
+                            <img src="{{ asset('/build/img/svg/dame.svg') }}" alt="La dame de l'hiver.">
+                        </div>
+                    </div>
+                </div>
+
+

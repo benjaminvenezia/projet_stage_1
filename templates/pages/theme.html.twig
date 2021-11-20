@@ -13,7 +13,6 @@
                     <h4> Index </h4>
                     {% if articles|length == 0 %}
                         <p>aucun article rédigé.</p>
-                        <a class="btn btn-secondary btn-sm" href="{{ path('article_create') }}">Rédigez-en un <i class=></i></a>
                     {% endif %}
                     {% for article in articles %}
                         <li><a href="{{path('article_show', {'theme' : themeName, 'step' : article.step})}}">{{ article.title }}</a></li>
@@ -29,7 +28,36 @@
         
 
     <div class="container container__comments mt-5 mb-5 comment-{{ themeName }}-theme ">
-        <h2>Commentaires de {{ themeName }}</h2>
+
+
+     {% if themeName == 'spring' %}
+         <h2>Commentaires printaniers</h2>
+     {% endif %}
+
+     {% if themeName == 'summer' %}
+         <h2>Commentaires estivaux</h2>
+     {% endif %}
+
+     {% if themeName == 'autumn' %}
+         <h2>Commentaires automnaux</h2>
+     {% endif %}
+
+     {% if themeName == 'winter' %}
+         <h2>Commentaires hivernaux</h2>
+     {% endif %}
+
+     {% if themeName == 'spring2' %}
+         <h2>Commentaires printanier</h2>
+     {% endif %}
+
+       
+        
+  
+       {% include "comments/show.html.twig" %}
+        <div class="mt-2">
+            {{ knp_pagination_render(comments) }}
+        </div>
+
         {% if app.user %}
             <div class="col-4">
                 {% include "comments/form.html.twig" %}
@@ -37,12 +65,6 @@
         {% else %}
             <a href="{{ path('security_login') }}">Connectez-vous pour poster un commentaire.</a>
         {% endif %}
-  
-       {% include "comments/show.html.twig" %}
-        <div class="mt-2">
-            {{ knp_pagination_render(comments) }}
-        </div>
-
     </div>
 {% endblock %}
 

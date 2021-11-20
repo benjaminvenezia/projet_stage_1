@@ -3,6 +3,7 @@
     position: relative;
 
     .container__index {
+        padding: 15px;
         background-color: rgba(255, 255, 255, 0.555);
         border-radius: 10px;
         box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
@@ -11,6 +12,7 @@
             li{
                 list-style-type: square;
                 a {
+                    font-style: italic;
                     text-decoration: none;
                     color: rgba(0, 0, 0, 0.658);
                 }

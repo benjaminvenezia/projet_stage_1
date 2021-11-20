@@ -1,7 +1,29 @@
-  {% if  themeName  not in  themes %}
+                {% if  themeName  not in  themes %}
                     <p>Ce thème n'existe pas.</p>
                 {% else %}
                     <h1>{{ themeName }}</h1>
                 {% endif %}
-                <p>Après le chaud été, L'automne est la saison qui représente la maturité atteinte du stage, les derniers mois, peut être une esquisse de ce que j'aurais fait différement. <br>
-                </p>
+
+                <div class="container container__descriptiontheme  container__descriptiontheme--autumn">
+                    <div class="row">
+                        <div class="col ">
+                            <p class="mb-5">Après le chaud été, L'automne est la saison qui représente la maturité atteinte du stage, les derniers mois, peut être une esquisse de ce que j'aurais fait différement. <p>
+                                
+                     {% if articles|length > 0 %}
+                                    <a href="{{ path('article_show', {theme:'autumn', step: 1}) }}" class="btn btn-success btn-sm">Découvrir <i class="fas fa-book-reader"></i></a>
+                                {% else %}
+                                    <a href="{{ path('article_create') }}" class="btn btn-success btn-sm">créer le premier article. <i class="fas fa-feather-alt"></i></a>
+                                {% endif %}
+                                <a href="{{ path('navigation_theme', {theme:'winter'}) }}" class="btn btn-secondary btn-sm">Thème suivant <i class="fas fa-chevron-right"></i></a>
+                            </p>
+                        </div>
+                        <div class="col container__img">
+                            <img src="{{ asset('/build/img/svg/feuille.svg') }}" alt="Une feuille d'automne.">
+                        </div>
+                    </div>
+                </div>
+
+                
+                
+
+

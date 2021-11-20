@@ -4,6 +4,7 @@
         <div class="comment">
             <div class="comment__header">
                 <span class="comment__username">{{ c.user.username }}</span> le <span class="comment__date">{{ c.createdAt|format_datetime(locale='fr') }}</span> 
+                <br> <span>{{ c.user.roledescription }} </span>
             </div>
             <div class="comment__body">
                 <p>{{ c.commentary }}</p>

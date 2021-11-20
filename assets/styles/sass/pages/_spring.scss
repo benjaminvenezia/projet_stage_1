@@ -20,12 +20,13 @@
     }
 
     footer {
-        background-color: rgb(221, 184, 255);
+        background-color: rgba(255, 255, 255, 0.438);
+        backdrop-filter: blur(10px);
     }
 
     //ZONE COMMENTAIRE
     .comment-spring-theme {    
-        border-top: 2px solid rgba(0, 0, 0, 0.288);
+        
         padding: 50px;
 
         h2 {
@@ -33,7 +34,7 @@
         }
 
         .comment {
-            
+            backdrop-filter: blur(4px);
             background-color: rgba(91, 175, 80, 0.199);
             border-top-left-radius: 5px;
             border-top-right-radius: 5px;
@@ -68,4 +69,7 @@
     
 }
 
+.container__descriptiontheme--spring {
+    
 
+}

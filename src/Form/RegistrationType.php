@@ -17,9 +17,19 @@ class RegistrationType extends AbstractType
     {
         $builder
             ->add('username', TypeTextType::class, [
-                'label' => 'Entrez un nom d\'utilisateur'
+                'label' => 'Nom d\'utilisateur',
+                'attr' => [
+                    'placeholder' => 'utilisateur9847'
+                ]
             ])
-            ->add('email', EmailType::class, [
+            ->add('roledescription', TypeTextType::class, [
+                'required' => false,
+                'label' => 'Intitulé (optionnel)',
+                'attr' => [
+                    'placeholder' => 'Maître de stage'
+                ]
+            ])
+            ->add('Email', EmailType::class, [
                 'label' => 'Entrez un email'
             ])
             ->add('password', RepeatedType::class, [
@@ -28,7 +38,7 @@ class RegistrationType extends AbstractType
                 'options' => ['attr' => ['class' => 'password-field']],
                 'required' => true,
                 'first_options'  => ['label' => 'Entrez un mot de passe'],
-                'second_options' => ['label' => 'Entrez un mot de passe identique au premier.'],
+                'second_options' => ['label' => 'Vérifiez le mot de passe.'],
             ]);
         ;
     }

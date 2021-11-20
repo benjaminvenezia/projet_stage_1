@@ -1,7 +1,7 @@
 {% extends "base.html.twig" %}
 
 {% block title %}
-    Homepage
+    Saison - {{ themeName|capitalize }}
 {% endblock %}
 
 {% block body %}
@@ -24,9 +24,11 @@
               {% include 'pages/themes_description/'  ~ themeName ~ '.html.twig' %}
             </div>
         </div>
+        
     </div>
+        
 
-    <div class="container mt-5 mb-5 comment-{{ themeName }}-theme">
+    <div class="container container__comments mt-5 mb-5 comment-{{ themeName }}-theme ">
         <h2>Commentaires de {{ themeName }}</h2>
         {% if app.user %}
             <div class="col-4">
@@ -37,5 +39,13 @@
         {% endif %}
   
        {% include "comments/show.html.twig" %}
+        <div class="mt-2">
+            {{ knp_pagination_render(comments) }}
+        </div>
+
     </div>
+{% endblock %}
+
+{% block theme_banner %}
+    <img class="img__fond__theme" src="{{ asset('/build/img/svg/spring_fond.svg') }}" alt="Un bourgeon.">
 {% endblock %}

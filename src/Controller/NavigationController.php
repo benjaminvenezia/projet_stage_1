@@ -74,7 +74,7 @@ class NavigationController extends AbstractController
             $this->em->flush();
 
             $this->addFlash('success', "Merci pour le commentaire.");
-            return $this->redirectToRoute('navigation_theme', ['theme' =>$theme]);
+            return $this->redirectToRoute('navigation_theme', ['theme' => $theme]);
         }
 
         $themeObject = $themeRepository->findOneBy(['name' => strtolower($theme)]);
@@ -84,8 +84,8 @@ class NavigationController extends AbstractController
         }
 
         $comments = $commentRepository->findBy(['theme' => $themeObject->getId()]);
-        $comments = $classService->paginate(30, $comments, $request);
-
+        $comments = $classService->paginate(10, $comments, $request);
+    
         return $this->render('pages/theme.html.twig', [
             'articles' => $articles,
             'articlesPaginated' => $articlesPaginated,

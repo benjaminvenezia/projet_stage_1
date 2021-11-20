@@ -8,38 +8,33 @@
     
     <div class="container">
         <div class="row">
-
-            <div class="col-1">
-                <div>
-                    <a class="btn btn-primary" onClick="window.history.back();">revenir</a>
-                </div>
-                {% if  ReadingPercentage < 100  %}
-                    <div>
-                     <a class="btn btn-primary"  href="{{ path('article_show', {'step':nextArticleStep, 'theme':theme }) }}">article suivant</a>
-                    </div>
-                {% endif %}
-               
-            </div>
-            <div class="col-11">
+            <div class="col">
                 {% include "shared/_card.html.twig" %}
 
                 <div class="progress mb-5">
                     {% if  ReadingPercentage < 100  %}
                         <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: {{ ReadingPercentage }}%">Progression de lecture du thème {{ theme }}: {{ ReadingPercentage|round(0) }}%</div>
                     {% else %}
-                        <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: {{ ReadingPercentage }}%">Vous avez lu {{ ReadingPercentage }} du thème {{ theme }}, merci.</div>
+                        <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: {{ ReadingPercentage }}%">Vous avez lu {{ ReadingPercentage }} du thème {{ theme }}, merci.</div>
                     {% endif %}
                 </div>
-
-                {% if ReadingPercentage == 100 %}
-                <div class="mb-5">
-                    <a href="" class="btn btn-success btn-sm">Découvrir le thème Summer</a>
-                </div>
-                {% endif %}
             </div>
          
         </div>
-            
+        <div class="row mb-5">
+            <div class="col d-flex justify-content-between">
+                        <a class="btn btn-secondary rounded-circle" onClick="window.history.back();"><i class="fas fa-chevron-left fa-2x"></i></a>
+                        <a class="btn btn-secondary rounded-circle" href="{{ path('navigation_theme', {'theme':theme}) }}"><i class="fab fa-pagelines fa-2x"></i></a>
+                    {% if  ReadingPercentage < 100  %}
+                        <a class="btn btn-secondary rounded-circle"  href="{{ path('article_show', {'step':nextArticleStep, 'theme':theme }) }}"><i class="fas fa-chevron-right fa-2x"></i></a>  
+                    {% endif %} 
+                    {% if ReadingPercentage == 100 %}
+              
+                    <a href="{{ path('navigation_theme', { 'theme':'summer' }) }}" class="btn btn-success">Découvrez le thème summer</a>
+                
+                {% endif %}
+            </div>
+        </div>
         
         
 

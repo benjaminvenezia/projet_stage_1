@@ -44,7 +44,7 @@ class RegistrationController extends AbstractController
             $user->setPassword(
                 $this->userPasswordHasher->hashPassword($user, $form->get("password")->getData())
             );
-
+            $user->setRoledescription('utilisateur anonyme');
             $user->setToken($this->generateToken());
 
             $em = $this->getDoctrine()->getManager();

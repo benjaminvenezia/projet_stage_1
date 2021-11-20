@@ -71,6 +71,11 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     private $comments;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $roledescription;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -261,6 +266,18 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
                 $comment->setUser(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getRoledescription(): ?string
+    {
+        return $this->roledescription;
+    }
+
+    public function setRoledescription(string $roledescription): self
+    {
+        $this->roledescription = $roledescription;
 
         return $this;
     }

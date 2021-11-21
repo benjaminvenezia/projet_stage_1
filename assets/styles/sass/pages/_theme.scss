@@ -1,5 +1,5 @@
 .container__theme {
-    height: 80vh;
+    height: 60vh;
     position: relative;
 
     .container__index {
@@ -31,8 +31,23 @@
 }
 
 .container__comments {
+
+    .comment__header {
+        position: relative;
+
+
+        .container__commentconfig {
+            width: 50px;
+            position: absolute;
+            right: 10px;
+            top: 10px;
+        }
+    }
+
     overflow-y: auto;
     height: 80vh;
+
+    
 }
 
 

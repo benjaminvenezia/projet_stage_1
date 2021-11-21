@@ -2,22 +2,13 @@
 - problème champs création modification File
 - ajouter un user checker à l'inscription
 - système de recherche d'user amélioré
-- ajouter un favicon
 - faire la home ! 
 - mettre le themeservice dans le class service et l'appeller qu'une seule fois dans base si possible
-- ajouter une photo de profil à chaque utilisateur
-- créer un menu de gestion de compte. (modifié le mot de passe, supprimer lecompte, changer de photo de profil)
-- paginer les commentaires du thème 
 - trouver un moyen de titre long... les titres trop longs dans l'index
 - créer une illustration à l'inscription
 - enlever "l'admin supreme" de la gestion du compte.
-- creer une icone pour chaque thème. (un bourgeon pour le printemps, un épis de blé pour l'été, une feuille qui tombe, un lac gelé, un bourgeon qui éclos.)
-- améliorer le design de l'index côlé au thème
-- faire une jolie navbar avec 3 icones bien disposée et un copyright.
-- ajouter un un moyen de cocher pour supprimer les articles. 
-- remplacer le PasswordType par une verification du mot de passe à deux champs.
-- créer une icone de site à la place de Menu.
-- améliorer la navigation des aticles <  >
+- creer une icone pour chaque thème. (un bourgeon qui éclos.)
+- ajouter un un moyen de cocher pour supprimer les articles.
 - faire en sorte que l'utilisateur qui a crée son commentaire puisse le modifier et le supprimer.
 - trouver un moyen d'enlever les flashbag au bout d'un certain temps
 - faire le user checker

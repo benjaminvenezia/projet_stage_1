@@ -16,24 +16,31 @@ use Symfony\Component\Routing\Annotation\Route;
 class CommentsController extends AbstractController
 {
     /**
-     * @Route("/comments/show/{theme}", name="comments_show")
+     * Supprime un commentaire depuis l'espace commentaire.
+     * @Route("/{theme}/comments/{idComment}/delete", name="comments_delete")
      */
-    // public function show($theme, CommentRepository $commentRepository, ThemeRepository $themeRepository, ThemesService $themesService): Response
-    // {
-       
+    public function delete($theme, $idComment, CommentRepository $commentRepository, ThemeRepository $themeRepository, ThemesService $themesService): Response
+    {
+        $em = $this->getDoctrine()->getManager();
 
-    //     $themeObject = $themeRepository->findOneBy(['name' => strtolower($theme)]);
+        $commentToDelete = $commentRepository->find($idComment);
 
-    //     if(!$themeObject) {
-    //         throw new NotFoundHttpException("Une erreur a eu lieu");
-    //     }
+        if($this->getUser()->getId() !== $commentToDelete->getUser()->getId()) {
+            throw new NotFoundHttpException("Ce commentaire n'est pas le votre.");
+        }
+        
+        if(!$commentToDelete) {
+            throw new NotFoundHttpException("commentaire introuvable.");
+        }
 
-    //     $comments = $commentRepository->findBy(['theme' => $themeObject->getId()]);
-
-    //     return $this->render('pages/theme.html.twig', [
-    //         'comments' => $comments,
-          
-    //     ]);
+        $em->remove($commentToDelete);
       
-    // }
+        $em->flush();
+     
+        $this->addFlash('success', 'L\'article a bien été supprimé.');
+     
+        return $this->redirectToRoute('navigation_theme', ['theme' => $theme]);
+
+      
+    }
 }

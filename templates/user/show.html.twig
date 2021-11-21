@@ -12,11 +12,18 @@
             </div>
         </div>
          <div class="row">
-            <div class="col">
+            <div class="col-3">
                 <p>mail : {{ mail }}</p>
                 <p>username :  {{ username }}</p>
                 <p>inscrit le : {{ createdAt|format_datetime() }}</p>
                 
+                
+                {{ form_start(formView) }}
+                {{ form_row(formView) }}
+            
+                {{ form_end(formView) }}
+
+
                 {% if isVerified %}
                     <p class="badge bg-success">Le compte a été vérifié.</p>
                 {% else %}

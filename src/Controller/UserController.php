@@ -14,6 +14,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use App\Entity\User;
+use App\Form\RoledescriptionType;
 use Symfony\Component\PasswordHasher\Hasher\PasswordHasherFactory;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 
@@ -29,19 +30,36 @@ class UserController extends AbstractController
      * @Route("/user/gestion/informations", name="user_show")
      * @IsGranted("ROLE_USER")
      */
-    public function show(CommentRepository $commentRepository, ThemesService $themesService): Response
+    public function show(Request $request, CommentRepository $commentRepository, ThemesService $themesService): Response
     {
         
+
+
         $username = $this->getUser()->getUsername();
         $mail = $this->getUser()->getUserIdentifier();
         $roles = $this->getUser()->getRoles();
         $isVerified = $this->getUser()->getIsVerified();
         $created_at = $this->getUser()->getCreatedAt();
+        $roledescription = $this->getUser()->getRoledescription();
+
+        $form = $this->createForm(RoledescriptionType::class, $this->getUser());
+
+        $form->handleRequest($request);
+
+        if($form->isSubmitted() && $form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+
+            $em->flush();
+            $this->addFlash('info', "opération réussie, ");
+            return $this->redirectToRoute('user_show');
+            
+        }
 
         
         // $comments = $commentRepository->findBy(['user' => $this->getUser()]);
 
         return $this->render('user/show.html.twig', [
+            'formView' => $form->createView(),
             'username' => $username,
             'mail' => $mail,
             'roles' => $roles,

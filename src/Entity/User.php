@@ -28,7 +28,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     /**
      * @ORM\Column(type="string", length=180, unique=true)
      * @Assert\Email()
-     * @Assert\NotBlank()
+     * @Assert\NotBlank
      */
     private $email;
 
@@ -40,14 +40,14 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     /**
      * @var string The hashed password
      * @ORM\Column(type="string")
-     * @Assert\NotBlank()
+     * @Assert\NotBlank
      * @Assert\Length(min=10, minMessage="Le mot-de-passe doit comporter au minimum 10 caractères.")
      */
     private $password;
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Assert\NotBlank()
+     * @Assert\NotBlank
      */
     private $username;
 
@@ -73,6 +73,10 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="Ce champs est obligatoire.")
+     * @Assert\Length(min=5, minMessage="Le mot-de-passe doit comporter au minimum 5 caractères.")
+     * @Assert\Length(max=20, minMessage="Le mot-de-passe doit comporter au maximum 20 caractères.")
+     * 
      */
     private $roledescription;
 
@@ -275,7 +279,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this->roledescription;
     }
 
-    public function setRoledescription(string $roledescription): self
+    public function setRoledescription(?string $roledescription): self
     {
         $this->roledescription = $roledescription;
 

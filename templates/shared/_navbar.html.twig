@@ -23,6 +23,17 @@
             {% endif %}
     </ul>
     <ul>
+        <li>
+
+            
+            {# <div class="input-group rounded">
+                <input type="search" class="form-control rounded" placeholder="chercher un article" aria-label="Search"
+                aria-describedby="search-addon" />
+                <span class="input-group-text border-0" id="search-addon">
+                    <i class="fas fa-search"></i>
+                </span>
+            </div> #}
+        </li>
         {% if not app.user %}
             <li><a class="btn btn-outline-success my-2 my-sm-0" href="{{ path('security_login') }}">Connexion</a></li>
         {% endif %}

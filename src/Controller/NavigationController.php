@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Comment;
 use App\Form\CommentType;
+use App\Form\SearchArticlesType;
 use App\Repository\ArticleRepository;
 use App\Repository\CommentRepository;
 use App\Repository\ThemeRepository;
@@ -56,6 +57,22 @@ class NavigationController extends AbstractController
 
         $articlesPaginated = $classService->paginate(1, $articles, $request);
 
+        //ajout search articles
+        $searchForm = $this->createForm(SearchArticlesType::class);
+
+        $search = $searchForm->handleRequest($request);
+
+        if($searchForm->isSubmitted() && $searchForm->isValid()) {
+            //on recherche les articles correspondants aux mots-clés
+            $articlesresult = $this->articleRepository->search($search->get('mots')->getData());
+       
+            return $this->render('pages/searchResult.html.twig', [
+                'search' => $search->get('mots')->getData(),
+                'articles' => $articlesresult,
+                'themeName' => $theme,
+                'themes' =>  $this->themesService->getThemes(),
+            ]);
+        }
 
         //ajout form commentaire
         $comment = new Comment;
@@ -93,6 +110,7 @@ class NavigationController extends AbstractController
             'themes' =>  $this->themesService->getThemes(),
             'formComment' => $form->createView(),
             'comments' => $comments,
+            'searchForm' => $searchForm->createView(),
         ]);
     }
 }

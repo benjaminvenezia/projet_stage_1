@@ -6,7 +6,12 @@
 
 {% block body %}
 
-    <div class="container container__theme">    
+    <div class="container container__theme"> 
+        <div class="row">
+            <div class="col-2">
+                {% include "shared/_searchForm.html.twig" %}
+            </div>
+        </div>
         <div class="row">
             <div class="col-2 container__index ">
                 <ul>

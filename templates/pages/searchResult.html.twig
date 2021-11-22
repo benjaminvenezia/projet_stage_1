@@ -1,0 +1,42 @@
+{% extends "base.html.twig" %}
+
+{% block title %}
+    Résultat de recherche
+{% endblock %}
+
+{% block body %}
+
+    <div class="container">
+        <h1>Résultat(s) de la recherche '{{ search }}'</h1>
+
+        
+        <h3> {{ articles|length }} résultat(s)! </h3>
+        <div class="row">
+            <div class="col">
+                {% if  articles|length > 0  %}
+                    {% for a in articles %}
+                            <div class="card p-3 mb-3 mt-5">
+                                <div class="card-body">
+                                    <h2 class="card-title">{{ a.title }}</h2>
+                                    <p class="badge bg-primary">{{ a.theme.name }}</p>
+                                    <p class="card-text">{{ a.description|u.truncate(200, '...', false) }}</p>
+                                    <a href="{{ path('article_show', {theme: a.theme.name, step: a.step}) }}" class="btn btn-lg btn-success">Voir l'article.</a>
+                                </div>
+                            </div>  
+                    {% endfor %}
+                {% else %}
+                    <p>Aucun résultat.</p>
+                {% endif %}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4">
+                <a class="btn btn-lg btn-secondary mt-5" href="{{ path('navigation_theme', {theme:themeName}) }}" > <i class="fas fa-chevron-circle-left"></i>  REVENIR AU THEME {{ themeName|upper }} </a>
+            </div>
+        </div>
+        
+    </div>
+
+    
+    
+{% endblock %}

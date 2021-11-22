@@ -5,13 +5,14 @@
             <div class="comment__header">
                 <span class="comment__username">{{ c.user.username }}</span> le <span class="comment__date">{{ c.createdAt|format_datetime(locale='fr') }}</span> 
                 <br> <span>{{ c.user.roledescription }} </span>
-
-                {% if c.user.id == app.user.id %}
-                    <div class="container container__commentconfig">
-                        <a href="{{ path('comments_delete', {'idComment': c.id , 'theme':themeName}) }}" class="btn btn-sm"><i class="fas fa-trash-alt"></i></i></a>
-                        
-                    </div>
-                {% endif %}
+              
+                    {% if app.user and c.user.id == app.user.id %}
+                        <div class="container container__commentconfig">
+                            <a href="{{ path('comments_delete', {'idComment': c.id , 'theme':themeName}) }}" class="btn btn-sm"><i class="fas fa-trash-alt"></i></i></a>
+                            
+                        </div>
+                    {% endif %}
+               
             
             </div>
             <div class="comment__body">

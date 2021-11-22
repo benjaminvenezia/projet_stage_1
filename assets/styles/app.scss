@@ -4,9 +4,6 @@
 // the ~ allows you to reference things in node_modules
 @import "../../node_modules/bootstrap/scss/bootstrap";
 
-//characters
-@import "sass/characters/me";
-
 // Abstract files
 @import "sass/abstracts/polices";
 @import "sass/abstracts/mixins";
@@ -33,7 +30,7 @@
 @import "sass/layout/sidebar";
 
 //  Pages
-@import "sass/pages/slider";
+@import "sass/pages/homepage";
 @import "sass/pages/spring";
 @import "sass/pages/summer";
 @import "sass/pages/autumn";

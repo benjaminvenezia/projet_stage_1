@@ -62,7 +62,7 @@ Encore
 
     .copyFiles({
         from: './assets/img',
-        to: 'img/[path][name].[ext]'
+        to: 'img/[path][name].[ext]',
     })
     // uncomment if you use TypeScript
     //.enableTypeScriptLoader()

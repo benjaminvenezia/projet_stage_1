@@ -1,10 +1,20 @@
+.video_themes {
+    z-index: -1;
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+}
+
 .container__theme {
     height: 60vh;
     position: relative;
 
     .container__index {
         padding: 15px;
-        background-color: rgba(255, 255, 255, 0.555);
+        background-color: rgba(255, 255, 255, 0.863);
+        backdrop-filter: blur(15px);
         border-radius: 10px;
         box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
         margin-right: 15px;
@@ -21,7 +31,8 @@
     }
 
     .container__description {
-        background-color: rgb(255, 255, 255);
+        background-color: rgba(255, 255, 255, 0.863);
+        backdrop-filter: blur(15px);
         border-radius: 10px;
         padding-left: 20px;
         box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;

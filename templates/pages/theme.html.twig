@@ -6,9 +6,33 @@
 
 {% block body %}
 
+    {% if themeName == 'spring' %}
+         {% set video = 'spring_video.mp4' %}
+     {% endif %}
+
+     {% if themeName == 'summer' %}
+         {% set video = 'summer_video.mp4' %}
+     {% endif %}
+
+     {% if themeName == 'autumn' %}
+         {% set video = 'autumn_video.mp4' %}
+     {% endif %}
+
+     {% if themeName == 'winter' %}
+         {% set video = 'wintervideo.mp4' %}
+     {% endif %}
+
+     {% if themeName == 'spring2' %}
+         {% set video = 'spring2_video.mp4' %}
+     {% endif %}
+
+    <video class="video_themes" autoplay muted loop id="myVideo">
+        <source src="{{ asset('/build/img/videos/' ~ video) }}" type="video/mp4">
+    </video>
+
     <div class="container container__theme"> 
-        <div class="row">
-            <div class="col-2">
+        <div class="row mt-5 ">
+            <div class="col-3">
                 {% include "shared/_searchForm.html.twig" %}
             </div>
         </div>
@@ -71,8 +95,9 @@
             <a href="{{ path('security_login') }}">Connectez-vous pour poster un commentaire.</a>
         {% endif %}
     </div>
+
 {% endblock %}
 
-{% block theme_banner %}
+{# {% block theme_banner %}
     <img class="img__fond__theme" src="{{ asset('/build/img/svg/spring_fond.svg') }}" alt="Un bourgeon.">
-{% endblock %}
+{% endblock %} #}

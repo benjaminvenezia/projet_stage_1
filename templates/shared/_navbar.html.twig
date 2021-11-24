@@ -1,9 +1,10 @@
 <nav class="nav nav__main pt-3 justify-content-between">
     <ul>
-        <li><a class="text-center" href="{{ path('navigation_theme', {'theme':'spring'}) }}">
-
+        <li>
+            <a class="text-center" href="{{ path('navigation_theme', {'theme':'spring'}) }}">
                 <img src="{{ asset('build/img/navbar/icon-mini.png') }}" alt="un arbre représentant les 4 saisons">
-        </a></li>
+            </a>
+        </li>
         <li>
             <div class="dropdown">
                 <span>Saisons</span>
@@ -14,13 +15,20 @@
                 </div>
             </div>
         </li>
-            {% if app.user.roles[0] is defined %}
-                {% if app.user.roles[0] is same as('ROLE_ADMIN') %}
-                    <li><a href="{{ path('article_create') }}">Créer un article <i class="fas fa-plus"></i></a></li>
-                    <li><a href="{{ path('administration_administrateArticles') }}">Gestion des articles <i class="fas fa-book"></i></a></li>
-                    <li><a href="{{ path('administration_administrateUsers', {page:1} ) }}">Gestion des utilisateurs <i class="fas fa-user"></i></a></li>
+        <li>
+            {% if app.user %}
+                {% if app.user.bookmark is not null %}
+                    <a title="Reprenez votre lecture à l'article marqué précedemment."  href="{{ path('article_showById', {'id':app.user.bookmark}) }}"><i class="fas fa-bookmark"></i></a>
                 {% endif %}
             {% endif %}
+        </li>
+        {% if app.user.roles[0] is defined %}
+            {% if app.user.roles[0] is same as('ROLE_ADMIN') %}
+                <li><a href="{{ path('article_create') }}">Créer un article <i class="fas fa-plus"></i></a></li>
+                <li><a href="{{ path('administration_administrateArticles') }}">Gestion des articles <i class="fas fa-book"></i></a></li>
+                <li><a href="{{ path('administration_administrateUsers', {page:1} ) }}">Gestion des utilisateurs <i class="fas fa-user"></i></a></li>
+            {% endif %}
+        {% endif %}
     </ul>
     <ul>
         <li>

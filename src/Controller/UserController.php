@@ -32,9 +32,6 @@ class UserController extends AbstractController
      */
     public function show(Request $request, CommentRepository $commentRepository, ThemesService $themesService): Response
     {
-        
-
-
         $username = $this->getUser()->getUsername();
         $mail = $this->getUser()->getUserIdentifier();
         $roles = $this->getUser()->getRoles();
@@ -128,5 +125,29 @@ class UserController extends AbstractController
             'formView' => $form->createView(),
             'themes' => $themesService->getThemes()
         ]);
+    }
+
+    /**
+     * Allow the connected user to save an article for later. (bookmark)
+     * @Route("/user/{article_theme}/{article_id}/{article_step}/bookmark", name="user_bookmark")
+     * @IsGranted("ROLE_USER")
+     */
+    public function bookmark($article_id, $article_theme, $article_step): Response
+    {
+        $em = $this->getDoctrine()->getManager();
+        /**
+         * @var User $user
+         */
+        $user = $this->getUser();
+
+        $user->setBookmark($article_id);
+
+        $em->persist($user);
+        $em->flush();
+
+        $this->addFlash('success', "Vous avez placé un marque page sur cet article. Vous pourrez le retrouver dans la barre de navigation. ");
+
+        return $this->redirectToRoute('article_show', ['theme' => $article_theme, 'step' => $article_step, 'article_id' => $article_id]);
+        
     }
 }

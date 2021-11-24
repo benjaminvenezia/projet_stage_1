@@ -80,6 +80,11 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     private $roledescription;
 
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $bookmark;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -282,6 +287,18 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setRoledescription(?string $roledescription): self
     {
         $this->roledescription = $roledescription;
+
+        return $this;
+    }
+
+    public function getBookmark(): ?int
+    {
+        return $this->bookmark;
+    }
+
+    public function setBookmark(?int $bookmark): self
+    {
+        $this->bookmark = $bookmark;
 
         return $this;
     }

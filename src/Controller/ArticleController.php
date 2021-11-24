@@ -122,6 +122,7 @@ class ArticleController extends AbstractController
     }
 
      /**
+     * Show an article by is theme and is step, very intersting for navigation because articles have step. 
      * @Route("article/{theme}/{step}/show", name="article_show")
      */
     public function show($theme, $step, Request $request, ClassService $classService,ThemeRepository $themeRepository, ArticleRepository $articleRepository): Response
@@ -149,28 +150,30 @@ class ArticleController extends AbstractController
         ]);
     }
 
-    // /**
-    //  * @Route("article/{id}/show", name="article_show")
-    //  */
-    // public function show($id, Request $request, ClassService $classService, ArticleRepository $articleRepository): Response
-    // {
-    //     $article = $articleRepository->findOneBy(['id' => $id]);
+    /**
+     *  Show an article with is id only. Useful for bookmark functionality
+     * @Route("article/{id}/show", name="article_showById")
+     */
+    public function showById($id, Request $request, ThemesService $themesService, ArticleRepository $articleRepository): Response
+    {
+        $article = $articleRepository->findOneBy(['id' => $id]);
 
-    //     if(!$article) {
-    //         throw new NotFoundHttpException("erreur, article introuvable. ");
-    //     }
-    //     $idtheme = $article->getTheme()->getId();
+        if(!$article) {
+            throw new NotFoundHttpException("erreur, article introuvable. ");
+        }
+        $idtheme = $article->getTheme()->getId();
 
-    //     $totalArticlesByTheme = $articleRepository->count(['theme' => $idtheme]);
+        $totalArticlesByTheme = $articleRepository->count(['theme' => $idtheme]);
 
-    //     $numberOfTheArticle = $article->getStep();
-    //     $percentage = ( $numberOfTheArticle / $totalArticlesByTheme  ) * 100;
+        $numberOfTheArticle = $article->getStep();
+        $percentage = ( $numberOfTheArticle / $totalArticlesByTheme  ) * 100;
 
-    //     return $this->render('article/show.html.twig', [
-    //         'article' => $article,
-    //         'themes' => $this->themesService->getThemes(),
-    //         'ReadingPercentage' => $percentage,
-    //         'nextArticleStep' => $article->getStep() + 1
-    //     ]);
-    // }
+        return $this->render('article/show.html.twig', [
+            'article' => $article,
+            'theme' => $article->getTheme()->getName(),
+            'themes' => $themesService->getThemes(),
+            'ReadingPercentage' => $percentage,
+            'nextArticleStep' => $article->getStep() + 1
+        ]);
+    }
 }

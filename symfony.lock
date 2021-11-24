@@ -1,4 +1,16 @@
 {
+    "dompdf/dompdf": {
+        "version": "v1.1.0"
+    },
+    "phenx/php-font-lib": {
+        "version": "0.5.2"
+    },
+    "phenx/php-svg-lib": {
+        "version": "0.3.4"
+    },
+    "sabberworm/php-css-parser": {
+        "version": "8.3.1"
+    },
     "symfony/google-mailer": {
         "version": "5.3",
         "recipe": {

@@ -3,6 +3,7 @@
 
 namespace App\Services;
 
+use Dompdf\Dompdf;
 use Twig\Environment;
 use App\Repository\ThemeRepository;
 use Doctrine\ORM\EntityManagerInterface;
@@ -54,5 +55,20 @@ class ClassService {
         
         return $elements;
     }
+
+    public function renderHtml($articles) {
+
+        $html = '';
+
+        
+        foreach($articles as $a) {
+            $html .= '<h1>' . $a->getTitle()  . '(' . $a->getStep() . ')' . '</h1>';
+            $html .= $a->getTheme()->getName();
+            $html .= $a->getDescription();
+        }
+
+        return $html;
+    }
+
 }
     

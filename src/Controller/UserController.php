@@ -2,19 +2,23 @@
 
 namespace App\Controller;
 
+use Dompdf\Dompdf;
+use Dompdf\Options;
+use App\Entity\User;
 use App\Entity\Comment;
-use App\Form\ChangepasswordType;
+use App\Services\ClassService;
 use App\Services\ThemesService;
-use App\Repository\CommentRepository;
+use App\Form\ChangepasswordType;
+use App\Form\RoledescriptionType;
+use App\Repository\ArticleRepository;
 use App\Repository\UserRepository;
+use App\Repository\CommentRepository;
 use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\Request;
-use App\Entity\User;
-use App\Form\RoledescriptionType;
 use Symfony\Component\PasswordHasher\Hasher\PasswordHasherFactory;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 
@@ -150,4 +154,48 @@ class UserController extends AbstractController
         return $this->redirectToRoute('article_show', ['theme' => $article_theme, 'step' => $article_step, 'article_id' => $article_id]);
         
     }
+
+    /**
+     * @Route("/user/downloadpdf", name="user_downloadpdf")
+     */
+    public function downloadpdf(ArticleRepository $articleRepository, ClassService $classService)
+    {
+        require '../vendor/autoload.php';
+
+        $options = new Options();
+        $options->set('defaultFont', 'Courier');
+
+        /**
+         * @var array<Article>
+         */
+        $articles = $articleRepository->findAll();
+        
+        $html = $classService->renderHtml($articles);
+
+
+        // instantiate and use the dompdf class
+        $dompdf = new Dompdf($options);
+
+        $dompdf->loadHtml(
+
+            $html
+        
+        );
+
+        // (Optional) Setup the paper size and orientation
+        $dompdf->setPaper('A4', 'landscape');
+
+        // Render the HTML as PDF
+        $dompdf->render();
+        
+        $fichier = 'rapport-de-stage-benjamin-crea-2021.pdf';
+        // Output the generated PDF to Browser
+        $dompdf->stream($fichier);
+    
+
+        return new Response('', 200, [
+            'Content-Type' => 'application/pdf',
+          ]);
+    }
+
 }

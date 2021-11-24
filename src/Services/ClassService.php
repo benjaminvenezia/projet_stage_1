@@ -70,5 +70,24 @@ class ClassService {
         return $html;
     }
 
+    public function renderHtmlversioncorrection($articles) {
+
+        $html = '';
+
+        $html .= '<h1>Version pour correction avec zones d\'annotations</h1>';
+
+        foreach($articles as $a) {
+
+            $html .= '<h1>' . $a->getTitle()  . '(' . $a->getStep() . ')' . '</h1>';
+            $html .= $a->getTheme()->getName();
+            $html .= $a->getDescription();
+            $html .= '<p>Notes :</p>';
+            $html .= "<div style='border: 1px solid black; padding:200px;'></div>";
+           
+        }
+
+        return $html;
+    }
+
 }
     

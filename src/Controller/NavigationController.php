@@ -35,14 +35,20 @@ class NavigationController extends AbstractController
     }
 
     /**
-     * 
      * @Route("/", name="navigation_homepage")
      */
-    public function homepage(ThemesService $themesService): Response
+    public function homepage(): Response
     {
+        return $this->render('pages/homepage.html.twig');
+    }
 
-        return $this->render('pages/homepage.html.twig', [
-            
+    /**
+     * @Route("/download", name="navigation_download")
+     */
+    public function download(ThemesService $themesService): Response
+    {
+        return $this->render('pages/download.html.twig', [
+            'themes' => $themesService->getThemes()
         ]);
     }
 

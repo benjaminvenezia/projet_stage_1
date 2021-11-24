@@ -198,4 +198,48 @@ class UserController extends AbstractController
           ]);
     }
 
+
+    /**
+     * @Route("/user/downloadpdfv2", name="user_downloadpdfversioncorrection")
+     */
+    public function downloadpdfversioncorrection(ArticleRepository $articleRepository, ClassService $classService)
+    {
+        require '../vendor/autoload.php';
+
+        $options = new Options();
+        $options->set('defaultFont', 'Courier');
+
+        /**
+         * @var array<Article>
+         */
+        $articles = $articleRepository->findAll();
+        
+        $html = $classService->renderHtmlversioncorrection($articles);
+
+
+        // instantiate and use the dompdf class
+        $dompdf = new Dompdf($options);
+
+        $dompdf->loadHtml(
+
+            $html
+        
+        );
+
+        // (Optional) Setup the paper size and orientation
+        $dompdf->setPaper('A4', 'landscape');
+
+        // Render the HTML as PDF
+        $dompdf->render();
+        
+        $fichier = 'rapport-de-stage-benjamin-crea-2021-version-correction.pdf';
+        // Output the generated PDF to Browser
+        $dompdf->stream($fichier);
+    
+
+        return new Response('', 200, [
+            'Content-Type' => 'application/pdf',
+          ]);
+    }
+
 }

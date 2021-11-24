@@ -19,12 +19,12 @@
         <li>
             {% if app.user %}
                 {% if app.user.bookmark is not null %}
-                    <a title="Reprenez votre lecture à l'article marqué précedemment."  href="{{ path('article_showById', {'id':app.user.bookmark}) }}"><i class="fas fa-bookmark"></i></a>
+                    <a title="Reprenez votre lecture à l'article marqué précedemment."  href="{{ path('article_showById', {'id':app.user.bookmark}) }}">Marque page <i class="fas fa-bookmark"></i></a>
                 {% endif %}
             {% endif %}
         </li>
         <li>
-            <a title="télécharger l'ensemble du rapport de stage en pdf!" href="{{ path('user_downloadpdf') }}"><i class="fas fa-download"></i></a>
+            <a title="télécharger l'ensemble du rapport de stage en pdf!" href="{{ path('navigation_download') }}">Télécharger <i class="fas fa-download"></i></a>
         </li>
         {% if app.user.roles[0] is defined %}
             {% if app.user.roles[0] is same as('ROLE_ADMIN') %}

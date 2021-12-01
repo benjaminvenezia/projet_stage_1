@@ -6,7 +6,6 @@ use DateTime;
 use App\Entity\Article;
 use App\Form\ArticleType;
 use App\Services\ClassService;
-use App\Services\ThemesService;
 use App\Repository\ArticleRepository;
 use App\Repository\ThemeRepository;
 use App\Repository\UserRepository;
@@ -25,7 +24,6 @@ class ArticleController extends AbstractController
 
     protected $em;
     protected $articleRepository;
-    protected $themesService;
     protected $upload;
   
     public function __construct(EntityManagerInterface $em, ArticleRepository $articleRepository)

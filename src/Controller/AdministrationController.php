@@ -5,7 +5,6 @@ namespace App\Controller;
 use App\Entity\User;
 use App\Form\UserType;
 use App\Services\ClassService;
-use App\Services\ThemesService;
 use App\Repository\UserRepository;
 use App\Repository\ThemeRepository;
 use App\Repository\ArticleRepository;
@@ -22,19 +21,17 @@ class AdministrationController extends AbstractController
     protected EntityManagerInterface $em;
     protected ArticleRepository $articleRepository;
     protected ThemeRepository $themeRepository;
-    protected  $themesService;
     const ADMIN_ROLE = "ROLE_ADMIN";
     const USER_ROLE = "ROLE_USER";
     const SUPER_ADMIN_ROLE = "ROLE_SUPER_ADMIN";
 
 
 
-    public function __construct(EntityManagerInterface $em, ArticleRepository $articleRepository, ThemeRepository $themeRepository, ThemesService $themesService)
+    public function __construct(EntityManagerInterface $em, ArticleRepository $articleRepository, ThemeRepository $themeRepository)
     {
         $this->em = $em;
         $this->articleRepository = $articleRepository;
         $this->themeRepository = $themeRepository;
-        $this->themesService = $themesService;
     }
 
 
@@ -93,7 +90,6 @@ class AdministrationController extends AbstractController
             'articles_winter' => $articles_winter,
             'articles_spring2' => $articles_spring2,
             'articles' => $articles,
-            'themes' => $this->themesService->getThemes(),
             'themesNames' => $themesNames,
         ]);
     }
@@ -101,14 +97,13 @@ class AdministrationController extends AbstractController
     /**
      * @Route("admin/administration/users", name="administration_administrateUsers")
      */
-    public function administrateUsers(Request $request, ThemesService $themesService, ClassService $classService, UserRepository $userRepository): Response
+    public function administrateUsers(Request $request, ClassService $classService, UserRepository $userRepository): Response
     {
 
         $users = $userRepository->findAll();
         $users = $classService->paginate(7, $users, $request);
 
         return $this->render('administration/users.html.twig', [
-            'themes' => $themesService->getThemes(),
             'users' => $users
         ]);
     }
@@ -146,7 +141,7 @@ class AdministrationController extends AbstractController
      /**
      * @Route("admin/administration/users/search", name="administration_search")
      */
-    public function search(ThemesService $themesService, UserRepository $userRepository)
+    public function search(UserRepository $userRepository)
     {
 
             $email = $_POST['search'];
@@ -159,7 +154,6 @@ class AdministrationController extends AbstractController
             }
 
             return $this->render('administration/user.html.twig', [
-                'themes' => $themesService->getThemes(),
                 'user' => $user
             ]);
         

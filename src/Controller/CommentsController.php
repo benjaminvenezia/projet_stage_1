@@ -6,7 +6,6 @@ use App\Entity\Comment;
 use App\Form\CommentType;
 use App\Repository\CommentRepository;
 use App\Repository\ThemeRepository;
-use App\Services\ThemesService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Response;
@@ -19,7 +18,7 @@ class CommentsController extends AbstractController
      * Supprime un commentaire depuis l'espace commentaire.
      * @Route("/{theme}/comments/{idComment}/delete", name="comments_delete")
      */
-    public function delete($theme, $idComment, CommentRepository $commentRepository, ThemeRepository $themeRepository, ThemesService $themesService): Response
+    public function delete($theme, $idComment, CommentRepository $commentRepository, ThemeRepository $themeRepository): Response
     {
         $em = $this->getDoctrine()->getManager();
 

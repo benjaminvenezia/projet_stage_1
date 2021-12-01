@@ -71,7 +71,6 @@ class NavigationController extends AbstractController
                 'search' => $search->get('mots')->getData(),
                 'articles' => $articlesresult,
                 'themeName' => $theme,
-                'themes' =>  $this->themesService->getThemes(),
             ]);
         }
 

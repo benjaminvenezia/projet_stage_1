@@ -7,7 +7,6 @@ use App\Entity\User;
 use App\Form\RegistrationType;
 use App\Repository\UserRepository;
 use App\Services\MailerService;
-use App\Services\ThemesService;
 use Symfony\Component\Mime\Address;
 use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Component\HttpFoundation\Request;
@@ -22,7 +21,6 @@ class RegistrationController extends AbstractController
 
     protected $userPasswordHasher;
     protected $mailerService;
-    protected $themesService;
 
     public function __construct(UserPasswordHasherInterface $userPasswordHasherInterface, MailerService $mailerService){
         $this->userPasswordHasher = $userPasswordHasherInterface;

@@ -3,7 +3,6 @@
 namespace App\Controller;
 
 use App\Form\LoginType;
-use App\Services\ThemesService;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -14,7 +13,7 @@ class SecurityController extends AbstractController
     /**
      * @Route("/login", name="security_login")
      */
-    public function login(AuthenticationUtils $utils, ThemesService $themesService): Response
+    public function login(AuthenticationUtils $utils): Response
     {
         // if ($this->getUser()) {
         //     // return $this->redirectToRoute('target_path');
@@ -29,8 +28,6 @@ class SecurityController extends AbstractController
         return $this->render('security/login.html.twig', [
             'last_username' => $lastUsername, 
             'error' => $error,
-            // 'formView' => $form->createView(),
-            'themes' => $themesService->getThemes()
         ]);
     }
 

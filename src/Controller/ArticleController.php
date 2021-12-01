@@ -37,7 +37,6 @@ class ArticleController extends AbstractController
      */
     public function create(Request $request, ClassService $classService): Response
     {
-       
         $article = new Article;
         
         $form = $this->createForm(ArticleType::class, $article);
@@ -137,11 +136,19 @@ class ArticleController extends AbstractController
         $stepOfTheArticle = $article->getStep();
         $percentage = ( $stepOfTheArticle / $totalArticlesByTheme  ) * 100;
 
+        if($article->getStep() - 1 > 0) {
+            $previousArticle = $article->getStep() - 1;
+        } else {
+            $previousArticle = 1;
+        }
+
         return $this->render('article/show.html.twig', [
             'article' => $article,
             'theme' => $theme->getName(),
             'ReadingPercentage' => $percentage,
-            'nextArticleStep' => $article->getStep() + 1
+            'nextArticleStep' => $article->getStep() + 1,
+            'previousArticleStep' => $previousArticle
+            
         ]);
     }
 

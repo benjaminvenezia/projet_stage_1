@@ -23,7 +23,12 @@
         </div>
         <div class="row mb-5">
             <div class="col d-flex justify-content-between">
-                        <a class="btn btn-secondary rounded-circle" onClick="window.history.back();"><i class="fas fa-chevron-left fa-2x"></i></a>
+                        {% if article.step > 1 %}
+                            <a class="btn btn-secondary rounded-circle" href="{{ path('article_show', {'step':previousArticleStep, 'theme':theme }) }}"><i class="fas fa-chevron-left fa-2x"></i></a>
+                        {% else %}
+                            {# On enlève le bouton de retour si on est au premier article. #}
+                        {% endif %}
+                        
                         <a class="btn btn-secondary rounded-circle" href="{{ path('navigation_theme', {'theme':theme}) }}"><i class="fab fa-pagelines fa-2x"></i></a>
                     {% if  ReadingPercentage < 100  %}
                         <a class="btn btn-secondary rounded-circle"  href="{{ path('article_show', {'step':nextArticleStep, 'theme':theme }) }}"><i class="fas fa-chevron-right fa-2x"></i></a>  
@@ -35,11 +40,5 @@
                 {% endif %}
             </div>
         </div>
-        
-        
-
-        
-         
-
     </div>
 {% endblock %}

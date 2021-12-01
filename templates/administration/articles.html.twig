@@ -22,7 +22,7 @@
                 {% for article_spring in articles_spring%}
                     <tr class="table-success">
                         <td><a class="badge bg-success" href="{{ path('navigation_theme', {theme: article_spring.theme.name}) }}">{{ article_spring.theme.name }}</a></td>
-                        <td>{{ article_spring.title  }}</td>
+                        <td> <a href="{{path('article_show', {'theme' : 'spring', 'step' : article_spring.step})}}">{{ article_spring.title}}</a></td>
                         <td><button class="btn btn-danger"><a href="{{ path('article_delete', {'id': article_spring.id}) }}">supprimer</a></button></td>
                         <td><button class="btn btn-warning"><a href="{{ path('article_edit', {'id': article_spring.id}) }}">modifier</a></button></td>
                     </tr>
@@ -31,7 +31,7 @@
                 {% for article_summer in articles_summer %}
                     <tr class="table-danger">
                         <td><a class="badge bg-danger" href="{{ path('navigation_theme', {theme: article_summer.theme.name}) }}">{{ article_summer.theme.name }}</a></td>
-                        <td>{{ article_summer.title }}</td>
+                        <td> <a href="{{path('article_show', {'theme' : 'summer', 'step' : article_summer.step})}}">{{ article_summer.title}}</a></td>
                         <td><button class="btn btn-danger"><a href="{{ path('article_delete', {'id': article_summer.id}) }}">supprimer</a></button></td>
                         <td><button class="btn btn-warning"><a href="{{ path('article_edit', {'id': article_summer.id}) }}">modifier</a></button></td>
                     </tr>
@@ -40,7 +40,7 @@
                 {% for article_autumn in articles_autumn%}
                     <tr class="table-warning">
                         <td><a class="badge bg-warning" href="{{ path('navigation_theme', {theme: article_autumn.theme.name}) }}">{{ article_autumn.theme.name }}</a></td>
-                        <td>{{ article_autumn.title }}</td>
+                        <td> <a href="{{path('article_show', {'theme' : 'autumn', 'step' : article_autumn.step})}}">{{ article_autumn.title}}</a></td>
                         <td><button class="btn btn-danger"><a href="{{ path('article_delete', {'id': article_autumn.id}) }}">supprimer</a></button></td>
                         <td><button class="btn btn-warning"><a href="{{ path('article_edit', {'id': article_autumn.id}) }}">modifier</a></button></td>
                     </tr>
@@ -49,7 +49,7 @@
                 {% for article_winter in articles_winter %}
                     <tr class="table-secondary">
                         <td><a class="badge bg-secondary" href="{{ path('navigation_theme', {theme: article_winter.theme.name}) }}">{{ article_winter.theme.name }}</a></td>
-                        <td>{{ article_winter.title }}</td>
+                        <td> <a href="{{path('article_show', {'theme' : 'winter', 'step' : article_winter.step})}}">{{ article_winter.title}}</a></td>
                         <td><button class="btn btn-danger"><a href="{{ path('article_delete', {'id': article_winter.id}) }}">supprimer</a></button></td>
                         <td><button class="btn btn-warning"><a href="{{ path('article_edit', {'id': article_winter.id}) }}">modifier</a></button></td>
                     </tr>
@@ -58,7 +58,7 @@
                 {% for article_spring2 in articles_spring2 %}
                     <tr class="table-success">
                         <td><a class="badge bg-success" href="{{ path('navigation_theme', {theme: article_spring2.theme.name}) }}">{{ article_spring2.theme.name }}</a></td>
-                        <td>{{ article_spring2.title }}</td>
+                        <td> <a href="{{path('article_show', {'theme' : 'spring2', 'step' : article_spring2.step})}}">{{ article_spring2.title}}</a></td>
                         <td><button class="btn btn-danger"><a href="{{ path('article_delete', {'id': article_spring2.id}) }}">supprimer</a></button></td>
                         <td><button class="btn btn-warning"><a href="{{ path('article_edit', {'id': article_spring2.id}) }}">modifier</a></button></td>
                     </tr>

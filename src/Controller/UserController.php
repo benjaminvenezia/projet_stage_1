@@ -7,7 +7,6 @@ use Dompdf\Options;
 use App\Entity\User;
 use App\Entity\Comment;
 use App\Services\ClassService;
-use App\Services\ThemesService;
 use App\Form\ChangepasswordType;
 use App\Form\RoledescriptionType;
 use App\Repository\ArticleRepository;
@@ -34,7 +33,7 @@ class UserController extends AbstractController
      * @Route("/user/gestion/informations", name="user_show")
      * @IsGranted("ROLE_USER")
      */
-    public function show(Request $request, CommentRepository $commentRepository, ThemesService $themesService): Response
+    public function show(Request $request, CommentRepository $commentRepository): Response
     {
         $username = $this->getUser()->getUsername();
         $mail = $this->getUser()->getUserIdentifier();
@@ -66,7 +65,6 @@ class UserController extends AbstractController
             'roles' => $roles,
             'isVerified' => $isVerified, 
             'createdAt' => $created_at,
-            'themes' => $themesService->getThemes()
         ]);
     }
 
@@ -74,7 +72,7 @@ class UserController extends AbstractController
      * @Route("/user/gestion/deleteaccount", name="user_deleteaccount")
      * @IsGranted("ROLE_USER")
      */
-    public function deleteaccount(UserRepository $userRepository, ThemesService $themesService, EntityManagerInterface $em): Response
+    public function deleteaccount(UserRepository $userRepository,  EntityManagerInterface $em): Response
     {
        $user = $this->getUser();
 
@@ -91,7 +89,7 @@ class UserController extends AbstractController
      * @Route("/user/gestion/changepassword", name="user_changepassword")
      * @IsGranted("ROLE_USER")
      */
-    public function changepassword(Request $request, ThemesService $themesService): Response
+    public function changepassword(Request $request): Response
     {   
        
         $user = $this->getUser();
@@ -127,7 +125,6 @@ class UserController extends AbstractController
 
         return $this->render('user/changepassword.html.twig', [
             'formView' => $form->createView(),
-            'themes' => $themesService->getThemes()
         ]);
     }
 

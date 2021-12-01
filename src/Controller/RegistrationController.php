@@ -24,10 +24,9 @@ class RegistrationController extends AbstractController
     protected $mailerService;
     protected $themesService;
 
-    public function __construct(UserPasswordHasherInterface $userPasswordHasherInterface, MailerService $mailerService, ThemesService $themesService){
+    public function __construct(UserPasswordHasherInterface $userPasswordHasherInterface, MailerService $mailerService){
         $this->userPasswordHasher = $userPasswordHasherInterface;
         $this->mailerService = $mailerService;
-        $this->themesService = $themesService;
     }
 
     /**
@@ -59,7 +58,6 @@ class RegistrationController extends AbstractController
         }
 
         return $this->render('registration/register.html.twig', [
-            'themes' => $this->themesService->getThemes(),
             'formView' => $form->createView()
         ]);
     }

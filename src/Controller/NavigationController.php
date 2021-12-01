@@ -9,7 +9,6 @@ use App\Repository\ArticleRepository;
 use App\Repository\CommentRepository;
 use App\Repository\ThemeRepository;
 use App\Services\ClassService;
-use App\Services\ThemesService;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Knp\Component\Pager\PaginatorInterface;
@@ -24,14 +23,12 @@ class NavigationController extends AbstractController
     protected EntityManagerInterface $em;
     protected ArticleRepository $articleRepository;
     protected ThemeRepository $themeRepository;
-    protected ThemesService $themesService;
 
-    public function __construct(EntityManagerInterface $em, ArticleRepository $articleRepository, ThemeRepository $themeRepository, ThemesService $themesService)
+    public function __construct(EntityManagerInterface $em, ArticleRepository $articleRepository, ThemeRepository $themeRepository)
     {
         $this->em = $em;
         $this->articleRepository = $articleRepository;
         $this->themeRepository = $themeRepository;
-        $this->themesService = $themesService;
     }
 
     /**
@@ -39,19 +36,15 @@ class NavigationController extends AbstractController
      */
     public function homepage(): Response
     {
-        return $this->render('pages/homepage.html.twig', [
-            'themes' => $this->themesService->getThemes()
-        ]);
+        return $this->render('pages/homepage.html.twig');
     }
 
     /**
      * @Route("/download", name="navigation_download")
      */
-    public function download(ThemesService $themesService): Response
+    public function download(): Response
     {
-        return $this->render('pages/download.html.twig', [
-            'themes' => $themesService->getThemes()
-        ]);
+        return $this->render('pages/download.html.twig');
     }
 
     /**
@@ -115,7 +108,6 @@ class NavigationController extends AbstractController
             'articles' => $articles,
             'articlesPaginated' => $articlesPaginated,
             'themeName' => $theme,
-            'themes' =>  $this->themesService->getThemes(),
             'formComment' => $form->createView(),
             'comments' => $comments,
             'searchForm' => $searchForm->createView(),

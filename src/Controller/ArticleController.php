@@ -75,7 +75,7 @@ class ArticleController extends AbstractController
     /**
      * @Route("admin/article/{id}/edit", name="article_edit")
      */
-    public function edit($id, Request $request, ThemesService $themesService, ClassService $classService): Response
+    public function edit($id, Request $request, ClassService $classService): Response
     {
         $article = $this->articleRepository->find($id);
 
@@ -151,7 +151,7 @@ class ArticleController extends AbstractController
      *  Show an article with is id only. Useful for bookmark functionality
      * @Route("article/{id}/show", name="article_showById")
      */
-    public function showById($id, Request $request, ThemesService $themesService, ArticleRepository $articleRepository): Response
+    public function showById($id, ArticleRepository $articleRepository): Response
     {
         $article = $articleRepository->findOneBy(['id' => $id]);
 

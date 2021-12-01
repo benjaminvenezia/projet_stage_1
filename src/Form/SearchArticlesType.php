@@ -17,13 +17,13 @@ class SearchArticlesType extends AbstractType
                 'label' => false, 
                 'attr' => [
                     'class' => 'form-control',
-                    'placeholder' => 'Entrez un ou plusieurs mots-clés'
+                    'placeholder' => 'chercher un article'
                 ]
             ])
-            ->add('Rechercher', SubmitType::class, [
-                'attr' => [
-                ]
-            ])
+            // ->add('valider', SubmitType::class, [
+            //     'attr' => [
+            //     ]
+            // ])
         ;
     }
 

@@ -31,13 +31,16 @@
     </video>
 
     <div class="container container__theme"> 
-        <div class="row mt-5 ">
+        {# <div class="row mt-5 ">
             <div class="col-3">
                 {% include "shared/_searchForm.html.twig" %}
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-2 container__index ">
+            </div> 
+        </div> #}
+        <div class="row mt-5">
+            <div class="col-3 container__index ">
+           
+                {% include "shared/_searchForm.html.twig" %}
+            
                 <ul>
                     <h4> Index </h4>
                     {% if articles|length == 0 %}

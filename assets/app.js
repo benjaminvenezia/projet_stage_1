@@ -9,8 +9,6 @@
 import './styles/app.scss';
 
 //Javascript
-import './js/observer.js';
-import './js/me.js';
 import './js/deletingaccount.js';
 
 const $ = require('jquery');

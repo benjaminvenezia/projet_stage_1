@@ -1,11 +1,14 @@
 <?php
+
 namespace App\Extensions\Doctrine;
 
 use Doctrine\ORM\Query\AST\Functions\FunctionNode;
 use Doctrine\ORM\Query\Lexer;
 use Doctrine\ORM\Query\Parser;
 use Doctrine\ORM\Query\SqlWalker;
-
+/**
+ * Permet de faire la recherche fullText. Doctrine n'implémente pas de matchagainst par défaut.
+ */
 class MatchAgainst extends FunctionNode
 {
     /** @var array list of \Doctrine\ORM\Query\AST\PathExpression */

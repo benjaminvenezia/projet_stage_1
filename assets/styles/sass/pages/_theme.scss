@@ -31,21 +31,18 @@
     }
 
     .container__description {
-        background-color: rgba(255, 255, 255, 0.863);
+        background-color: rgba(255, 255, 255, 0.712);
         backdrop-filter: blur(15px);
         border-radius: 10px;
         padding-left: 20px;
         box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
     }
-
-    
 }
 
 .container__comments {
 
     .comment__header {
         position: relative;
-
 
         .container__commentconfig {
             width: 50px;
@@ -54,11 +51,6 @@
             top: 10px;
         }
     }
-
-    overflow-y: auto;
-    height: 80vh;
-
-    
 }
 
 

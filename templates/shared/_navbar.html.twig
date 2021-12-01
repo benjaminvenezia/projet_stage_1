@@ -19,7 +19,7 @@
         <li>
             {% if app.user %}
                 {% if app.user.bookmark is not null %}
-                    <a title="Reprenez votre lecture à l'article marqué précedemment."  href="{{ path('article_showById', {'id':app.user.bookmark}) }}">Marque page <i class="fas fa-bookmark"></i></a>
+                    <a title="Reprenez votre lecture à l'article marqué précedemment."  href="{{ path('article_showById', {'id':app.user.bookmark}) }}"> Reprendre la lecture <i class="fas fa-bookmark"></i></a>
                 {% endif %}
             {% endif %}
         </li>

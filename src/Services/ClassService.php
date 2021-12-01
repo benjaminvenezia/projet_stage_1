@@ -60,7 +60,6 @@ class ClassService {
 
         $html = '';
 
-        
         foreach($articles as $a) {
             $html .= '<h1>' . $a->getTitle()  . '(' . $a->getStep() . ')' . '</h1>';
             $html .= $a->getTheme()->getName();

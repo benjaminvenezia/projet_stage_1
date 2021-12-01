@@ -39,7 +39,9 @@ class NavigationController extends AbstractController
      */
     public function homepage(): Response
     {
-        return $this->render('pages/homepage.html.twig');
+        return $this->render('pages/homepage.html.twig', [
+            'themes' => $this->themesService->getThemes()
+        ]);
     }
 
     /**

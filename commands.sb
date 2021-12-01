@@ -4,3 +4,6 @@ npm run watch : capte les changements dans assets
 
 -- Doctrine --
 php bin/console doctrine:schema:update -f : à lancer après avoir modifié l'entity pour modifier les properties.
+
+-- erreurs -- 
+https://localhost:8005/index.php/_error/404 : révèle les erreurs en mode dev, sinon changer dans le .env

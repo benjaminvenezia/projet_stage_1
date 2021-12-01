@@ -216,15 +216,10 @@ class UserController extends AbstractController
         
         $html = $classService->renderHtmlversioncorrection($articles);
 
-
         // instantiate and use the dompdf class
         $dompdf = new Dompdf($options);
 
-        $dompdf->loadHtml(
-
-            $html
-        
-        );
+        $dompdf->loadHtml($html);
 
         // (Optional) Setup the paper size and orientation
         $dompdf->setPaper('A4', 'landscape');

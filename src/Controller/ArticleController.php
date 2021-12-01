@@ -28,11 +28,10 @@ class ArticleController extends AbstractController
     protected $themesService;
     protected $upload;
   
-    public function __construct(EntityManagerInterface $em, ArticleRepository $articleRepository, ThemesService $themesService)
+    public function __construct(EntityManagerInterface $em, ArticleRepository $articleRepository)
     {
         $this->em = $em;
         $this->articleRepository = $articleRepository;
-        $this->themesService = $themesService;
     }
 
     /**
@@ -69,7 +68,6 @@ class ArticleController extends AbstractController
 
         return $this->render('article/create.html.twig', [
             'formView' => $form->createView(),
-            'themes' => $this->themesService->getThemes(),
         ]);
     }
 
@@ -99,7 +97,6 @@ class ArticleController extends AbstractController
 
         return $this->render('article/edit.html.twig', [
             'formView' => $formView,
-            'themes' => $themesService->getThemes()
         ]);
     }
 
@@ -125,7 +122,7 @@ class ArticleController extends AbstractController
      * Show an article by is theme and is step, very intersting for navigation because articles have step. 
      * @Route("article/{theme}/{step}/show", name="article_show")
      */
-    public function show($theme, $step, Request $request, ClassService $classService,ThemeRepository $themeRepository, ArticleRepository $articleRepository): Response
+    public function show($theme, $step, ThemeRepository $themeRepository, ArticleRepository $articleRepository): Response
     {
         $theme = $themeRepository->findOneBy(['name' => $theme]);
         $themeid = $theme->getId();
@@ -133,6 +130,7 @@ class ArticleController extends AbstractController
         $article = $articleRepository->findOneBy(['theme' => $themeid, 'step' => $step]);
         
         if(!$article) {
+
             throw new NotFoundHttpException("erreur, article introuvable. ");
         }
 
@@ -143,7 +141,6 @@ class ArticleController extends AbstractController
 
         return $this->render('article/show.html.twig', [
             'article' => $article,
-            'themes' => $this->themesService->getThemes(),
             'theme' => $theme->getName(),
             'ReadingPercentage' => $percentage,
             'nextArticleStep' => $article->getStep() + 1
@@ -171,7 +168,6 @@ class ArticleController extends AbstractController
         return $this->render('article/show.html.twig', [
             'article' => $article,
             'theme' => $article->getTheme()->getName(),
-            'themes' => $themesService->getThemes(),
             'ReadingPercentage' => $percentage,
             'nextArticleStep' => $article->getStep() + 1
         ]);

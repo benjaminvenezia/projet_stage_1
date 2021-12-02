@@ -1,14 +1,16 @@
-    <div class="container container__zonecomment">
-		<div class="col-12 mx-auto">
-            {% if comments|length == 0 %}
-                <p>Soyez le premier à poster un commentaire.</p>
-                
-            {% endif %}
-            {{ form_start(formComment) }}
-                    {{ form_row(formComment) }}
-                    <button class="btn btn-primary"type="submit">Commentez</button>
-                {{ form_end(formComment) }} 
-		</div>
+    <div class="container__zonecomment">
+        <div class="row">
+            <div class="col-12 mx-auto">
+                {% if comments|length == 0 %}
+                    <p>Soyez le premier à poster un commentaire.</p>
+                    
+                {% endif %}
+                {{ form_start(formComment) }}
+                        {{ form_row(formComment) }}
+                        <button class="btn btn-primary"type="submit">Commentez</button>
+                    {{ form_end(formComment) }} 
+            </div>
+        </div>
 	</div>
 
 

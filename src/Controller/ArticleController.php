@@ -185,8 +185,9 @@ class ArticleController extends AbstractController
         $article = $articleRepository->findOneBy(['id' => $id]);
 
         if(!$article) {
-            throw new NotFoundHttpException("erreur, article introuvable. ");
+            throw new NotFoundHttpException("L'article est introuvable.");
         }
+
         $idtheme = $article->getTheme()->getId();
 
         $totalArticlesByTheme = $articleRepository->count(['theme' => $idtheme]);

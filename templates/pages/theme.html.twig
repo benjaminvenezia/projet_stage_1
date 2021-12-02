@@ -5,7 +5,7 @@
 {% endblock %}
 
 {% block body %}
-
+<div class="container">
     {% if themeName == 'spring' %}
          {% set video = 'spring_video.mp4' %}
      {% endif %}
@@ -29,16 +29,10 @@
     <video class="video_themes" autoplay muted loop id="myVideo">
         <source src="{{ asset('/build/img/videos/' ~ video) }}" type="video/mp4">
     </video>
-
-    <div class="container container__theme"> 
-        {# <div class="row mt-5 ">
-            <div class="col-3">
-                {% include "shared/_searchForm.html.twig" %}
-            </div> 
-        </div> #}
-        <div class="row mt-5">
+    {# ROW DESCRIPTION #}
+    <div class="row mt-5 container__theme"> 
             <div class="col-3 container__index ">
-           
+    
                 {% include "shared/_searchForm.html.twig" %}
             
                 <ul>
@@ -51,54 +45,52 @@
                     {% endfor %}
                 </ul>
             </div>
-            <div class="col-sm container__description">
+            <div class="col-lg container__description">
               {% include 'pages/themes_description/'  ~ themeName ~ '.html.twig' %}
             </div>
-        </div>
-        
     </div>
         
+{# ROW COMMENTAIRES #}
+    <div class="row container__comments mt-5 mb-5 comment-{{ themeName }}-theme ">
+        <div class="col">
+            {% if themeName == 'spring' %}
+                <h2>Commentaires printaniers</h2>
+            {% endif %}
 
-    <div class="container container__comments mt-5 mb-5 comment-{{ themeName }}-theme ">
+            {% if themeName == 'summer' %}
+                <h2>Commentaires estivaux</h2>
+            {% endif %}
 
+            {% if themeName == 'autumn' %}
+                <h2>Commentaires automnaux</h2>
+            {% endif %}
 
-     {% if themeName == 'spring' %}
-         <h2>Commentaires printaniers</h2>
-     {% endif %}
+            {% if themeName == 'winter' %}
+                <h2>Commentaires hivernaux</h2>
+            {% endif %}
 
-     {% if themeName == 'summer' %}
-         <h2>Commentaires estivaux</h2>
-     {% endif %}
-
-     {% if themeName == 'autumn' %}
-         <h2>Commentaires automnaux</h2>
-     {% endif %}
-
-     {% if themeName == 'winter' %}
-         <h2>Commentaires hivernaux</h2>
-     {% endif %}
-
-     {% if themeName == 'spring2' %}
-         <h2>Commentaires printanier</h2>
-     {% endif %}
+            {% if themeName == 'spring2' %}
+                <h2>Commentaires printanier</h2>
+            {% endif %}
 
        
         
   
-       {% include "comments/show.html.twig" %}
-        <div class="mt-2">
-            {{ knp_pagination_render(comments) }}
+            {% include "comments/show.html.twig" %}
+                <div class="mt-2">
+                    {{ knp_pagination_render(comments) }}
+                </div>
+
+                {% if app.user %}
+                    <div class="col-4">
+                        {% include "comments/form.html.twig" %}
+                    </div>
+                {% else %}
+                    <a href="{{ path('security_login') }}">Connectez-vous pour poster un commentaire.</a>
+                {% endif %}
+                </div>
         </div>
-
-        {% if app.user %}
-            <div class="col-4">
-                {% include "comments/form.html.twig" %}
-            </div>
-        {% else %}
-            <a href="{{ path('security_login') }}">Connectez-vous pour poster un commentaire.</a>
-        {% endif %}
     </div>
-
 {% endblock %}
 
 {# {% block theme_banner %}

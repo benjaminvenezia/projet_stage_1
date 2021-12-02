@@ -1,6 +1,5 @@
 .theme-spring {
 
-    
     .container__descriptiontheme {
         padding: 50px;
         
@@ -30,8 +29,6 @@
           }
     }
 
-
-
     //article
     .card {
         background-color: white;
@@ -43,8 +40,9 @@
     }
 
     //ZONE COMMENTAIRE
-    .comment-spring-theme {    
-        
+    .comment-spring-theme {
+
+        border: 5px dashed rgba(255, 255, 255, 0.555);
         padding: 50px;
 
         h2 {
@@ -52,7 +50,7 @@
         }
 
         .comment {
-            backdrop-filter: blur(4px);
+            backdrop-filter: blur(12px);
             background-color: rgba(91, 175, 80, 0.199);
             border-top-left-radius: 5px;
             border-top-right-radius: 5px;
@@ -60,7 +58,7 @@
 
             .comment__header {
                 font-size: smaller;
-                background-color: rgba(91, 175, 80, 0.438);
+                background-color: rgba(91, 175, 80, 0.815);
                 padding: 5px;
                 border-top-left-radius: 5px;
                 border-top-right-radius: 5px;

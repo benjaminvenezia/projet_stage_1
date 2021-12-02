@@ -7,7 +7,7 @@
         </li>
         <li>
             <div class="dropdown">
-                <span>Saisons</span>
+                <span class="btn my-2 my-sm-0">Saisons</span>
                 <div class="dropdown-content">
                     {% for t in themes %}
                         <p><a class="dropdown__links" href="{{ path('navigation_theme', {'theme' : t}) }}">{{ t }}</a></p>
@@ -18,40 +18,29 @@
         <li>
             {% if app.user %}
                 {% if app.user.bookmark is not null %}
-                    <a title="Reprenez votre lecture à l'article marqué précedemment."  href="{{ path('article_showById', {'id':app.user.bookmark}) }}"> Reprendre la lecture <i class="fas fa-bookmark"></i></a>
+                    <a  class="btn my-2 my-sm-0" title="Reprenez votre lecture à l'article marqué précedemment."  href="{{ path('article_showById', {'id':app.user.bookmark}) }}"><span class="navbar__text">Reprendre la lecture</span> <i class="fas fa-bookmark"></i></a>
                 {% endif %}
             {% endif %}
         </li>
         <li>
-            <a title="télécharger l'ensemble du rapport de stage en pdf!" href="{{ path('navigation_download') }}">Télécharger <i class="fas fa-download"></i></a>
+            <a class="btn my-2 my-sm-0" title="télécharger l'ensemble du rapport de stage en pdf!" href="{{ path('navigation_download') }}"><span class="navbar__text">Télécharger </span><i class="fas fa-download"></i></a>
         </li>
         {% if app.user.roles[0] is defined %}
             {% if app.user.roles[0] is same as('ROLE_ADMIN') %}
-                <li><a href="{{ path('article_create') }}">Créer un article <i class="fas fa-plus"></i></a></li>
-                <li><a href="{{ path('administration_administrateArticles') }}">Gestion des articles <i class="fas fa-book"></i></a></li>
-                <li><a href="{{ path('administration_administrateUsers', {page:1} ) }}">Gestion des utilisateurs <i class="fas fa-user"></i></a></li>
+                <li><a class="btn my-2 my-sm-0" title="créer un article" href="{{ path('article_create') }}"><span class="navbar__text"> Créer un article </span><i class="fas fa-plus"></i></a></li>
+                <li><a class="btn my-2 my-sm-0" title="gestion des articles" href="{{ path('administration_administrateArticles') }}"><span class="navbar__text">Gestion des articles </span><i class="fas fa-book"></i></a></li>
+                <li><a class="btn my-2 my-sm-0" title="gestion des utilisateurs" href="{{ path('administration_administrateUsers', {page:1} ) }}"><span class="navbar__text">Gestion des utilisateurs </span><i class="fas fa-user"></i></a></li>
             {% endif %}
         {% endif %}
     </ul>
     <ul>
-        <li>
-
-            
-            {# <div class="input-group rounded">
-                <input type="search" class="form-control rounded" placeholder="chercher un article" aria-label="Search"
-                aria-describedby="search-addon" />
-                <span class="input-group-text border-0" id="search-addon">
-                    <i class="fas fa-search"></i>
-                </span>
-            </div> #}
-        </li>
         {% if not app.user %}
-            <li><a class="btn btn-outline-success my-2 my-sm-0" href="{{ path('security_login') }}">Connexion</a></li>
+            <li><a class="btn btn-outline-success my-2 my-sm-0" href="{{ path('security_login') }}"><span class="navbar__text"> Connexion </span> <i class="fas fa-sign-in-alt"></i></a></li>
         {% endif %}
-            <li><a class="btn  my-2 my-sm-0" href="{{ path('registration_register') }}">Créer un compte</a></li>
+            <li><a class="btn my-2 my-sm-0" href="{{ path('registration_register') }}"><span class="navbar__text">Créer un compte </span><i class="fas fa-scroll"></i></a></li>
         {% if app.user %}
-            <li> <a class="btn" href="{{ path('user_show') }}">gérer mon compte</a> </li>
-            <li><a class="btn btn-outline-danger my-2 my-sm-0" href="{{ path('security_logout') }}">Déconnexion</a></li>
+            <li> <a class="btn" href="{{ path('user_show') }}"><span class="navbar__text">gérer mon compte </span><i class="fas fa-user"></i></a></li>
+            <li><a class="btn btn-outline-danger my-2 my-sm-0" href="{{ path('security_logout') }}"> <span class="navbar__text">Déconnexion </span><i class="fas fa-sign-out-alt"></i></a></li>
         {% endif %}
 
     </ul>

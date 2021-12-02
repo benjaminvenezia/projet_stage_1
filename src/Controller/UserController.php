@@ -18,6 +18,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\PasswordHasher\Hasher\PasswordHasherFactory;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 
@@ -117,10 +118,7 @@ class UserController extends AbstractController
 
                 $this->addFlash('info', "Mot de passe modifié.");
                 return $this->redirectToRoute('security_logout');
-                
             }
-
-
         }
 
         return $this->render('user/changepassword.html.twig', [
@@ -136,6 +134,7 @@ class UserController extends AbstractController
     public function bookmark($article_id, $article_theme, $article_step): Response
     {
         $em = $this->getDoctrine()->getManager();
+
         /**
          * @var User $user
          */

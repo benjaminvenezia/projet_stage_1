@@ -1,17 +1,19 @@
 .nav__main {
+
     background-color: rgba(255, 255, 255, 0.562);
     backdrop-filter: blur(10px);
     display: flex;
-    margin-bottom: 100px;
+    margin-bottom: 300px;
     
     ul {    
         display: flex;
         justify-content: space-between;
         
         li {
-            margin-right: 15px;
+            margin-right: 5px;
             list-style-type: none; 
-            a {
+            a, span {
+                font-size: 12px;
                 text-decoration: none;
                 color: rgb(53, 53, 53);
             }
@@ -22,4 +24,12 @@
             }
         } 
     }
+
+    // navbar__text
+    @media only screen and (max-width: 1300px) {
+        .navbar__text {
+          display: none;
+        }
+      }
 }
+

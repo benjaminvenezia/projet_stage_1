@@ -4,9 +4,10 @@
     Mon article
 {% endblock %}
 
+
 {% block body %}
-    
-    <div class="container">
+
+    <div class="container container__article ">
         <div class="row">
             <div class="col">
                 {% include "shared/_card.html.twig" %}
@@ -34,7 +35,8 @@
                         <a class="btn btn-secondary rounded-circle"  href="{{ path('article_show', {'step':nextArticleStep, 'theme':theme }) }}"><i class="fas fa-chevron-right fa-2x"></i></a>  
                     {% endif %} 
                     {% if ReadingPercentage == 100 %}
-              
+
+                
                     <a href="{{ path('navigation_theme', { 'theme':'summer' }) }}" class="btn btn-success">Découvrez le thème summer</a>
                 
                 {% endif %}
@@ -42,3 +44,4 @@
         </div>
     </div>
 {% endblock %}
+

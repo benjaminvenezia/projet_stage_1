@@ -5,9 +5,20 @@
 {% endblock %}
 
 {% block body %}
-    <h1>Page non trouvée</h1>
-    <p>La page que vous cherchez n'a pas été trouvée.</p>    
-    <p>code de l'erreur : {{ status_code }}</p>
-    <p>Message de l'erreur : {{ status_text }}</p>
-    <p>Message personnalisé : {{ exception.message }}</p>
+
+    <div class="container container__error404">
+        <div class="row">
+            <div class="col mx-auto text-center">
+                 <h1>Page non trouvée</h1>
+               
+                <p>{{ status_code }}</p>
+                <p>Message de l'erreur : {{ status_text }}</p>
+                <p>Message personnalisé : {{ exception.message }}</p>
+                <img src="{{ asset('/build/img/errors/notfound.png') }}" alt="knight around a table">
+            </div>
+        </div>
+    </div>
+
+   
+    
 {% endblock %}

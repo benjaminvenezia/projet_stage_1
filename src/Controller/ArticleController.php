@@ -19,6 +19,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\Security\Core\Security;
 
+use function Symfony\Component\DependencyInjection\Loader\Configurator\expr;
+
 class ArticleController extends AbstractController
 {
 
@@ -107,6 +109,28 @@ class ArticleController extends AbstractController
         if(!$article) {
             throw new NotFoundHttpException("L'article que vous souhaitez supprimer n'existe pas");
         } 
+
+        //Décrémente les articles suivant celui supprimé pour éviter les trous dans les steps.
+        $stepOfArticleToDelete = $article->getStep();
+
+        $qb = $this->em->createQueryBuilder();
+
+        $qb->select('a')
+        ->from('App\Entity\Article', 'a')
+        ->where('a.step > :actualstep')
+        ->orderBy('a.step', 'ASC')
+        ->setParameters(array('actualstep' => $stepOfArticleToDelete));
+        
+        $articlesWithGreatherSteps = $qb->getQuery()->getResult();
+
+        foreach($articlesWithGreatherSteps as $a) {
+            $step = $a->getStep();
+            
+            $stepDecremented = $step - 1;
+            $a->setStep($stepDecremented);
+
+            $this->em->persist($a);
+        }
 
         $this->em->remove($article);
 

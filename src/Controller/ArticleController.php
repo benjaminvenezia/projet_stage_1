@@ -55,7 +55,7 @@ class ArticleController extends AbstractController
             $step = $this->articleRepository->count(['theme' => $idtheme]) + 1;
             
             $article->setStep($step);
-    
+            $article->setAuthor($this->getUser()->getUsername());
             $this->em->persist($article);
 
             $this->em->flush(); 

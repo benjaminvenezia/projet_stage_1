@@ -37,12 +37,20 @@
         {% if not app.user %}
             <li><a class="btn btn-outline-success my-2 my-sm-0" href="{{ path('security_login') }}"><span class="navbar__text"> Connexion </span> <i class="fas fa-sign-in-alt"></i></a></li>
         {% endif %}
-            <li><a class="btn my-2 my-sm-0" href="{{ path('registration_register') }}"><span class="navbar__text">Créer un compte </span><i class="fas fa-scroll"></i></a></li>
+            <li><a class="btn my-2 my-sm-0" href="{{ path('registration_register') }}"><span class="navbar__text"> {% trans %} Créer un compte {% endtrans %} </span><i class="fas fa-scroll"></i></a></li>
         {% if app.user %}
-            <li> <a class="btn" href="{{ path('user_show') }}"><span class="navbar__text">gérer mon compte </span><i class="fas fa-user"></i></a></li>
-            <li><a class="btn btn-outline-danger my-2 my-sm-0" href="{{ path('security_logout') }}"> <span class="navbar__text">Déconnexion </span><i class="fas fa-sign-out-alt"></i></a></li>
+            <li> <a class="btn" href="{{ path('user_show') }}"><span class="navbar__text"> {% trans %} gérer mon compte {% endtrans %}</span><i class="fas fa-user"></i></a></li>
+            <li><a class="btn btn-outline-danger my-2 my-sm-0" href="{{ path('security_logout') }}"> <span class="navbar__text">{% trans %} Déconnexion {% endtrans %}</span><i class="fas fa-sign-out-alt"></i></a></li>
         {% endif %}
 
+        {% for locale in locales %}
+            {% if locale != app.request.locale %}
+            <li>
+            
+                <a href="{{ path('user_changelocale', {'locale': locale}) }}"><img src="{{ asset('build/img/icon/' ~ locale  ~ '.png') }}"  alt=""> </a>
+            <li>
+            {% endif %}
+        {% endfor %}
     </ul>
 </nav>
 

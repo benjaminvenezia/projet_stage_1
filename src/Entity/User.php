@@ -74,8 +74,8 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank(message="Ce champs est obligatoire.")
-     * @Assert\Length(min=5, minMessage="Le mot-de-passe doit comporter au minimum 5 caractères.")
-     * @Assert\Length(max=20, minMessage="Le mot-de-passe doit comporter au maximum 20 caractères.")
+     * @Assert\Length(min=5, minMessage="La description doit comporter au minimum 5 caractères.")
+     * @Assert\Length(max=20, minMessage="La description doit comporter au maximum 20 caractères.")
      * 
      */
     private $roledescription;

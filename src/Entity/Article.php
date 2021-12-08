@@ -67,12 +67,16 @@ class Article
      */
     private $comments;
 
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    private $updated;
+
     public function __construct()
     {
         $this->comments = new ArrayCollection();
         $this->date = new \DateTime('now');
     }
-
 
     public function getId(): ?int
     {
@@ -187,6 +191,18 @@ class Article
                 $comment->setArticle(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getUpdated(): ?\DateTimeInterface
+    {
+        return $this->updated;
+    }
+
+    public function setUpdated(?\DateTimeInterface $updated): self
+    {
+        $this->updated = $updated;
 
         return $this;
     }

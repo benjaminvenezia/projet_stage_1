@@ -85,7 +85,7 @@ class ArticleController extends AbstractController
         if($form->isSubmitted() && $form->isValid()) {
             
             $classService->uploadImage($form, $this->getParameter('kernel.project_dir') . '/assets/img');
-
+            $article->setUpdated(new DateTime('now'));
             $this->em->flush();
 
             $this->addFlash('info', "L'article a été modifié avec succès.");

@@ -21,14 +21,24 @@
                 <tr >
                     <th scope="col" style="width:7%">Rôle</th>
                     <th scope="col" style="width:7%">fullname</th>
+                    <th scope="col" style="width:7%">état</th>
                     <th scope="col" style="width:7%">email</th>
                     <th scope="col" style="width:7%">Changer les droits</th>
+                    <th scope="col" style="width:7%">bannir</th>
+
                 </tr>
             </thead>
             <tbody>
 
                 {% for user in users %}
-                    <tr>
+
+                    {% if user.banned %}
+                        <tr class="bg-danger text-white">
+                    {% else %}
+                        <tr>
+                    {% endif %}
+
+                    
                         {% set variable = 'warning' %}
 
                         {% if user.roles[0] is defined %}
@@ -41,6 +51,11 @@
                         
                         <td><span class="badge bg-{{bg}}">{{ user.roles[0]}}</span></td>
                         <td>{{ user.username }}</td>
+                        <td>
+                            {% if user.banned %}
+                                <p>Cet utilisateur est banni.</p>
+                            {% endif %}
+                        </td>
                         <td>{{ user.email }}</td>
                         {# <td><button class="btn btn-warning"><a href="{{ path('administration_changestatut', {'id': user.id}) }}">Changer les droits</a></button></td> #}
                         <td>
@@ -51,7 +66,12 @@
                                 {{ form_errors(formView.roles) }} #}
                                 <button class="btn btn-warning"><a href="{{ path('administration_changestatut', {'id': user.id}) }}" > Changer les droits </a></button>
 
+
                             {# {{ form_end(formView) }} #}
+                        </td>
+                        <td>
+                                <button class="btn btn-warning"><a href="{{ path('administration_banuser', {'id': user.id}) }}" > Bannir / Débannir</a></button>
+
                         </td>
                     </tr>
                 {% endfor %}

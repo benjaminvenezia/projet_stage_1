@@ -100,24 +100,33 @@ class NavigationController extends AbstractController
         }
 
         //ajout form commentaire
-        $comment = new Comment;
-        $form = $this->createForm(CommentType::class, $comment);
+        
+            $comment = new Comment;
+            $form = $this->createForm(CommentType::class, $comment);
+    
+            $form->handleRequest($request);
+        
+            if($form->isSubmitted() && $form->isValid()) {
+                if($this->getUser() && !$this->getUser()->getBanned()) {
+                    $comment
+                    ->setTheme($theme_object)
+                    ->setUser($this->getUser())
+                    ;
+        
+                    $this->em->persist($comment);
+                    $this->em->flush();
+        
+                    $this->addFlash('success', "Merci pour le commentaire.");
+                    
+                } else {
+                    $this->addFlash('warning', "Vous ne pouvez pas poster de commentaire car vous êtes banni.");
+                }
 
-        $form->handleRequest($request);
-
-        if($form->isSubmitted() && $form->isValid()) {
-            
-            $comment
-            ->setTheme($theme_object)
-            ->setUser($this->getUser())
-            ;
-
-            $this->em->persist($comment);
-            $this->em->flush();
-
-            $this->addFlash('success', "Merci pour le commentaire.");
-            return $this->redirectToRoute('navigation_theme', ['theme' => $theme]);
-        }
+                return $this->redirectToRoute('navigation_theme', ['theme' => $theme]);
+        
+            }
+        
+        
 
         $themeObject = $themeRepository->findOneBy(['name' => strtolower($theme)]);
 

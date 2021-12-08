@@ -12,7 +12,9 @@ use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class AdministrationController extends AbstractController
@@ -32,6 +34,33 @@ class AdministrationController extends AbstractController
         $this->em = $em;
         $this->articleRepository = $articleRepository;
         $this->themeRepository = $themeRepository;
+    }
+
+      /**
+     * @Route("/admin/{id}/ban", name="administration_banuser")
+     * @IsGranted("ROLE_ADMIN")
+     */
+    public function banuser($id, UserRepository $userRepository,  EntityManagerInterface $em): Response
+    {
+       $user = $userRepository->find($id);
+
+       $roleUser = $user->getRole();
+
+       if($roleUser == 'ROLE_ADMIN') {
+            $this->addFlash('info', "Vous ne pouvez pas ôter les droits d'un administrateur");
+            return $this->redirectToRoute('administration_administrateUsers');
+       } else {
+            if(!$user->getBanned()) {
+                $user->setBanned(1);
+            } else {
+                $user->setBanned(0);
+            }
+       }
+
+       $em->flush();
+
+       $this->addFlash('info', "Vous avez banni cet utilisateur");
+       return $this->redirectToRoute('administration_administrateUsers');
     }
 
 

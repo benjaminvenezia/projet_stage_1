@@ -85,6 +85,11 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     private $bookmark;
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $banned;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -299,6 +304,18 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setBookmark(?int $bookmark): self
     {
         $this->bookmark = $bookmark;
+
+        return $this;
+    }
+
+    public function getBanned(): ?bool
+    {
+        return $this->banned;
+    }
+
+    public function setBanned(bool $banned): self
+    {
+        $this->banned = $banned;
 
         return $this;
     }

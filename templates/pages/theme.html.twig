@@ -41,7 +41,7 @@
                         <p>aucun article rédigé.</p>
                     {% endif %}
                     {% for article in articles %}
-                        <li><a href="{{path('article_show', {'theme' : themeName, 'step' : article.step})}}">{{ article.title }}</a></li>
+                        <li><a href="{{path('article_show', {'theme' : themeName, 'step' : article.step})}}">{{ article.title|u.truncate(25, '...', false) }}</a></li>
                     {% endfor %}
                 </ul>
             </div>

@@ -3,7 +3,6 @@
 - ajouter un user checker à l'inscription
 - système de recherche d'user amélioré
 - faire la home ! 
-- mettre le themeservice dans le class service et l'appeller qu'une seule fois dans base si possible
 - trouver un moyen de titre long... les titres trop longs dans l'index
 - créer une illustration à l'inscription
 - enlever "l'admin supreme" de la gestion du compte.

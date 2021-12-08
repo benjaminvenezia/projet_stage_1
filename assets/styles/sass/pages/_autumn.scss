@@ -42,13 +42,14 @@
 
     //ZONE COMMENTAIRE
     .comment-autumn-theme {    
-        
+        border: 5px dashed rgba(255, 255, 255, 0.555);
         padding: 50px;
 
         h2 {
-        font-family: 'Amatic SC', cursive;
-            
-
+            font-family: 'Amatic SC', cursive;
+            color: white;
+            text-shadow:   5px 5px 20px #212121ee,  
+                            5px -5px 20px #212121ea;    
         }
 
         .comment {

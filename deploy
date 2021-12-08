@@ -1,0 +1,4 @@
+#!/bin/sh
+npm run build
+rsync -av ./ nk2mv_rapportdestage@benjaminvenezia.com:~/rapportdestage --include=public/build --include=public/.htaccess  --exclude-from=.gitignore --exclude=".*"
+ssh nk2mv_rapportdestage@benjaminvenezia.com 'cd ~/rapportdestage && php bin/console cache:clear'

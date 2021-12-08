@@ -10,3 +10,6 @@ https://localhost:8005/index.php/_error/404 : révèle les erreurs en mode dev, 
 
 -- traduction --
 php bin/console translation:update --force en : met à jour les traductions 
+
+rsync -av ./ nk2mv_rapportdestage@benjaminvenezia.com:~/rapportdestage --include=public/build --include=vendor  --exclude-from=.gitignore --exclude=".*"
+ssh nk2mv_rapportdestage@benjaminvenezia.com

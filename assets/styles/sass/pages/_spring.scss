@@ -46,7 +46,11 @@
         padding: 50px;
 
         h2 {
-            font-family:  cursive;
+            color: white;
+            font-size: 3rem;
+            text-shadow:   5px 5px 20px #212121c7,  
+                           5px -5px 20px #212121c0;
+            font-family: 'Sassy Frass', cursive;
         }
 
         .comment {

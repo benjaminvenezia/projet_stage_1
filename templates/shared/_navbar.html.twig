@@ -7,7 +7,7 @@
         </li>
         <li>
             <div class="dropdown">
-                <span class="btn my-2 my-sm-0">Saisons</span>
+                <span class="btn my-2 my-sm-0">{% trans %} Saisons {% endtrans %}</span>
                 <div class="dropdown-content">
                     {% for t in themes %}
                         <p><a class="dropdown__links" href="{{ path('navigation_theme', {'theme' : t}) }}">{{ t }}</a></p>
@@ -18,18 +18,18 @@
         <li>
             {% if app.user %}
                 {% if app.user.bookmark is not null %}
-                    <a  class="btn my-2 my-sm-0" title="Reprenez votre lecture à l'article marqué précedemment."  href="{{ path('article_showById', {'id':app.user.bookmark}) }}"><span class="navbar__text">Reprendre la lecture</span> <i class="fas fa-bookmark"></i></a>
+                    <a  class="btn my-2 my-sm-0" title="Reprenez votre lecture à l'article marqué précedemment."  href="{{ path('article_showById', {'id':app.user.bookmark}) }}"><span class="navbar__text">{% trans %}Reprendre la lecture{% endtrans %}</span> <i class="fas fa-bookmark"></i></a>
                 {% endif %}
             {% endif %}
         </li>
         <li>
-            <a class="btn my-2 my-sm-0" title="télécharger l'ensemble du rapport de stage en pdf!" href="{{ path('navigation_download') }}"><span class="navbar__text">Télécharger </span><i class="fas fa-download"></i></a>
+            <a class="btn my-2 my-sm-0" title="télécharger l'ensemble du rapport de stage en pdf!" href="{{ path('navigation_download') }}"><span class="navbar__text">{% trans %}Télécharger{% endtrans %} </span><i class="fas fa-download"></i></a>
         </li>
         {% if app.user.roles[0] is defined %}
             {% if app.user.roles[0] is same as('ROLE_ADMIN') %}
-                <li><a class="btn my-2 my-sm-0" title="créer un article" href="{{ path('article_create') }}"><span class="navbar__text"> Créer un article </span><i class="fas fa-plus"></i></a></li>
-                <li><a class="btn my-2 my-sm-0" title="gestion des articles" href="{{ path('administration_administrateArticles') }}"><span class="navbar__text">Gestion des articles </span><i class="fas fa-book"></i></a></li>
-                <li><a class="btn my-2 my-sm-0" title="gestion des utilisateurs" href="{{ path('administration_administrateUsers', {page:1} ) }}"><span class="navbar__text">Gestion des utilisateurs </span><i class="fas fa-user"></i></a></li>
+                <li><a class="btn my-2 my-sm-0" title="créer un article" href="{{ path('article_create') }}"><span class="navbar__text"> {% trans %}Créer un article{% endtrans %} </span><i class="fas fa-plus"></i></a></li>
+                <li><a class="btn my-2 my-sm-0" title="gestion des articles" href="{{ path('administration_administrateArticles') }}"><span class="navbar__text">{% trans %}Gestion des articles{% endtrans %} </span><i class="fas fa-book"></i></a></li>
+                <li><a class="btn my-2 my-sm-0" title="gestion des utilisateurs" href="{{ path('administration_administrateUsers', {page:1} ) }}"><span class="navbar__text">{% trans %}Gestion des utilisateurs{% endtrans %} </span><i class="fas fa-user"></i></a></li>
             {% endif %}
         {% endif %}
     </ul>

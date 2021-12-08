@@ -3,7 +3,6 @@
     .container__descriptiontheme {
         padding: 50px;
         
-    
         .container__img {
         text-align: center;
     
@@ -23,8 +22,6 @@
         font-size: 4rem;
         color: rgb(237, 241, 0);
         text-shadow: rgb(255, 0, 0) 1px 1px 1px;
-
-       
     }
 
 
@@ -41,18 +38,20 @@
 
     //ZONE COMMENTAIRE
     .comment-summer-theme {    
-        
+        border: 5px dashed rgba(255, 255, 255, 0.555);
         padding: 50px;
 
         h2 {
             font-family: 'Permanent Marker', cursive;
-            
+            color: white;
+            text-shadow:   5px 5px 20px #212121c7,  
+                           5px -5px 20px #212121c0;
 
         }
 
         .comment {
             backdrop-filter: blur(4px);
-            background-color: rgba(255, 230, 0, 0.479);
+            background-color: rgba(255, 250, 205, 0.479);
             border-top-left-radius: 5px;
             border-top-right-radius: 5px;
             margin-top: 10px;
@@ -64,6 +63,7 @@
                 padding: 5px;
                 border-top-left-radius: 5px;
                 border-top-right-radius: 5px;
+
                 .comment__username {
                     font-weight: bold;
                 }
@@ -77,13 +77,8 @@
                 background-color: rgba(238, 255, 0, 0.514);
                 word-break: break-all;
                 padding: 10px;
-               
-
-                
             }
-
         }
-
 
         .container__zonecomment {
             padding:20px;

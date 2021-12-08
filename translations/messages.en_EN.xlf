@@ -5,17 +5,41 @@
       <tool tool-id="symfony" tool-name="Symfony"/>
     </header>
     <body>
+      <trans-unit id="S1OmuJB" resname="Saisons">
+        <source>Saisons</source>
+        <target>Seasons</target>
+      </trans-unit>
+      <trans-unit id="8L6f_If" resname="Reprendre la lecture">
+        <source>Reprendre la lecture</source>
+        <target>Resume</target>
+      </trans-unit>
+      <trans-unit id="zaqrRC0" resname="Télécharger">
+        <source>Télécharger</source>
+        <target>Download</target>
+      </trans-unit>
+      <trans-unit id="LkrYGJ4" resname="Créer un article">
+        <source>Créer un article</source>
+        <target>Create an article</target>
+      </trans-unit>
+      <trans-unit id="Qe5hfOL" resname="Gestion des articles">
+        <source>Gestion des articles</source>
+        <target>Article management</target>
+      </trans-unit>
+      <trans-unit id="lQz21jl" resname="Gestion des utilisateurs">
+        <source>Gestion des utilisateurs</source>
+        <target>Users management</target>
+      </trans-unit>
+      <trans-unit id="piivmAm" resname="Créer un compte">
+        <source>Créer un compte</source>
+        <target>Sign up</target>
+      </trans-unit>
       <trans-unit id="L3GF771" resname="gérer mon compte">
         <source>gérer mon compte</source>
-        <target>My account</target>
+        <target>Manage my account</target>
       </trans-unit>
       <trans-unit id="_1_eksG" resname="Déconnexion">
         <source>Déconnexion</source>
         <target>Logout</target>
-      </trans-unit>
-      <trans-unit id="piivmAm" resname="Créer un compte">
-        <source>Créer un compte</source>
-        <target>Create account</target>
       </trans-unit>
     </body>
   </file>

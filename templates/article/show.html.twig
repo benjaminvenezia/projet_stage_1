@@ -36,8 +36,18 @@
                     {% endif %} 
                     {% if ReadingPercentage == 100 %}
 
-                
-                    <a href="{{ path('navigation_theme', { 'theme':'summer' }) }}" class="btn btn-success">Découvrez le thème summer</a>
+
+                    {% if  theme  == "spring" %}
+                        {% set nextTheme = "summer" %}
+                    {% elseif theme == "summer" %}
+                        {% set nextTheme = "autumn" %}
+                    {% elseif theme == "autumn" %}
+                        {% set nextTheme = "winter" %}
+                    {% elseif theme == "winter" %}
+                        {% set nextTheme = "spring2" %}
+                    {% endif %}
+
+                    <a href="{{ path('navigation_theme', { 'theme':nextTheme }) }}" class="btn btn-success">Découvrez le thème {{ nextTheme }}</a>
                 
                 {% endif %}
             </div>

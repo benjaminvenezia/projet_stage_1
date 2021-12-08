@@ -10,7 +10,7 @@
                 <span class="btn my-2 my-sm-0">{% trans %} Saisons {% endtrans %}</span>
                 <div class="dropdown-content">
                     {% for t in themes %}
-                        <p><a class="dropdown__links" href="{{ path('navigation_theme', {'theme' : t}) }}">{{ t }}</a></p>
+                        <a class="dropdown__links" href="{{ path('navigation_theme', {'theme' : t}) }}"> <img src="{{ asset('build/img/icon/' ~   t  ~ '.png') }}" alt="">   </a>
                     {% endfor %}
                 </div>
             </div>

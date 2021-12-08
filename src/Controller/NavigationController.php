@@ -3,19 +3,24 @@
 namespace App\Controller;
 
 use App\Entity\Comment;
+use App\Entity\VisitCounter;
 use App\Form\CommentType;
+use App\Services\ClassService;
 use App\Form\SearchArticlesType;
+use App\Repository\ThemeRepository;
 use App\Repository\ArticleRepository;
 use App\Repository\CommentRepository;
-use App\Repository\ThemeRepository;
-use App\Services\ClassService;
+use App\Repository\VisitCounterRepository;
 use Doctrine\ORM\EntityManagerInterface;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Validator\Constraints\Ip;
+use Symfony\Component\Validator\Constraints as Assert;
+
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class NavigationController extends AbstractController
 {
@@ -23,6 +28,7 @@ class NavigationController extends AbstractController
     protected EntityManagerInterface $em;
     protected ArticleRepository $articleRepository;
     protected ThemeRepository $themeRepository;
+    
 
     public function __construct(EntityManagerInterface $em, ArticleRepository $articleRepository, ThemeRepository $themeRepository)
     {
@@ -31,12 +37,31 @@ class NavigationController extends AbstractController
         $this->themeRepository = $themeRepository;
     }
 
+    
+
     /**
      * @Route("/", name="navigation_homepage")
      */
-    public function homepage(): Response
+    public function homepage(VisitCounterRepository $visitCounterRepository): Response
     {
-        return $this->render('pages/homepage.html.twig');
+        $em = $this->getDoctrine()->getManager();
+        $visit = new VisitCounter;
+        $user_ip = $_SERVER['REMOTE_ADDR'];
+
+        $total = $visitCounterRepository->count([]);
+
+        if($visitCounterRepository->findOneBy(['ip_adress' => $user_ip])){
+
+        } else {
+            $visit->setSum($total++);
+            $visit->setIpAdress($user_ip);
+            $em->persist($visit);
+            $em->flush();
+        }
+        
+        return $this->render('pages/homepage.html.twig', [
+            'visitors' => $visitCounterRepository->count([])
+        ]);
     }
 
     /**

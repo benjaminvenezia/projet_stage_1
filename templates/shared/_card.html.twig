@@ -4,7 +4,7 @@
             {% if article.image.name is defined %}
                 <h2>{{ article.title }}</h2>
                 <img src="{{ asset('build/img/')~article.image.name }}" alt="">
-                <span class="author_date">Article crée le {{ article.date|format_datetime('short', 'none', locale='fr') }}  {{  article.author ? 'par' . article.autor : '' }}</span>
+                <span class="author_date">Article crée le {{ article.date|format_datetime('short', 'none', locale='fr') }} par {{ article.author ? article.author : '' }}</span>
                 <span class="article_update">Mis à jour le {{ article.updated|format_datetime('short', 'none', locale='fr') }}</span>
             {% endif %}
         </div>

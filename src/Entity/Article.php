@@ -173,27 +173,27 @@ class Article
         return $this->comments;
     }
 
-    public function addComment(Comment $comment): self
-    {
-        if (!$this->comments->contains($comment)) {
-            $this->comments[] = $comment;
-            $comment->setArticle($this);
-        }
+    // public function addComment(Comment $comment): self
+    // {
+    //     if (!$this->comments->contains($comment)) {
+    //         $this->comments[] = $comment;
+    //         $comment->setArticle($this);
+    //     }
 
-        return $this;
-    }
+    //     return $this;
+    // }
 
-    public function removeComment(Comment $comment): self
-    {
-        if ($this->comments->removeElement($comment)) {
-            // set the owning side to null (unless already changed)
-            if ($comment->getArticle() === $this) {
-                $comment->setArticle(null);
-            }
-        }
+    // public function removeComment(Comment $comment): self
+    // {
+    //     if ($this->comments->removeElement($comment)) {
+    //         // set the owning side to null (unless already changed)
+    //         if ($comment->getArticle() === $this) {
+    //             $comment->setArticle(null);
+    //         }
+    //     }
 
-        return $this;
-    }
+    //     return $this;
+    // }
 
     public function getUpdated(): ?\DateTimeInterface
     {

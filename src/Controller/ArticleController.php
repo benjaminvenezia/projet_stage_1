@@ -7,6 +7,7 @@ use App\Entity\Article;
 use App\Form\ArticleType;
 use App\Services\ClassService;
 use App\Repository\ArticleRepository;
+use App\Repository\ImageRepository;
 use App\Repository\ThemeRepository;
 use App\Repository\UserRepository;
 use Doctrine\ORM\EntityManagerInterface;
@@ -86,6 +87,7 @@ class ArticleController extends AbstractController
             
             $classService->uploadImage($form, $this->getParameter('kernel.project_dir') . '/assets/img');
             $article->setUpdated(new DateTime('now'));
+            
             $this->em->flush();
 
             $this->addFlash('info', "L'article a été modifié avec succès.");
@@ -93,7 +95,7 @@ class ArticleController extends AbstractController
         }
 
         $formView = $form->createView();
-
+        
         return $this->render('article/edit.html.twig', [
             'formView' => $formView,
         ]);

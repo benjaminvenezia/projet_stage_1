@@ -26,7 +26,7 @@
          {% set video = 'spring2_video.mp4' %}
      {% endif %}
 
-    <video class="video_themes" autoplay muted loop id="myVideo">
+    <video class="video_themes" autoplay muted loop playsinline id="myVideo">
         <source src="{{ asset('/build/img/videos/' ~ video) }}" type="video/mp4">
     </video>
     {# ROW DESCRIPTION #}

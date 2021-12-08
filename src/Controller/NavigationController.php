@@ -51,7 +51,7 @@ class NavigationController extends AbstractController
         $total = $visitCounterRepository->count([]);
 
         if($visitCounterRepository->findOneBy(['ip_adress' => $user_ip])){
-
+            //on n'incrémente pas le nombre de visite.
         } else {
             $visit->setSum($total++);
             $visit->setIpAdress($user_ip);

@@ -30,6 +30,8 @@
         }
     }
 
+    
+
     .container__description {
         background-color: rgba(255, 255, 255, 0.712);
         backdrop-filter: blur(15px);
@@ -69,3 +71,21 @@ body{
         z-index: -10;
     }
 }
+
+//Breakpoints
+@media only screen and (max-width: 1000px) {
+    .container__index {
+        min-width: 100%;
+        margin: 10px auto;
+    }
+
+    // .comment__body {
+    //     min-width: 150px;
+    // }
+
+    // .container__zonecomment {
+    //     min-width: 150px;
+    //     padding: 0;
+    //     margin: 10px auto;
+    // }
+  }

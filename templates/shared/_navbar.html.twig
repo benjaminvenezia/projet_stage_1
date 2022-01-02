@@ -16,6 +16,9 @@
             </div>
         </li>
         <li>
+            <a class="btn" href="{{ path('navigation_homepage') }}">Ce projet</a>
+        </li>
+        <li>
             {% if app.user %}
                 {% if app.user.bookmark is not null %}
                     <a  class="btn my-2 my-sm-0" title="Reprenez votre lecture à l'article marqué précedemment."  href="{{ path('article_showById', {'id':app.user.bookmark}) }}"><span class="navbar__text">{% trans %}Reprendre la lecture{% endtrans %}</span> <i class="fas fa-bookmark"></i></a>

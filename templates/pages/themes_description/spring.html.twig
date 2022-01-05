@@ -1,5 +1,5 @@
                 {% if  themeName  not in  themes %}
-                    <p>Ce thème n'existe pas.</p>
+                    <p>{%trans%}Ce thème n'existe pas.{%endtrans%}</p>
                 {% else %}
                     <h1>{{ themeName }}</h1>
                 {% endif %}
@@ -7,13 +7,13 @@
                 <div class="container container__descriptiontheme  container__descriptiontheme--spring">
                     <div class="row">
                         <div class="col">
-                            <p class="mb-5">Ce thème est une représentation des prémisses, des attentes, des idées bourgeonnantes, des espérances. <br> Rien a ce stade n'a été fait et tout se dessine.</p>
+                            <p class="mb-5">{%trans%}Ce thème est une représentation des prémisses, des attentes, des idées bourgeonnantes, des espérances. <br> Rien a ce stade n'a été fait et tout se dessine.{%endtrans%}</p>
                               {% if articles|length > 0 %}
-                                    <a href="{{ path('article_show', {theme:'spring', step: 1}) }}" class="btn btn-primary btn-sm">Découvrir <i class="fas fa-book-reader"></i></a>
+                                    <a href="{{ path('article_show', {theme:'spring', step: 1}) }}" class="btn btn-primary btn-sm">{%trans%}Découvrir{%endtrans%}<i class="fas fa-book-reader"></i></a>
                                 {% else %}
-                                    <a href="{{ path('article_create') }}" class="btn btn-primary btn-sm">créer le premier article. <i class="fas fa-feather-alt"></i></a>
+                                    <a href="{{ path('article_create') }}" class="btn btn-primary btn-sm">{%trans%}créer le premier article.{%endtrans%} <i class="fas fa-feather-alt"></i></a>
                                 {% endif %}
-                                <a href="{{ path('navigation_theme', {theme:'summer'}) }}" class="btn btn-secondary btn-sm">Thème suivant <i class="fas fa-chevron-right"></i></a>
+                                <a href="{{ path('navigation_theme', {theme:'summer'}) }}" class="btn btn-secondary btn-sm">{%trans%}Thème suivant{%endtrans%} <i class="fas fa-chevron-right"></i></a>
                             </p>
                         </div>
                         <div class="col container__img">

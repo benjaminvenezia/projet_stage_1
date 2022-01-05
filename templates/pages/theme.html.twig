@@ -11,7 +11,7 @@
      {% endif %}
 
      {% if themeName == 'summer' %}
-         {% set video = 'summer_video2.mp4' %}
+         {% set video = 'summer_video3.mp4' %}
      {% endif %}
 
      {% if themeName == 'autumn' %}
@@ -54,23 +54,23 @@
     <div class="row container__comments mt-5 mb-5 comment-{{ themeName }}-theme ">
         <div class="col">
             {% if themeName == 'spring' %}
-                <h2>Commentaires printaniers</h2>
+                <h2>{% trans %}Commentaires printaniers{% endtrans %}</h2>
             {% endif %}
 
             {% if themeName == 'summer' %}
-                <h2>Commentaires estivaux</h2>
+                <h2>{% trans %}Commentaires estivaux{% endtrans %}</h2>
             {% endif %}
 
             {% if themeName == 'autumn' %}
-                <h2>Commentaires automnaux</h2>
+                <h2>{% trans %}Commentaires automnaux{% endtrans %}</h2>
             {% endif %}
 
             {% if themeName == 'winter' %}
-                <h2>Commentaires hivernaux</h2>
+                <h2>{% trans %}Commentaires hivernaux{% endtrans %}</h2>
             {% endif %}
 
             {% if themeName == 'spring2' %}
-                <h2>Commentaires printanier</h2>
+                <h2>{% trans %}Commentaires printanier{% endtrans %}</h2>
             {% endif %}
 
        
@@ -86,7 +86,7 @@
                         {% include "comments/form.html.twig" %}
                     </div>
                 {% else %}
-                    <a href="{{ path('security_login') }}">Connectez-vous pour poster un commentaire.</a>
+                    <a href="{{ path('security_login') }}">{% trans %}Connectez-vous pour poster un commentaire.{% endtrans %}</a>
                 {% endif %}
                 </div>
         </div>

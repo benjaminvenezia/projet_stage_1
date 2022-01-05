@@ -13,6 +13,10 @@
         <source>Reprendre la lecture</source>
         <target>Resume</target>
       </trans-unit>
+      <trans-unit id="lBGH2aP" resname="Ce projet">
+        <source>Ce projet</source>
+        <target>This project</target>
+      </trans-unit>
       <trans-unit id="zaqrRC0" resname="Télécharger">
         <source>Télécharger</source>
         <target>Download</target>
@@ -41,6 +45,99 @@
         <source>Déconnexion</source>
         <target>Logout</target>
       </trans-unit>
+        <trans-unit id="icOoHY." resname="Commentaires printaniers">
+        <source>Commentaires printaniers</source>
+        <target>Springtime comments</target>
+      </trans-unit>
+      <trans-unit id="Y9ob82c" resname="Commentaires estivaux">
+        <source>Commentaires estivaux</source>
+        <target>Summertime comments</target>
+      </trans-unit>
+      <trans-unit id="cipfZrA" resname="Commentaires automnaux">
+        <source>Commentaires automnaux</source>
+        <target>Autumnal comments</target>
+      </trans-unit>
+      <trans-unit id="tHQkDno" resname="Commentaires hivernaux">
+        <source>Commentaires hivernaux</source>
+        <target>Winter comments</target>
+      </trans-unit>
+      <trans-unit id="lPmerfO" resname="Commentaires printanier">
+        <source>Commentaires printanier</source>
+        <target>Springtime comments</target>
+      </trans-unit>
+      <trans-unit id="Uie8Kqe" resname="Connectez-vous pour poster un commentaire.">
+        <source>Connectez-vous pour poster un commentaire.</source>
+        <target>Log in to post a comment.</target>
+      </trans-unit>
+        <trans-unit id="UUmdhJ5" resname="aspect légal">
+        <source>aspect légal</source>
+        <target>legal issues</target>
+      </trans-unit>
+
+        <trans-unit id="UqPW6Ee" resname="En cliquant sur les boutons suivants, vous pouvez télécharger l'ensemble des articles du site en pdf. Ceux-ci sont automatiquement mis-à-jour lorsqu'un article est modifié, crée ou supprimé.  &#10;                    &lt;br&gt;Le premier bouton permet d'accéder au rapport sous format lecture. Le second bouton est une version de correction, des espaces de notes y est prévu afin de pouvoir y noter des remarques.&#10;                    (Cette version du rapport est à destination des enseignants,)">
+        <source>En cliquant sur les boutons suivants, vous pouvez télécharger l'ensemble des articles du site en pdf. Ceux-ci sont automatiquement mis-à-jour lorsqu'un article est modifié, crée ou supprimé.  
+                    &lt;br&gt;Le premier bouton permet d'accéder au rapport sous format lecture. Le second bouton est une version de correction, des espaces de notes y est prévu afin de pouvoir y noter des remarques.
+                    (Cette version du rapport est à destination des enseignants,)</source>
+        <target>By clicking on the following buttons, you can download all the articles of the site in pdf. These are automatically updated when an article is modified, created or deleted.  
+                    The first button gives access to the report in readable format. The second button is a version of correction, spaces of notes is envisaged there in order to be able to note there remarks.
+                    (This version of the report is intended for teachers)
+    
+        </target>
+      </trans-unit>
+
+      <trans-unit id="ddm5_m2" resname="Télécharger le rapport en pdf (version lecture)">
+        <source>Télécharger le rapport en pdf (version lecture)</source>
+        <target>Download the report in pdf (reading version)</target>
+      </trans-unit>
+      <trans-unit id="gqGLdwf" resname="Télécharger le rapport en pdf (version correction)">
+        <source>Télécharger le rapport en pdf (version correction)</source>
+        <target>Download the report in pdf (correction version)</target>
+      </trans-unit>
+
+     
+      <trans-unit id="flBLYke" resname="Ce thème n'existe pas.">
+        <source>Ce thème n'existe pas.</source>
+        <target>This theme does not exist.</target>
+      </trans-unit>
+      <trans-unit id="2jPbc4." resname="L'été représente la concrétisation, le temps fort de mon stage, des réalisations qui en ont été le coeur.">
+        <source>L'été représente la concrétisation, le temps fort de mon stage, des réalisations qui en ont été le coeur.</source>
+        <target>The summer represents the concretization, the strong time of my training course, of the achievements which were the heart of it.</target>
+      </trans-unit>
+      <trans-unit id="l3rmyww" resname="Découvrir">
+        <source>Découvrir</source>
+        <target>Discover</target>
+      </trans-unit>
+      <trans-unit id="PVYkEbe" resname="créer le premier article.">
+        <source>créer le premier article.</source>
+        <target>create the first article.</target>
+      </trans-unit>
+      <trans-unit id="2sdeFDq" resname="Thème suivant">
+        <source>Thème suivant</source>
+        <target>Next theme</target>
+      </trans-unit>
+
+      <trans-unit id="plUpfNG" resname="Car les saisons se suivent inévitablement, le printemps finit toujours par revenir, et car le terme &quot;évolution&quot; est tissée dans les mailles que définissent la vie,  &#10;                                                je prendrais le temps d'extraire de cette expérience les points positifs qui m'ont fait grandir.">
+        <source>Car les saisons se suivent inévitablement, le printemps finit toujours par revenir, et car le terme "évolution" est tissée dans les mailles que définissent la vie,  
+                                                je prendrais le temps d'extraire de cette expérience les points positifs qui m'ont fait grandir.</source>
+        <target>Because the seasons inevitably follow one another, spring always comes back, and because the term "evolution" is woven into the fabric of life,  
+                                                I would take the time to extract from this experience the positive points that made me grow.</target>
+      </trans-unit>
+      <trans-unit id="t6llo5w" resname="Ce thème est une représentation des prémisses, des attentes, des idées bourgeonnantes, des espérances. &lt;br&gt; Rien a ce stade n'a été fait et tout se dessine.">
+        <source>Ce thème est une représentation des prémisses, des attentes, des idées bourgeonnantes, des espérances. &lt;br&gt; Rien a ce stade n'a été fait et tout se dessine.</source>
+        <target>This theme is a representation of premises, expectations, budding ideas, hopes. Nothing has been done at this stage and everything is taking shape.</target>
+      </trans-unit>
+      <trans-unit id="_Q_xY4c" resname="L'hiver représente le calme glacial, l'introspection à tête reposée. C'est le moment de faire le point sur les points les moins avouables, &quot;après autant de mois, l'informatique est-il fait pour moi?&quot; &lt;br&gt; les choses que l'on aurait fait différent si on pouvait recoller les feuilles sur les branches dégarnies.&#10;                                 Débutez la lecture par le premier article de ce thème.">
+        <source>L'hiver représente le calme glacial, l'introspection à tête reposée. C'est le moment de faire le point sur les points les moins avouables, "après autant de mois, l'informatique est-il fait pour moi?" &lt;br&gt; les choses que l'on aurait fait différent si on pouvait recoller les feuilles sur les branches dégarnies.
+                                 Débutez la lecture par le premier article de ce thème.</source>
+        <target>Winter represents the icy calm, the introspection with a clear head. It's a time to take stock of the less-than-avowed, "after so many months, is IT right for me?" &lt;br&gt; the things you would have done differently if you could glue the leaves back onto the bald branches.
+                                 Start reading with the first article of this theme.</target>
+      </trans-unit>
+      <trans-unit id="oUdKwhJ" resname="Après le chaud été, L'automne est la saison qui représente la maturité atteinte du stage, les derniers mois, peut être une esquisse de ce que j'aurais fait différement.">
+        <source>Après le chaud été, L'automne est la saison qui représente la maturité atteinte du stage, les derniers mois, peut être une esquisse de ce que j'aurais fait différement.</source>
+        <target>After the hot summer, autumn is the season that represents the maturity reached in the internship, the last months, perhaps a sketch of what I would have done differently.</target>
+      </trans-unit>
+
+
     </body>
   </file>
 </xliff>

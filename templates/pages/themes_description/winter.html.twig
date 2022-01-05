@@ -1,5 +1,5 @@
                 {% if  themeName  not in  themes %}
-                    <p>Ce thème n'existe pas.</p>
+                    <p>{%trans%}Ce thème n'existe pas.{%endtrans%}</p>
                 {% else %}
                     <h1>{{ themeName }}</h1>
                 {% endif %}
@@ -7,14 +7,14 @@
                 <div class="container container__descriptiontheme  container__descriptiontheme--winter">
                     <div class="row">
                         <div class="col ">
-                                 <p class="mb-5">L'hiver représente le calme glacial, l'introspection à tête reposée. C'est le moment de faire le point sur les points les moins avouables, "après autant de mois, l'informatique est-il fait pour moi?" <br> les choses que l'on aurait fait différent si on pouvait recoller les feuilles sur les branches dégarnies.
-                                 Débutez la lecture par le premier article de ce thème.</p> 
+                                 <p class="mb-5">{%trans%}L'hiver représente le calme glacial, l'introspection à tête reposée. C'est le moment de faire le point sur les points les moins avouables, "après autant de mois, l'informatique est-il fait pour moi?" <br> les choses que l'on aurait fait différent si on pouvait recoller les feuilles sur les branches dégarnies.
+                                 Débutez la lecture par le premier article de ce thème.{%endtrans%}</p> 
                                                {% if articles|length > 0 %}
-                                    <a href="{{ path('article_show', {theme:'winter', step: 1}) }}" class="btn btn-success btn-sm">Découvrir <i class="fas fa-book-reader"></i></a>
+                                    <a href="{{ path('article_show', {theme:'winter', step: 1}) }}" class="btn btn-success btn-sm">{%trans%}Découvrir{%endtrans%}<i class="fas fa-book-reader"></i></a>
                                 {% else %}
-                                    <a href="{{ path('article_create') }}" class="btn btn-success btn-sm">créer le premier article. <i class="fas fa-feather-alt"></i></a>
+                                    <a href="{{ path('article_create') }}" class="btn btn-success btn-sm">{%trans%}créer le premier article.{%endtrans%}<i class="fas fa-feather-alt"></i></a>
                                 {% endif %}
-                                <a href="{{ path('navigation_theme', {theme:'spring2'}) }}" class="btn btn-secondary btn-sm">Thème suivant <i class="fas fa-chevron-right"></i></a>
+                                <a href="{{ path('navigation_theme', {theme:'spring2'}) }}" class="btn btn-secondary btn-sm">{%trans%}Thème suivant{%endtrans%}<i class="fas fa-chevron-right"></i></a>
                             </p>
                         </div>
                         <div class="col container__img">

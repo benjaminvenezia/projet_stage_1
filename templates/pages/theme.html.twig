@@ -7,7 +7,7 @@
 {% block body %}
 <div class="container">
     {% if themeName == 'spring' %}
-         {% set video = 'spring_video.mp4' %}
+         {% set video = 'spring2_video.mp4' %}
      {% endif %}
 
      {% if themeName == 'summer' %}
@@ -23,11 +23,11 @@
      {% endif %}
 
      {% if themeName == 'spring2' %}
-         {% set video = 'spring2_video.mp4' %}
+         {% set video = 'spring_video.mp4' %}
      {% endif %}
 
-    <video class="video_themes" autoplay muted loop playsinline id="myVideo">
-        <source src="{{ asset('/build/img/videos/' ~ video) }}" type="video/mp4">
+    <video class="video_themes" autoplay loop muted playsinline poster="{ asset('/build/img/poster.jpeg') }" id="myVideo" >
+        <source src="{{ asset('/build/img/videos/' ~ video) }}" width='100%' height='100%' type="video/mp4">
     </video>
     {# ROW DESCRIPTION #}
     <div class="row mt-5 container__theme"> 

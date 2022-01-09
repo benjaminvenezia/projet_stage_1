@@ -1,0 +1,100 @@
+.theme-spring2 {
+
+    .container__descriptiontheme {
+        padding: 50px;
+        
+    
+        .container__img {
+        text-align: center;
+    
+            img {
+                width: 40%;
+                
+            }
+    
+        }
+    }
+
+
+    background-color: rgb(251, 255, 247);
+
+    h1 {
+        font-family: 'Rubik Beastly', cursive;
+        font-size: 3.5rem;
+        margin: 20px;
+        color: rgb(235, 186, 240);
+        text-shadow: rgb(60, 0, 129) 1px 1px 1px;
+
+        &::first-letter {
+            font-size: 100%;
+          }
+    }
+
+    //article
+    .card {
+        background-color: white;
+    }
+
+    footer {
+        background-color: rgba(255, 255, 255, 0.438);
+        backdrop-filter: blur(10px);
+    }
+
+    //ZONE COMMENTAIRE
+    .comment-spring2-theme {
+
+        border: 5px dashed rgba(255, 255, 255, 0.555);
+        padding: 50px;
+
+        h2 {
+            color: white;
+            font-size: 2rem;
+            text-shadow:   5px 5px 20px #212121c7,  
+                           5px -5px 20px #212121c0;
+            font-family: 'Rubik Beastly', cursive;
+
+        }
+
+        .comment {
+            backdrop-filter: blur(12px);
+            background-color: rgba(91, 175, 80, 0.199);
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+            margin-top: 10px;
+
+            .comment__header {
+                font-size: smaller;
+                background-color: rgba(91, 175, 80, 0.815);
+                padding: 5px;
+                border-top-left-radius: 5px;
+                border-top-right-radius: 5px;
+                .comment__username {
+                    font-weight: bold;
+                }
+
+                .comment_date {
+
+                }
+            }
+
+            .comment__body {
+                word-break: break-all;
+                padding: 10px;
+                
+            }
+
+        }
+
+
+        .container__zonecomment {
+            padding:20px;
+            background-color: rgba(255, 255, 255, 0.438);
+            backdrop-filter: blur(10px);
+            border-radius: 10px;
+
+        }
+    }
+    
+}
+
+

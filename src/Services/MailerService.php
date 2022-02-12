@@ -27,7 +27,6 @@ class MailerService
     
         // pass variables (name => value) to the template
         ->context([
-      
             'token' => $token,
         ])
     ;

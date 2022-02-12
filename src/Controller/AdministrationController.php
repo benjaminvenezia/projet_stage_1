@@ -128,7 +128,6 @@ class AdministrationController extends AbstractController
      */
     public function administrateUsers(Request $request, ClassService $classService, UserRepository $userRepository): Response
     {
-
         $users = $userRepository->findAll();
         $users = $classService->paginate(7, $users, $request);
 

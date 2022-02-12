@@ -108,6 +108,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         $this->roles = ['ROLE_USER'];
         $this->created_at = new \DateTimeImmutable('now');
         $this->comments = new ArrayCollection();
+        $this->banned = 0;
     }
 
     /**

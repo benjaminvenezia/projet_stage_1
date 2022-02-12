@@ -49,11 +49,11 @@
         {% for locale in locales %}
             {% if locale != app.request.locale %}
             <li>
-            
                 <a href="{{ path('user_changelocale', {'locale': locale}) }}"><img src="{{ asset('build/img/icon/' ~ locale  ~ '.png') }}"  alt=""> </a>
             <li>
             {% endif %}
         {% endfor %}
+        
     </ul>
 </nav>
 

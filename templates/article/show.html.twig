@@ -36,7 +36,10 @@
                     {% endif %} 
                     {% if ReadingPercentage == 100 %}
 
-
+                  
+                       {{ dump(theme) }} 
+                 
+                    
                     {% if  theme  == "spring" %}
                         {% set nextTheme = "summer" %}
                     {% elseif theme == "summer" %}

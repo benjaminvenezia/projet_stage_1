@@ -153,7 +153,6 @@ class ArticleController extends AbstractController
         $article = $articleRepository->findOneBy(['theme' => $themeid, 'step' => $step]);
         
         if(!$article) {
-
             throw new NotFoundHttpException("erreur, article introuvable. ");
         }
 
@@ -174,12 +173,11 @@ class ArticleController extends AbstractController
             'ReadingPercentage' => $percentage,
             'nextArticleStep' => $article->getStep() + 1,
             'previousArticleStep' => $previousArticle
-            
         ]);
     }
 
     /**
-     *  Show an article with is id only. Useful for bookmark functionality
+     * Show an article with is id only. Useful for bookmark functionality
      * @Route("article/{id}/show", name="article_showById")
      */
     public function showById($id, ArticleRepository $articleRepository): Response
@@ -197,11 +195,18 @@ class ArticleController extends AbstractController
         $numberOfTheArticle = $article->getStep();
         $percentage = ( $numberOfTheArticle / $totalArticlesByTheme  ) * 100;
 
+        if($article->getStep() - 1 > 0) {
+            $previousArticle = $article->getStep() - 1;
+        } else {
+            $previousArticle = 1;
+        }
+
         return $this->render('article/show.html.twig', [
             'article' => $article,
             'theme' => $article->getTheme()->getName(),
             'ReadingPercentage' => $percentage,
-            'nextArticleStep' => $article->getStep() + 1
+            'nextArticleStep' => $article->getStep() + 1,
+            'previousArticleStep' => $previousArticle
         ]);
     }
 }
